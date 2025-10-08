@@ -1,0 +1,95 @@
+# Eswatini media files - too large for repository
+Eswatini/
+
+# Git lock files
+.git/index.lock
+
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# Temporary folders
+tmp/
+temp/
+
+# Build outputs
+dist/
+build/
+
+# Cache
+.cache/
+
+# Large media files
+*.mp4
+*.avi
+*.mov
+*.wmv
+*.flv
+*.webm
+*.mkv
+
+# Large image files (keep small ones for documentation)
+*.psd
+*.ai
+*.tiff
+*.tif
+
+# Large documents
+*.pdf
+*.docx
+*.pptx
+*.xlsx
+
+# Archive files
+*.zip
+*.rar
+*.7z
+*.tar.gz
+*.tar.bz2
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# System files
+desktop.ini
+.DS_Store
+Thumbs.db

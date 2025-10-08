@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eswatini Facts - Data-Driven Insights About the Kingdom of Eswatini</title>
+    <meta name="description" content="Comprehensive, nonpartisan data about Eswatini's economy, health, education, and development. Facts straight from the source.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist@2.26.0/plotly.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h1>Eswatini Facts</h1>
+                <p class="tagline">Answers straight from the source. The data Eswatini deserves.</p>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#economy">Economy</a></li>
+                <li><a href="#health">Health</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#politics">Politics</a></li>
+                <li><a href="#culture">Culture</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Eswatini Facts</h1>
+            <p class="hero-subtitle">Answers straight from the source. The data Eswatini deserves.</p>
+            <p class="hero-description">Our government is complex. Our data doesn't have to be.</p>
+            <button class="cta-button">Explore the Data</button>
+        </div>
+    </section>
+
+    <!-- Quick Facts Section -->
+    <section class="quick-facts">
+        <div class="container">
+            <h2>Did you know?</h2>
+            <div class="facts-grid">
+                <div class="fact-card">
+                    <div class="fact-number">$4,089</div>
+                    <div class="fact-description">GDP per capita in Eswatini (2024)</div>
+                    <a href="#economy" class="learn-more">Learn more</a>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-number">25.6%</div>
+                    <div class="fact-description">HIV prevalence among adults (highest globally)</div>
+                    <a href="#health" class="learn-more">Learn more</a>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-number">58.9%</div>
+                    <div class="fact-description">Population living below poverty line</div>
+                    <a href="#economy" class="learn-more">Learn more</a>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-number">99.7%</div>
+                    <div class="fact-description">Primary school enrollment rate</div>
+                    <a href="#education" class="learn-more">Learn more</a>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-number">35.4%</div>
+                    <div class="fact-description">Unemployment rate (2024)</div>
+                    <a href="#economy" class="learn-more">Learn more</a>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-number">1.24M</div>
+                    <div class="fact-description">Total population of Eswatini</div>
+                    <a href="#demographics" class="learn-more">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Topics -->
+    <section class="featured-topics">
+        <div class="container">
+            <h2>Featured</h2>
+            <p class="section-subtitle">Explore the data behind some of Eswatini's most important topics.</p>
+            
+            <div class="topics-grid">
+                <div class="topic-card">
+                    <div class="topic-icon">📊</div>
+                    <h3>Economic Growth vs. Poverty</h3>
+                    <p>Eswatini has 4.9% GDP growth but 58.9% poverty rate. What does this paradox mean?</p>
+                    <a href="#economy-analysis" class="topic-link">Get the facts</a>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-icon">🏥</div>
+                    <h3>HIV/AIDS Crisis</h3>
+                    <p>Eswatini has the highest HIV prevalence globally. How is the country responding?</p>
+                    <a href="#health-analysis" class="topic-link">Get the facts</a>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-icon">👑</div>
+                    <h3>Absolute Monarchy</h3>
+                    <p>One of the world's last absolute monarchies. What does this mean for governance?</p>
+                    <a href="#politics-analysis" class="topic-link">Get the facts</a>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-icon">🌍</div>
+                    <h3>Regional Integration</h3>
+                    <p>70% of trade with South Africa. How does regional integration affect development?</p>
+                    <a href="#regional-analysis" class="topic-link">Get the facts</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Economy Section -->
+    <section id="economy" class="data-section">
+        <div class="container">
+            <h2>Economy</h2>
+            <div class="section-content">
+                <div class="data-overview">
+                    <h3>Economic Overview</h3>
+                    <div class="metrics-grid">
+                        <div class="metric">
+                            <div class="metric-value">$4.75B</div>
+                            <div class="metric-label">GDP (2024)</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">4.9%</div>
+                            <div class="metric-label">GDP Growth</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">4.0%</div>
+                            <div class="metric-label">Inflation</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">41.0%</div>
+                            <div class="metric-label">Public Debt/GDP</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <h3>GDP Growth Trend</h3>
+                    <canvas id="gdpChart"></canvas>
+                </div>
+                
+                <div class="chart-container">
+                    <h3>Economic Structure</h3>
+                    <canvas id="sectorChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Health Section -->
+    <section id="health" class="data-section">
+        <div class="container">
+            <h2>Health</h2>
+            <div class="section-content">
+                <div class="data-overview">
+                    <h3>Health Indicators</h3>
+                    <div class="metrics-grid">
+                        <div class="metric">
+                            <div class="metric-value">59.0</div>
+                            <div class="metric-label">Life Expectancy (years)</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">25.6%</div>
+                            <div class="metric-label">HIV Prevalence</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">39.7</div>
+                            <div class="metric-label">Infant Mortality/1,000</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">86.4%</div>
+                            <div class="metric-label">Electricity Access</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <h3>HIV Prevalence Trend</h3>
+                    <canvas id="hivChart"></canvas>
+                </div>
+                
+                <div class="chart-container">
+                    <h3>Health Outcomes Comparison</h3>
+                    <canvas id="healthComparisonChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="data-section">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="section-content">
+                <div class="data-overview">
+                    <h3>Education Indicators</h3>
+                    <div class="metrics-grid">
+                        <div class="metric">
+                            <div class="metric-value">99.7%</div>
+                            <div class="metric-label">Primary Enrollment</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">72.4%</div>
+                            <div class="metric-label">Secondary Enrollment</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">89.6%</div>
+                            <div class="metric-label">Adult Literacy</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">28:1</div>
+                            <div class="metric-label">Pupil-Teacher Ratio</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <h3>Education Enrollment Rates</h3>
+                    <canvas id="educationChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Politics Section -->
+    <section id="politics" class="data-section">
+        <div class="container">
+            <h2>Politics & Governance</h2>
+            <div class="section-content">
+                <div class="data-overview">
+                    <h3>Political System</h3>
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <h4>Government Type</h4>
+                            <p>Absolute Monarchy</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Current Ruler</h4>
+                            <p>King Mswati III (since 1986)</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Independence</h4>
+                            <p>September 6, 1968</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Constitution</h4>
+                            <p>2005 Constitution</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Section -->
+    <section id="culture" class="data-section">
+        <div class="container">
+            <h2>Culture & Society</h2>
+            <div class="section-content">
+                <div class="data-overview">
+                    <h3>Cultural Identity</h3>
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <h4>Official Languages</h4>
+                            <p>SiSwati, English</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Ethnic Composition</h4>
+                            <p>97% Swazi, 2% Zulu, 1% Other</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Traditional Ceremonies</h4>
+                            <p>Umhlanga (Reed Dance), Incwala (Kingship Dance)</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Cultural Heritage</h4>
+                            <p>Strong traditional identity maintained</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regional Comparison -->
+    <section class="regional-comparison">
+        <div class="container">
+            <h2>Regional Comparison</h2>
+            <p class="section-subtitle">How does Eswatini compare to its regional neighbors?</p>
+            
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Country</th>
+                            <th>GDP per Capita</th>
+                            <th>Life Expectancy</th>
+                            <th>Poverty Rate</th>
+                            <th>Unemployment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="highlight">
+                            <td><strong>Eswatini</strong></td>
+                            <td><strong>$4,089</strong></td>
+                            <td><strong>59.0</strong></td>
+                            <td><strong>58.9%</strong></td>
+                            <td><strong>35.4%</strong></td>
+                        </tr>
+                        <tr>
+                            <td>South Africa</td>
+                            <td>$6,776</td>
+                            <td>64.2</td>
+                            <td>55.5%</td>
+                            <td>32.9%</td>
+                        </tr>
+                        <tr>
+                            <td>Botswana</td>
+                            <td>$7,350</td>
+                            <td>69.3</td>
+                            <td>19.3%</td>
+                            <td>25.4%</td>
+                        </tr>
+                        <tr>
+                            <td>Namibia</td>
+                            <td>$4,912</td>
+                            <td>63.4</td>
+                            <td>17.4%</td>
+                            <td>33.4%</td>
+                        </tr>
+                        <tr>
+                            <td>Lesotho</td>
+                            <td>$1,234</td>
+                            <td>54.3</td>
+                            <td>49.7%</td>
+                            <td>28.7%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About Eswatini Facts</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>We comb through the data so you don't have to</h3>
+                    <p>Most people don't spend their weekends buried in World Bank data. We do. Because you deserve the facts about Eswatini without needing a decoder ring.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat">
+                            <div class="stat-number">70+</div>
+                            <div class="stat-label">Data Sources</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">1,000+</div>
+                            <div class="stat-label">Data Points</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">6</div>
+                            <div class="stat-label">Research Areas</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-mission">
+                    <h3>Our Mission</h3>
+                    <p>Eswatini Facts is a nonpartisan initiative making government and development data easy to understand for all. We believe that access to clear, accurate data is essential for informed decision-making and democratic participation.</p>
+                    
+                    <h3>Data Sources</h3>
+                    <ul>
+                        <li>World Bank World Development Indicators</li>
+                        <li>IMF World Economic Outlook</li>
+                        <li>UN Population Division</li>
+                        <li>WHO Global Health Observatory</li>
+                        <li>Central Bank of Eswatini</li>
+                        <li>Central Statistical Office Eswatini</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Eswatini Facts</h3>
+                    <p>Making data accessible for informed decision-making.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Browse</h4>
+                    <ul>
+                        <li><a href="#economy">Economy</a></li>
+                        <li><a href="#health">Health</a></li>
+                        <li><a href="#education">Education</a></li>
+                        <li><a href="#politics">Politics</a></li>
+                        <li><a href="#culture">Culture</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#data-sources">Data Sources</a></li>
+                        <li><a href="#methodology">Methodology</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Eswatini Facts. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

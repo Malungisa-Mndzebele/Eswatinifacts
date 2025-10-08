@@ -1,0 +1,57 @@
+name: Deploy to Eswatini Facts Website
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'website/**'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: |
+        cd website
+        npm install
+        
+    - name: Deploy to FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        port: ${{ secrets.FTP_PORT }}
+        protocol: ftp
+        local-dir: ./website/
+        server-dir: /
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          **/.DS_Store
+          **/Thumbs.db
+          **/.env*
+          **/README.md
+          **/deployment-guide.md
+          **/.github/**
+          **/package.json
+          **/package-lock.json
+          **/deploy-local.js
+          
+    - name: Verify deployment
+      run: |
+        echo "Deployment completed successfully!"
+        echo "Website should be available at: http://eswatinifacts.org/"
+        echo "Checking if website is accessible..."
+        curl -I http://eswatinifacts.org/ || echo "Website may still be propagating"
