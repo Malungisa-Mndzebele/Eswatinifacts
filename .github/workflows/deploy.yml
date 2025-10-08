@@ -16,14 +16,28 @@ jobs:
       uses: actions/checkout@v4
         
     - name: Deploy to FTP
-      uses: sebastianpopp/ftp-action@releases/v2
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
-        host: ${{ secrets.FTP_SERVER }}
-        user: ${{ secrets.FTP_USERNAME }}
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         port: 21
-        localDir: ./website/
-        remoteDir: /
+        protocol: ftp
+        local-dir: ./website/
+        server-dir: ./
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          **/.DS_Store
+          **/Thumbs.db
+          **/.env*
+          **/README.md
+          **/deployment-guide.md
+          **/.github/**
+          **/package.json
+          **/package-lock.json
+          **/deploy-local.js
           
     - name: Verify deployment
       run: |
