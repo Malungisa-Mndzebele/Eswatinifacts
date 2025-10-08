@@ -16,14 +16,28 @@ jobs:
       uses: actions/checkout@v4
         
     - name: Deploy to FTP
-      uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+      uses: SamKirkland/FTP-Deploy-Action@v4.2.0
       with:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         port: 21
-        local_path: ./website/*
-        remote_path: ./
+        protocol: ftp
+        local-dir: ./website/
+        server-dir: ./
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          **/.DS_Store
+          **/Thumbs.db
+          **/.env*
+          **/README.md
+          **/deployment-guide.md
+          **/.github/**
+          **/package.json
+          **/package-lock.json
+          **/deploy-local.js
           
     - name: Verify deployment
       run: |
