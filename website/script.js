@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize responsive features
     initializeResponsiveFeatures();
+    
+    // Initialize enhanced UX features
+    initializeEnhancedUX();
 });
 
 // Chart Initialization
@@ -574,6 +577,170 @@ window.addEventListener('error', function(e) {
     console.error('JavaScript error:', e.error);
     // Could send error to analytics service
 });
+
+// Enhanced UX Features
+function initializeEnhancedUX() {
+    // Animated counter for statistics
+    animateCounters();
+    
+    // Add loading states
+    addLoadingStates();
+    
+    // Enhanced navigation with active states
+    enhanceNavigation();
+    
+    // Add scroll progress indicator
+    addScrollProgress();
+    
+    // Add keyboard navigation
+    addKeyboardNavigation();
+    
+    // Add tooltips for better information
+    addTooltips();
+}
+
+// Animated Counter Function
+function animateCounters() {
+    const counters = document.querySelectorAll('.fact-number[data-count]');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = parseFloat(counter.getAttribute('data-count'));
+                const duration = 2000; // 2 seconds
+                const increment = target / (duration / 16); // 60fps
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    
+                    // Format the number based on the original format
+                    const originalText = counter.textContent;
+                    if (originalText.includes('$')) {
+                        counter.textContent = '$' + Math.floor(current).toLocaleString();
+                    } else if (originalText.includes('%')) {
+                        counter.textContent = current.toFixed(1) + '%';
+                    } else if (originalText.includes('M')) {
+                        counter.textContent = current.toFixed(2) + 'M';
+                    } else {
+                        counter.textContent = Math.floor(current).toLocaleString();
+                    }
+                }, 16);
+                
+                observer.unobserve(counter);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    counters.forEach(counter => observer.observe(counter));
+}
+
+// Smooth scroll to section
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+        section.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+}
+
+// Add loading states
+function addLoadingStates() {
+    const charts = document.querySelectorAll('.chart-container');
+    charts.forEach(chart => {
+        const loadingDiv = document.createElement('div');
+        loadingDiv.className = 'chart-loading';
+        loadingDiv.innerHTML = '<div class="spinner"></div><p>Loading chart...</p>';
+        chart.appendChild(loadingDiv);
+        
+        // Remove loading state after chart is rendered
+        setTimeout(() => {
+            loadingDiv.remove();
+        }, 1000);
+    });
+}
+
+// Enhanced navigation
+function enhanceNavigation() {
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    const sections = document.querySelectorAll('section[id]');
+    
+    // Add active state based on scroll position
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= (sectionTop - 200)) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active');
+            }
+        });
+    });
+}
+
+// Scroll progress indicator
+function addScrollProgress() {
+    const progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress';
+    document.body.appendChild(progressBar);
+    
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset;
+        const docHeight = document.body.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        progressBar.style.width = scrollPercent + '%';
+    });
+}
+
+// Keyboard navigation
+function addKeyboardNavigation() {
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            // Close any open modals or menus
+            const navToggle = document.querySelector('.nav-toggle');
+            if (navToggle && navToggle.classList.contains('active')) {
+                navToggle.click();
+            }
+        }
+    });
+}
+
+// Add tooltips
+function addTooltips() {
+    const tooltipElements = document.querySelectorAll('[data-tooltip]');
+    
+    tooltipElements.forEach(element => {
+        element.addEventListener('mouseenter', (e) => {
+            const tooltip = document.createElement('div');
+            tooltip.className = 'tooltip';
+            tooltip.textContent = e.target.getAttribute('data-tooltip');
+            document.body.appendChild(tooltip);
+            
+            const rect = e.target.getBoundingClientRect();
+            tooltip.style.left = rect.left + (rect.width / 2) - (tooltip.offsetWidth / 2) + 'px';
+            tooltip.style.top = rect.top - tooltip.offsetHeight - 10 + 'px';
+        });
+        
+        element.addEventListener('mouseleave', () => {
+            const tooltip = document.querySelector('.tooltip');
+            if (tooltip) tooltip.remove();
+        });
+    });
+}
 
 // Service Worker Registration (for PWA features)
 if ('serviceWorker' in navigator) {

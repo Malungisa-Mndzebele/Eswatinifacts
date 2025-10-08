@@ -1,0 +1,164 @@
+[1mdiff --git a/deploy-manual.js b/deploy-manual.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..fd62dfb[m
+[1m--- /dev/null[m
+[1m+++ b/deploy-manual.js[m
+[36m@@ -0,0 +1,53 @@[m
+[32m+[m[32mconst ftp = require('basic-ftp');[m
+[32m+[m[32mconst fs = require('fs');[m
+[32m+[m[32mconst path = require('path');[m
+[32m+[m
+[32m+[m[32masync function deployWebsite() {[m
+[32m+[m[32m    const client = new ftp.Client();[m
+[32m+[m[32m    client.ftp.verbose = true;[m
+[32m+[m[41m    [m
+[32m+[m[32m    try {[m
+[32m+[m[32m        console.log('🚀 Starting manual deployment...');[m
+[32m+[m[41m        [m
+[32m+[m[32m        // Connect to FTP server[m
+[32m+[m[32m        await client.access({[m
+[32m+[m[32m            host: 'server37.shared.spaceship.host',[m
+[32m+[m[32m            user: 'info@eswatinifacts.org',[m
+[32m+[m[32m            password: 'Eswatini2024!',[m
+[32m+[m[32m            port: 21,[m
+[32m+[m[32m            secure: false[m
+[32m+[m[32m        });[m
+[32m+[m[41m        [m
+[32m+[m[32m        console.log('✅ Connected to FTP server');[m
+[32m+[m[32m        console.log('Current directory:', await client.pwd());[m
+[32m+[m[41m        [m
+[32m+[m[32m        // Upload website files[m
+[32m+[m[32m        const websiteDir = './website';[m
+[32m+[m[32m        const files = fs.readdirSync(websiteDir);[m
+[32m+[m[41m        [m
+[32m+[m[32m        console.log(`📁 Found ${files.length} files to upload:`);[m
+[32m+[m[32m        files.forEach(file => console.log(`  - ${file}`));[m
+[32m+[m[41m        [m
+[32m+[m[32m        for (const file of files) {[m
+[32m+[m[32m            if (file.endsWith('.html') || file.endsWith('.css') || file.endsWith('.js')) {[m
+[32m+[m[32m                const localPath = path.join(websiteDir, file);[m
+[32m+[m[32m                const remotePath = `./${file}`;[m
+[32m+[m[41m                [m
+[32m+[m[32m                console.log(`📤 Uploading ${file}...`);[m
+[32m+[m[32m                await client.uploadFrom(localPath, remotePath);[m
+[32m+[m[32m                console.log(`✅ Uploaded ${file}`);[m
+[32m+[m[32m            }[m
+[32m+[m[32m        }[m
+[32m+[m[41m        [m
+[32m+[m[32m        console.log('🎉 Deployment completed successfully!');[m
+[32m+[m[32m        console.log('🌐 Website should be available at: https://eswatinifacts.org/info/');[m
+[32m+[m[41m        [m
+[32m+[m[32m    } catch (error) {[m
+[32m+[m[32m        console.error('❌ Deployment failed:', error.message);[m
+[32m+[m[32m        console.error('Full error:', error);[m
+[32m+[m[32m    } finally {[m
+[32m+[m[32m        client.close();[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mdeployWebsite();[m
+[1mdiff --git a/package.json b/package.json[m
+[1mindex 4519c21..024604e 100644[m
+[1m--- a/package.json[m
+[1m+++ b/package.json[m
+[36m@@ -6,7 +6,8 @@[m
+   "scripts": {[m
+     "test-ftp": "node test-ftp.js",[m
+     "test-ftp-comprehensive": "node test-ftp-comprehensive.js",[m
+[31m-    "test-new-password": "node test-new-password.js"[m
+[32m+[m[32m    "test-new-password": "node test-new-password.js",[m
+[32m+[m[32m    "deploy": "node deploy-manual.js"[m
+   },[m
+   "dependencies": {[m
+     "basic-ftp": "^5.0.3"[m
+[1mdiff --git a/website/index.html b/website/index.html[m
+[1mindex d2d251d..00388eb 100644[m
+[1m--- a/website/index.html[m
+[1m+++ b/website/index.html[m
+[36m@@ -4,7 +4,7 @@[m
+     <meta charset="UTF-8">[m
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">[m
+     <title>Eswatini Facts - Data-Driven Insights About the Kingdom of Eswatini</title>[m
+[31m-    <!-- Updated: Testing after folder recreation -->[m
+[32m+[m[32m    <!-- Enhanced UX with improved navigation and interactions -->[m
+     <meta name="description" content="Comprehensive, nonpartisan data about Eswatini's economy, health, education, and development. Facts straight from the source.">[m
+     <link rel="stylesheet" href="styles.css">[m
+     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">[m
+[36m@@ -41,7 +41,7 @@[m
+             <h1>Eswatini Facts</h1>[m
+             <p class="hero-subtitle">Answers straight from the source. The data Eswatini deserves.</p>[m
+             <p class="hero-description">Our government is complex. Our data doesn't have to be.</p>[m
+[31m-            <button class="cta-button">Explore the Data</button>[m
+[32m+[m[32m            <button class="cta-button" onclick="scrollToSection('quick-facts')">Explore the Data</button>[m
+         </div>[m
+     </section>[m
+ [m
+[1mdiff --git a/website/script.js b/website/script.js[m
+[1mindex 5544b3e..75ac539 100644[m
+[1m--- a/website/script.js[m
+[1m+++ b/website/script.js[m
+[36m@@ -11,6 +11,9 @@[m [mdocument.addEventListener('DOMContentLoaded', function() {[m
+     [m
+     // Initialize responsive features[m
+     initializeResponsiveFeatures();[m
+[32m+[m[41m    [m
+[32m+[m[32m    // Initialize enhanced UX features[m
+[32m+[m[32m    initializeEnhancedUX();[m
+ });[m
+ [m
+ // Chart Initialization[m
+[36m@@ -575,6 +578,170 @@[m [mwindow.addEventListener('error', function(e) {[m
+     // Could send error to analytics service[m
+ });[m
+ [m
+[32m+[m[32m// Enhanced UX Features[m
+[32m+[m[32mfunction initializeEnhancedUX() {[m
+[32m+[m[32m    // Animated counter for statistics[m
+[32m+[m[32m    animateCounters();[m
+[32m+[m[41m    [m
+[32m+[m[32m    // Add loading states[m
+[32m+[m[32m    addLoadingStates();[m
+[32m+[m[41m    [m
+[32m+[m[32m    // Enhanced navigation with active states[m
+[32m+[m[32m    enhanceNavigation();[m
+[32m+[m[41m    [m
+[32m+[m[32m    // Add scroll progress indicator[m
+[32m+[m[32m    addScrollProgress();[m
+[32m+[m[41m    [m
+[32m+[m[32m    // Add keyboard navigation[m
+[32m+[m[32m    addKeyboardNavigation();[m
+[32m+[m[41m    [m
+[32m+[m[32m    // Add tooltips for better information[m
+[32m+[m[32m    addTooltips();[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m// Animated Counter Function[m
+[32m+[m[32mfunction animateCounters() {[m
+[32m+[m[32m    const counters = document.querySelectorAll('.fact-number[data-count]');[m
+[32m+[m[41m    [m
+[32m+[m[32m    const observer = new IntersectionObserver((entries) => {[m
+[32m+[m[32m        entries.forEach(entry => {[m
+[32m+[m[32m            if (entry.isIntersecting) {[m
+[32m+[m[32m                const counter = entry.target;[m
+[32m+[m[32m                const target = parseFloat(counter.getAttribute('data-count'));[m
+[32m+[m[32m                const duration = 2000; // 2 seconds[m
+[32m+[m[32m                const increment = target / (duration / 16); // 60fps[m
+[32m+[m[32m                let current = 0;[m
+[32m+[m[41m                [m
+[32m+[m[32m                const timer = setInterval(() => {[m
+[32m+[m[32m                    current += increment;[m
+[32m+[m[32m                    if (current >= target) {[m
+[32m+[m[32m                        current = target;[m
+[32m+[m[32m                        clearInterval(timer);[m
+[32m+[m[32m                    }[m
+[32m+[m[41m                    [m
+[32m+[m[32m                    // Format the number based on the original format[m
+[32m+[m[32m                    const originalText = counter.textContent;[m
+[32m+[m[32m                    if (originalText.includes('$')) {[m
+[32m+[m[32m                        counter.textContent = '$' + Math.floor(current).toLocaleString();[m
+[32m+[m[32m                    } else if (originalText.includes('%')) {[m
+[32m+[m[32m                        counter.textContent = current.toFixed(1) + '%';[m
+[32m+[m[32m                    } else if (originalText.includes('M')) {[m
+[32m+[m[32m                        counter.textContent = current.toFixed(2) + 'M';[m
+[32m+[m[32m                    } else {[m
+[32m+[m[32m                        counter.textContent = Math.floor(c

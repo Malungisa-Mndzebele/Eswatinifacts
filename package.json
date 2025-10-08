@@ -6,7 +6,8 @@
   "scripts": {
     "test-ftp": "node test-ftp.js",
     "test-ftp-comprehensive": "node test-ftp-comprehensive.js",
-    "test-new-password": "node test-new-password.js"
+    "test-new-password": "node test-new-password.js",
+    "deploy": "node deploy-manual.js"
   },
   "dependencies": {
     "basic-ftp": "^5.0.3"
