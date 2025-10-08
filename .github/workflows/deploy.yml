@@ -15,29 +15,15 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
         
-    - name: Deploy to FTP
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+    - name: Deploy to SFTP
+      uses: wlixcc/SFTP-Deploy-Action@v1.2.4
       with:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        port: 990
-        protocol: ftps
-        local-dir: ./website/
-        server-dir: /home/tkthzipcyn/eswatinifacts.org/info/
-        exclude: |
-          **/.git*
-          **/.git*/**
-          **/node_modules/**
-          **/.DS_Store
-          **/Thumbs.db
-          **/.env*
-          **/README.md
-          **/deployment-guide.md
-          **/.github/**
-          **/package.json
-          **/package-lock.json
-          **/deploy-local.js
+        port: 22
+        local_path: ./website/*
+        remote_path: /home/tkthzipcyn/eswatinifacts.org/info/
           
     - name: Verify deployment
       run: |
