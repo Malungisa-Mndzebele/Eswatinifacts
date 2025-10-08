@@ -601,7 +601,7 @@ function initializeEnhancedUX() {
 
 // Animated Counter Function
 function animateCounters() {
-    const counters = document.querySelectorAll('.fact-number[data-count]');
+    const counters = document.querySelectorAll('.fact-number[data-count], .metric-value[data-count]');
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -622,11 +622,19 @@ function animateCounters() {
                     // Format the number based on the original format
                     const originalText = counter.textContent;
                     if (originalText.includes('$')) {
-                        counter.textContent = '$' + Math.floor(current).toLocaleString();
+                        if (originalText.includes('B')) {
+                            counter.textContent = '$' + current.toFixed(2) + 'B';
+                        } else {
+                            counter.textContent = '$' + Math.floor(current).toLocaleString();
+                        }
                     } else if (originalText.includes('%')) {
                         counter.textContent = current.toFixed(1) + '%';
                     } else if (originalText.includes('M')) {
                         counter.textContent = current.toFixed(2) + 'M';
+                    } else if (originalText.includes(':')) {
+                        counter.textContent = Math.floor(current) + ':1';
+                    } else if (originalText.includes('.')) {
+                        counter.textContent = current.toFixed(1);
                     } else {
                         counter.textContent = Math.floor(current).toLocaleString();
                     }
