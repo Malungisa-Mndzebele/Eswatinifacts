@@ -23,7 +23,7 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         port: 21
         localDir: ./website/
-        remoteDir: ./
+        remoteDir: /
           
     - name: Verify deployment
       run: |
