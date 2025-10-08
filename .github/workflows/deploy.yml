@@ -24,7 +24,7 @@ jobs:
         port: 21
         protocol: ftp
         local-dir: ./website/
-        server-dir: /home/tkthzipcyn/public_html/
+        server-dir: /home/tkthzipcyn/eswatinifacts.org/
         exclude: |
           **/.git*
           **/.git*/**
