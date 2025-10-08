@@ -24,7 +24,7 @@ jobs:
         port: 990
         protocol: ftps
         local-dir: ./website/
-        server-dir: /home/tkthzipcyn/eswatinifacts.org/info
+        server-dir: /home/tkthzipcyn/eswatinifacts.org/info/
         exclude: |
           **/.git*
           **/.git*/**
