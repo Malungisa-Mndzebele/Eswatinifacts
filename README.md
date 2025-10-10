@@ -1,143 +1,148 @@
-# Eswatini Deep Research Project
+# Eswatini Facts Website
 
-A comprehensive research project exploring the Kingdom of Eswatini (formerly Swaziland) - its history, culture, politics, economy, and contemporary issues.
+A comprehensive data platform providing nonpartisan, data-driven insights about the Kingdom of Eswatini.
 
-## Project Overview
+## Overview
 
-This research project aims to provide an in-depth understanding of Eswatini, Africa's last absolute monarchy, through systematic investigation of its various aspects.
+Eswatini Facts is a USAFacts-inspired data transparency platform that provides accurate, up-to-date information about Eswatini's:
+- Economy
+- Health
+- Education
+- Politics
+- Culture
 
-## Research Areas
+## Website Structure
 
-### 1. Geography & Demographics
-- Physical geography and climate
-- Population demographics and distribution
-- Regional divisions and administrative structure
+### Main Pages
+- **Home** (`/`) - Overview and key statistics
+- **Economy** (`/economy`) - Economic indicators and analysis
+- **Health** (`/health`) - Healthcare statistics and trends
+- **Education** (`/education`) - Educational system data
+- **Politics** (`/politics`) - Political system and governance
+- **Culture** (`/culture`) - Demographics and cultural insights
+- **Data Sources** (`/data-sources`) - Information sources and methodology
+- **About** (`/about`) - Project information
+- **Contact** (`/contact`) - Get in touch
+- **Join Us** (`/join`) - Contribute to the project
+- **Videos** (`/videos`) - Educational video content
 
-### 2. History & Politics
-- Pre-colonial history and Swazi migration
-- Colonial period and British rule
-- Independence and post-independence developments
-- Current political structure and monarchy
-- Recent political developments and protests
-
-### 3. Economy & Development
-- Economic sectors and major industries
-- Trade relationships and regional integration
-- Development challenges and poverty
-- Economic indicators and statistics
-
-### 4. Culture & Society
-- Traditional ceremonies and cultural practices
-- Languages and education
-- Social structure and traditional governance
-- Arts, music, and cultural heritage
-
-### 5. Health & Social Issues
-- HIV/AIDS epidemic and healthcare challenges
-- Public health infrastructure
-- Social development indicators
-- International aid and support
-
-### 6. Contemporary Issues
-- Political reforms and democracy movements
-- Human rights situation
-- International relations
-- Future prospects and challenges
-
-## Research Methodology
-
-- Literature review of academic and journalistic sources
-- Analysis of official government and international organization reports
-- Examination of current events and recent developments
-- Comparative analysis with regional neighbors
-- Documentation of findings in organized format
-
-## Project Structure
-
-```
-├── README.md                 # Project overview and methodology
-├── research_framework.md     # Detailed research framework
-├── data/                    # Raw data and sources
-│   ├── existing_materials_inventory.md
-│   ├── primary_sources/
-│   ├── visual_documentation/
-│   ├── media_analysis/
-│   ├── contemporary_events/
-│   └── statistical_analysis/
-├── findings/                # Organized research findings
-│   ├── geography/
-│   ├── history/
-│   ├── politics/
-│   ├── economy/
-│   ├── culture/
-│   ├── health/
-│   └── contemporary/
-├── analysis/                # Analysis and insights
-├── resources/               # Reference materials and links
-├── website/                 # Eswatini Facts website (USAFacts-inspired)
-│   ├── index.html
-│   ├── styles.css
-│   ├── script.js
-│   ├── data-sources.html
-│   ├── README.md
-│   └── deployment-guide.md
-└── Eswatini/               # Existing media materials
-    ├── images/
-    ├── videos/
-    ├── documents/
-    └── leaks/
-```
-
-## Getting Started
-
-1. Review the research framework in `research_framework.md`
-2. Explore the organized findings in the `findings/` directory
-3. Check the `analysis/` folder for synthesized insights
-4. Refer to `resources/` for additional materials
-5. **Visit the website**: Open `website/index.html` to see the interactive data visualization platform
-
-## Website: Eswatini Facts
-
-### Overview
-The project includes a comprehensive website inspired by [USAFacts.org](https://usafacts.org/) that presents all research data in an accessible, interactive format.
+### Components
+The website uses a component-based architecture for consistent layout:
+- Header (Navigation)
+- Footer
+- Dynamic content sections
 
 ### Features
-- **Interactive Data Visualization**: Charts, graphs, and comparative analysis
-- **Comprehensive Coverage**: Economy, health, education, politics, culture
-- **Regional Comparison**: Benchmarking against regional peers
-- **Data-Driven Insights**: Evidence-based analysis and conclusions
-- **Mobile Responsive**: Works on all devices
-- **Accessibility**: WCAG compliant design
+- Responsive design
+- Interactive data visualizations
+- Real-time search functionality
+- Category filtering for videos
+- Contact and join forms
+- Cross-browser compatibility
 
-### Key Statistics Featured
-- **GDP per Capita**: $4,089 (2024)
-- **HIV Prevalence**: 25.6% (highest globally)
-- **Poverty Rate**: 58.9%
-- **Primary Enrollment**: 99.7%
-- **Unemployment**: 35.4%
-- **Population**: 1.24 million
+## Technology Stack
 
-### Deployment
-The website is configured for automatic deployment to [eswatinifacts.org](http://eswatinifacts.org/) using:
-- **GitHub Actions**: Automated CI/CD pipeline
-- **FTP Deployment**: Secure file transfer to hosting server
-- **Zero-downtime**: Updates deploy automatically on code changes
+- HTML5
+- CSS3 (with CSS Variables for theming)
+- JavaScript (ES6+)
+- Chart.js for data visualization
+- YouTube API for video embedding
 
-**Quick Setup**: See `SETUP-DEPLOYMENT.md` for 5-minute deployment setup.
+## Development
 
-**Detailed Guide**: See `website/deployment-guide.md` for comprehensive instructions.
+### Project Structure
+```
+website/
+├── components/
+│   ├── header.html
+│   ├── footer.html
+│   └── component-loader.js
+├── index.html
+├── about.html
+├── economy.html
+├── health.html
+├── education.html
+├── politics.html
+├── culture.html
+├── data-sources.html
+├── contact.html
+├── join.html
+├── videos.html
+├── styles.css
+└── script.js
+```
 
-## Key Facts
+### Design System
+The website uses a comprehensive design system with CSS variables for:
+- Colors
+- Typography
+- Spacing
+- Shadows
+- Border radius
+- Transitions
+- Z-index scale
 
-- **Official Name**: Kingdom of Eswatini (formerly Swaziland)
-- **Capital**: Mbabane (administrative), Lobamba (legislative)
-- **Population**: ~1.2 million (2024)
-- **Area**: 17,364 km²
-- **Government**: Absolute monarchy under King Mswati III
-- **Independence**: September 6, 1968
-- **Languages**: Swati (Swazi), English
-- **Currency**: Lilangeni (SZL), pegged to South African Rand
+## Deployment
 
-## Research Status
+The website is automatically deployed using GitHub Actions:
+- Pushes to main branch trigger deployment
+- FTP deployment to production server
+- Clean slate deployment (removes old files)
 
-🔄 **In Progress** - This is an ongoing research project with continuous updates and new findings.
+### Production URL
+- Website: [https://eswatinifacts.org](https://eswatinifacts.org)
+- YouTube Channel: [@Eswatiniinfo](https://www.youtube.com/@Eswatiniinfo)
+
+## Maintenance
+
+### Content Updates
+1. Edit relevant HTML files
+2. Update data in JavaScript files
+3. Push changes to main branch
+4. Automatic deployment will handle the rest
+
+### Style Updates
+1. Use CSS variables in `styles.css`
+2. Maintain consistent spacing and colors
+3. Follow responsive design patterns
+
+### Adding New Content
+1. Use existing components
+2. Follow established patterns
+3. Maintain responsive design
+4. Test across browsers
+
+## YouTube Integration
+
+The website features video content from our YouTube channel:
+- Current subscribers: 2
+- Total videos: 5
+- Topics covered: Economy, Politics, Culture
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+- Mobile browsers
+
+## Performance
+
+The website is optimized for:
+- Fast loading times
+- Smooth animations
+- Responsive interactions
+- Efficient resource loading
+
+## Contributing
+
+To contribute to this project:
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+## License
+
+All rights reserved. © 2025 Eswatini Facts.
