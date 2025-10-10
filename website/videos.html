@@ -13,20 +13,21 @@
     <header class="header">
         <nav class="nav">
             <div class="nav-brand">
-                <h1><a href="index.html" style="text-decoration: none; color: inherit;">Eswatini Facts</a></h1>
+                <h1><a href="/" style="text-decoration: none; color: inherit;">Eswatini Facts</a></h1>
                 <p class="tagline">Answers straight from the source. The data Eswatini deserves.</p>
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html#economy">Economy</a></li>
-                <li><a href="index.html#health">Health</a></li>
-                <li><a href="index.html#education">Education</a></li>
-                <li><a href="index.html#politics">Politics</a></li>
-                <li><a href="index.html#culture">Culture</a></li>
-                <li><a href="data-sources.html">Sources</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="join.html">Join Us</a></li>
-                <li><a href="videos.html" class="active">Videos</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="economy">Economy</a></li>
+                <li><a href="health">Health</a></li>
+                <li><a href="education">Education</a></li>
+                <li><a href="politics">Politics</a></li>
+                <li><a href="culture">Culture</a></li>
+                <li><a href="data-sources">Sources</a></li>
+                <li><a href="about">About</a></li>
+                <li><a href="contact">Contact</a></li>
+                <li><a href="join">Join Us</a></li>
+                <li><a href="videos" class="active">Videos</a></li>
             </ul>
             <button class="nav-toggle" aria-label="Toggle navigation">
                 <span></span>
@@ -54,6 +55,15 @@
                 <button class="tab-btn" data-category="culture">Culture</button>
                 <button class="tab-btn" data-category="politics">Politics</button>
                 <button class="tab-btn" data-category="education">Education</button>
+                <button class="tab-btn" data-category="health">Health</button>
+            </div>
+            
+            <!-- Search Bar -->
+            <div class="video-search">
+                <input type="text" id="videoSearch" placeholder="Search videos..." class="search-input">
+                <button class="search-btn" aria-label="Search">
+                    <span>🔍</span>
+                </button>
             </div>
         </div>
     </section>
@@ -81,6 +91,10 @@
                     <div class="video-info">
                         <h3>Eswatini Budget Speech 2024: The Truth (MUST WATCH!)</h3>
                         <p>Comprehensive analysis of Eswatini's 2024 budget speech and its implications for the economy and citizens.</p>
+                        <div class="video-meta">
+                            <span class="video-category">Economy</span>
+                            <span class="video-duration">15:42</span>
+                        </div>
                     </div>
                 </div>
 
@@ -100,6 +114,10 @@
                     <div class="video-info">
                         <h3>Eswatini Economic Analysis</h3>
                         <p>In-depth examination of Eswatini's economic situation, challenges, and opportunities for growth.</p>
+                        <div class="video-meta">
+                            <span class="video-category">Economy</span>
+                            <span class="video-duration">12:18</span>
+                        </div>
                     </div>
                 </div>
 
@@ -119,6 +137,10 @@
                     <div class="video-info">
                         <h3>Understanding Eswatini's Political System</h3>
                         <p>An in-depth look at Eswatini's unique political structure and governance system.</p>
+                        <div class="video-meta">
+                            <span class="video-category">Politics</span>
+                            <span class="video-duration">18:25</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -148,6 +170,10 @@
                     <div class="video-info">
                         <h3>Eswatini Economic Development</h3>
                         <p>Analysis of Eswatini's economic development strategies and growth prospects.</p>
+                        <div class="video-meta">
+                            <span class="video-category">Economy</span>
+                            <span class="video-duration">14:33</span>
+                        </div>
                     </div>
                 </div>
 
@@ -167,6 +193,102 @@
                     <div class="video-info">
                         <h3>Eswatini Political Analysis</h3>
                         <p>In-depth examination of Eswatini's political landscape and governance structure.</p>
+                        <div class="video-meta">
+                            <span class="video-category">Politics</span>
+                            <span class="video-duration">16:47</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 3 - Additional Economy Video -->
+                <div class="video-card" data-category="economy">
+                    <div class="video-thumbnail">
+                        <iframe 
+                            width="100%" 
+                            height="315" 
+                            src="https://www.youtube.com/embed/jnEeDHQMccY" 
+                            title="Eswatini Economic Challenges"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Eswatini's Economic Challenges</h3>
+                        <p>Exploring the key economic challenges facing Eswatini and potential solutions for sustainable growth.</p>
+                        <div class="video-meta">
+                            <span class="video-category">Economy</span>
+                            <span class="video-duration">13:21</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 4 - Culture Video -->
+                <div class="video-card" data-category="culture">
+                    <div class="video-thumbnail">
+                        <iframe 
+                            width="100%" 
+                            height="315" 
+                            src="https://www.youtube.com/embed/csnAmFo5sl4" 
+                            title="Eswatini Cultural Heritage"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Eswatini's Rich Cultural Heritage</h3>
+                        <p>Discover the vibrant traditions, ceremonies, and cultural practices that define Eswatini's identity.</p>
+                        <div class="video-meta">
+                            <span class="video-category">Culture</span>
+                            <span class="video-duration">11:55</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 5 - Education Video -->
+                <div class="video-card" data-category="education">
+                    <div class="video-thumbnail">
+                        <iframe 
+                            width="100%" 
+                            height="315" 
+                            src="https://www.youtube.com/embed/P8ozv_-2oBE" 
+                            title="Eswatini Education System"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Eswatini's Education System</h3>
+                        <p>Understanding the structure, challenges, and opportunities in Eswatini's educational landscape.</p>
+                        <div class="video-meta">
+                            <span class="video-category">Education</span>
+                            <span class="video-duration">17:12</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 6 - Health Video -->
+                <div class="video-card" data-category="health">
+                    <div class="video-thumbnail">
+                        <iframe 
+                            width="100%" 
+                            height="315" 
+                            src="https://www.youtube.com/embed/dC2nHFFb__0" 
+                            title="Eswatini Health Challenges"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Healthcare in Eswatini</h3>
+                        <p>Examining the healthcare system, challenges, and efforts to improve health outcomes in Eswatini.</p>
+                        <div class="video-meta">
+                            <span class="video-category">Health</span>
+                            <span class="video-duration">19:08</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -228,21 +350,21 @@
                 <div class="footer-section">
                     <h4>Browse</h4>
                     <ul>
-                        <li><a href="economy.html">Economy</a></li>
-                        <li><a href="health.html">Health</a></li>
-                        <li><a href="education.html">Education</a></li>
-                        <li><a href="politics.html">Politics</a></li>
-                        <li><a href="culture.html">Culture</a></li>
+                        <li><a href="economy">Economy</a></li>
+                        <li><a href="health">Health</a></li>
+                        <li><a href="education">Education</a></li>
+                        <li><a href="politics">Politics</a></li>
+                        <li><a href="culture">Culture</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Resources</h4>
                     <ul>
-                        <li><a href="data-sources.html">Data Sources</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="join.html">Join Us</a></li>
-                        <li><a href="videos.html">Videos</a></li>
+                        <li><a href="data-sources">Data Sources</a></li>
+                        <li><a href="about">About</a></li>
+                        <li><a href="contact">Contact</a></li>
+                        <li><a href="join">Join Us</a></li>
+                        <li><a href="videos">Videos</a></li>
                     </ul>
                 </div>
             </div>
@@ -253,5 +375,126 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Video page functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const videoCards = document.querySelectorAll('.video-card');
+            const searchInput = document.getElementById('videoSearch');
+            const searchBtn = document.querySelector('.search-btn');
+            
+            let currentCategory = 'all';
+            let searchTerm = '';
+            
+            // Category filtering
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    currentCategory = this.getAttribute('data-category');
+                    filterVideos();
+                });
+            });
+            
+            // Search functionality
+            searchInput.addEventListener('input', function() {
+                searchTerm = this.value.toLowerCase();
+                filterVideos();
+            });
+            
+            searchBtn.addEventListener('click', function() {
+                searchTerm = searchInput.value.toLowerCase();
+                filterVideos();
+            });
+            
+            // Filter videos based on category and search term
+            function filterVideos() {
+                videoCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const description = card.querySelector('p').textContent.toLowerCase();
+                    
+                    const matchesCategory = currentCategory === 'all' || cardCategory === currentCategory;
+                    const matchesSearch = searchTerm === '' || 
+                        title.includes(searchTerm) || 
+                        description.includes(searchTerm);
+                    
+                    if (matchesCategory && matchesSearch) {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeIn 0.3s ease-in';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                
+                // Update section visibility
+                updateSectionVisibility();
+            }
+            
+            // Update section visibility based on filtered results
+            function updateSectionVisibility() {
+                const featuredSection = document.querySelector('.featured-videos');
+                const allVideosSection = document.querySelector('.all-videos');
+                
+                const featuredVideos = document.querySelectorAll('.featured-videos .video-card');
+                const allVideos = document.querySelectorAll('.all-videos .video-card');
+                
+                const visibleFeatured = Array.from(featuredVideos).filter(card => 
+                    card.style.display !== 'none'
+                );
+                const visibleAll = Array.from(allVideos).filter(card => 
+                    card.style.display !== 'none'
+                );
+                
+                // Show/hide section headers based on visible content
+                if (visibleFeatured.length === 0) {
+                    featuredSection.style.display = 'none';
+                } else {
+                    featuredSection.style.display = 'block';
+                }
+                
+                if (visibleAll.length === 0) {
+                    allVideosSection.style.display = 'none';
+                } else {
+                    allVideosSection.style.display = 'block';
+                }
+            }
+            
+            // Add fade-in animation CSS
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fadeIn {
+                    from { opacity: 0; transform: translateY(10px); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Initialize video lazy loading
+            const videoIframes = document.querySelectorAll('iframe');
+            const videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const iframe = entry.target;
+                        if (!iframe.dataset.loaded) {
+                            iframe.dataset.loaded = 'true';
+                            // Add autoplay and mute for better UX
+                            const src = iframe.src;
+                            if (src.includes('youtube.com')) {
+                                iframe.src = src + (src.includes('?') ? '&' : '?') + 'autoplay=1&mute=1';
+                            }
+                        }
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            videoIframes.forEach(iframe => {
+                videoObserver.observe(iframe);
+            });
+        });
+    </script>
 </body>
 </html>
