@@ -1,4 +1,4 @@
-/* Video Grid Layout */
+/* Video Grid Layout - Updated with clean deployment */
 .video-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
