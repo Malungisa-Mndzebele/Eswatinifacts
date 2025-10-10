@@ -1150,15 +1150,4 @@ document.addEventListener('DOMContentLoaded', function() {
     trackVideoEngagement();
 });
 
-// Service Worker Registration (for PWA features)
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/sw.js')
-            .then(function(registration) {
-                console.log('ServiceWorker registration successful');
-            })
-            .catch(function(err) {
-                console.log('ServiceWorker registration failed');
-            });
-    });
-}
+// Online-only website - no service worker needed

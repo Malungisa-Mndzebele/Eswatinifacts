@@ -343,14 +343,9 @@
                 });
             });
             
-            // Search functionality
+            // Single search functionality
             searchInput.addEventListener('input', function() {
                 searchTerm = this.value.toLowerCase();
-                filterVideos();
-            });
-            
-            searchBtn.addEventListener('click', function() {
-                searchTerm = searchInput.value.toLowerCase();
                 filterVideos();
             });
             
