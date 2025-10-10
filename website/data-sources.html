@@ -8,24 +8,6 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .sources-hero {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-        }
-        
-        .sources-hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .sources-hero p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-        }
         
         .sources-container {
             max-width: 1000px;
@@ -198,21 +180,32 @@
                 <p class="tagline">Answers straight from the source. The data Eswatini deserves.</p>
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html#economy">Economy</a></li>
-                <li><a href="index.html#health">Health</a></li>
-                <li><a href="index.html#education">Education</a></li>
-                <li><a href="index.html#politics">Politics</a></li>
-                <li><a href="index.html#culture">Culture</a></li>
-                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="economy.html">Economy</a></li>
+                <li><a href="health.html">Health</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="politics.html">Politics</a></li>
+                <li><a href="culture.html">Culture</a></li>
+                <li><a href="data-sources.html" class="active">Sources</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="join.html">Join Us</a></li>
+                <li><a href="videos.html">Videos</a></li>
             </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
     </header>
 
-    <!-- Sources Hero -->
-    <section class="sources-hero">
-        <div class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
             <h1>Data Sources</h1>
-            <p>Every statistic on Eswatini Facts comes from authoritative, publicly available sources. Explore the original data, download datasets, and verify our findings.</p>
+            <p class="hero-subtitle">Every statistic comes from authoritative, publicly available sources</p>
+            <p class="hero-description">Explore the original data, download datasets, and verify our findings.</p>
         </div>
     </section>
 
@@ -521,19 +514,21 @@
                 <div class="footer-section">
                     <h4>Browse</h4>
                     <ul>
-                        <li><a href="index.html#economy">Economy</a></li>
-                        <li><a href="index.html#health">Health</a></li>
-                        <li><a href="index.html#education">Education</a></li>
-                        <li><a href="index.html#politics">Politics</a></li>
-                        <li><a href="index.html#culture">Culture</a></li>
+                        <li><a href="economy.html">Economy</a></li>
+                        <li><a href="health.html">Health</a></li>
+                        <li><a href="education.html">Education</a></li>
+                        <li><a href="politics.html">Politics</a></li>
+                        <li><a href="culture.html">Culture</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Resources</h4>
                     <ul>
                         <li><a href="data-sources.html">Data Sources</a></li>
-                        <li><a href="index.html#about">About</a></li>
-                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="join.html">Join Us</a></li>
+                        <li><a href="videos.html">Videos</a></li>
                     </ul>
                 </div>
             </div>

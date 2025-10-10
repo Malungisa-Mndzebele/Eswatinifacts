@@ -750,6 +750,406 @@ function addTooltips() {
     });
 }
 
+// Contact Form Functionality
+function initializeContactForm() {
+    const contactForm = document.getElementById('contactForm');
+    const formSuccess = document.getElementById('formSuccess');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('.submit-btn');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const btnLoading = submitBtn.querySelector('.btn-loading');
+            
+            // Validate form
+            if (!validateContactForm(this)) {
+                return;
+            }
+            
+            // Show loading state
+            btnText.style.display = 'none';
+            btnLoading.style.display = 'flex';
+            submitBtn.disabled = true;
+            
+            // Collect form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simulate form submission (replace with actual form handling)
+            setTimeout(() => {
+                // Hide form and show success message
+                contactForm.style.display = 'none';
+                formSuccess.style.display = 'block';
+                
+                // Reset form state
+                btnText.style.display = 'block';
+                btnLoading.style.display = 'none';
+                submitBtn.disabled = false;
+                
+                // Log form data (in production, send to server)
+                console.log('Form submitted:', data);
+                
+                // Scroll to success message
+                formSuccess.scrollIntoView({ behavior: 'smooth' });
+            }, 2000);
+        });
+        
+        // Add real-time validation
+        addFormValidation(contactForm);
+    }
+}
+
+// Form validation
+function validateContactForm(form) {
+    const requiredFields = form.querySelectorAll('[required]');
+    let isValid = true;
+    
+    requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+            showFieldError(field, 'This field is required');
+            isValid = false;
+        } else {
+            clearFieldError(field);
+        }
+    });
+    
+    // Email validation
+    const emailField = form.querySelector('#email');
+    if (emailField && emailField.value) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailField.value)) {
+            showFieldError(emailField, 'Please enter a valid email address');
+            isValid = false;
+        }
+    }
+    
+    return isValid;
+}
+
+// Show field error
+function showFieldError(field, message) {
+    clearFieldError(field);
+    
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'field-error';
+    errorDiv.textContent = message;
+    errorDiv.style.color = '#e74c3c';
+    errorDiv.style.fontSize = '0.875rem';
+    errorDiv.style.marginTop = '0.25rem';
+    
+    field.style.borderColor = '#e74c3c';
+    field.parentNode.appendChild(errorDiv);
+}
+
+// Clear field error
+function clearFieldError(field) {
+    const existingError = field.parentNode.querySelector('.field-error');
+    if (existingError) {
+        existingError.remove();
+    }
+    field.style.borderColor = '#e1e8ed';
+}
+
+// Add real-time form validation
+function addFormValidation(form) {
+    const inputs = form.querySelectorAll('input, select, textarea');
+    
+    inputs.forEach(input => {
+        input.addEventListener('blur', function() {
+            if (this.hasAttribute('required') && !this.value.trim()) {
+                showFieldError(this, 'This field is required');
+            } else {
+                clearFieldError(this);
+            }
+        });
+        
+        input.addEventListener('input', function() {
+            if (this.style.borderColor === 'rgb(231, 76, 60)') {
+                clearFieldError(this);
+            }
+        });
+    });
+}
+
+// Join Form Functionality
+function initializeJoinForm() {
+    const joinForm = document.getElementById('joinForm');
+    const formSuccess = document.getElementById('formSuccess');
+    
+    if (joinForm) {
+        joinForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('.submit-btn');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const btnLoading = submitBtn.querySelector('.btn-loading');
+            
+            // Validate form
+            if (!validateJoinForm(this)) {
+                return;
+            }
+            
+            // Show loading state
+            btnText.style.display = 'none';
+            btnLoading.style.display = 'flex';
+            submitBtn.disabled = true;
+            
+            // Collect form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simulate form submission (replace with actual form handling)
+            setTimeout(() => {
+                // Hide form and show success message
+                joinForm.style.display = 'none';
+                formSuccess.style.display = 'block';
+                
+                // Reset form state
+                btnText.style.display = 'block';
+                btnLoading.style.display = 'none';
+                submitBtn.disabled = false;
+                
+                // Log form data (in production, send to server)
+                console.log('Join application submitted:', data);
+                
+                // Scroll to success message
+                formSuccess.scrollIntoView({ behavior: 'smooth' });
+            }, 2000);
+        });
+        
+        // Add real-time validation
+        addJoinFormValidation(joinForm);
+    }
+}
+
+// Join form validation
+function validateJoinForm(form) {
+    const requiredFields = form.querySelectorAll('[required]');
+    let isValid = true;
+    
+    requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+            showFieldError(field, 'This field is required');
+            isValid = false;
+        } else {
+            clearFieldError(field);
+        }
+    });
+    
+    // Email validation
+    const emailField = form.querySelector('#email');
+    if (emailField && emailField.value) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailField.value)) {
+            showFieldError(emailField, 'Please enter a valid email address');
+            isValid = false;
+        }
+    }
+    
+    // Check if at least one interest is selected
+    const interests = form.querySelectorAll('input[name="interests"]:checked');
+    if (interests.length === 0) {
+        const interestsLabel = form.querySelector('label[for="interests"]');
+        showFieldError(interestsLabel, 'Please select at least one area of interest');
+        isValid = false;
+    }
+    
+    // Check agreement checkbox
+    const agreeCheckbox = form.querySelector('#agree');
+    if (agreeCheckbox && !agreeCheckbox.checked) {
+        showFieldError(agreeCheckbox, 'You must agree to the terms and privacy policy');
+        isValid = false;
+    }
+    
+    return isValid;
+}
+
+// Add real-time form validation for join form
+function addJoinFormValidation(form) {
+    const inputs = form.querySelectorAll('input, select, textarea');
+    
+    inputs.forEach(input => {
+        input.addEventListener('blur', function() {
+            if (this.hasAttribute('required') && !this.value.trim()) {
+                showFieldError(this, 'This field is required');
+            } else {
+                clearFieldError(this);
+            }
+        });
+        
+        input.addEventListener('input', function() {
+            if (this.style.borderColor === 'rgb(231, 76, 60)') {
+                clearFieldError(this);
+            }
+        });
+    });
+    
+    // Special handling for checkboxes
+    const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            if (this.style.borderColor === 'rgb(231, 76, 60)') {
+                clearFieldError(this);
+            }
+        });
+    });
+}
+
+// Video Page Functionality
+function initializeVideoPage() {
+    // Category filtering
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const videoCards = document.querySelectorAll('.video-card');
+    
+    tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const category = this.getAttribute('data-category');
+            
+            // Update active tab
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Filter videos
+            videoCards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.classList.remove('hidden');
+                    card.style.animation = 'fadeInUp 0.5s ease forwards';
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        });
+    });
+    
+    // Lazy loading for video iframes
+    const videoIframes = document.querySelectorAll('.video-thumbnail iframe');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const iframe = entry.target;
+                if (!iframe.src.includes('autoplay=1')) {
+                    // Add autoplay parameter when video comes into view
+                    const currentSrc = iframe.src;
+                    if (currentSrc.includes('?')) {
+                        iframe.src = currentSrc + '&autoplay=1&mute=1';
+                    } else {
+                        iframe.src = currentSrc + '?autoplay=1&mute=1';
+                    }
+                }
+                observer.unobserve(iframe);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    videoIframes.forEach(iframe => {
+        observer.observe(iframe);
+    });
+    
+    // Video card hover effects
+    videoCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+    
+    // YouTube subscribe button tracking
+    const subscribeBtn = document.querySelector('.subscribe-btn');
+    if (subscribeBtn) {
+        subscribeBtn.addEventListener('click', function() {
+            // Track subscription click (you can add analytics here)
+            console.log('YouTube subscription clicked');
+        });
+    }
+}
+
+// Video search functionality
+function initializeVideoSearch() {
+    const searchInput = document.createElement('input');
+    searchInput.type = 'text';
+    searchInput.placeholder = 'Search videos...';
+    searchInput.className = 'video-search';
+    searchInput.style.cssText = `
+        width: 100%;
+        max-width: 400px;
+        padding: 0.75rem 1rem;
+        border: 2px solid #e1e8ed;
+        border-radius: 25px;
+        font-size: 1rem;
+        margin: 1rem auto;
+        display: block;
+        transition: border-color 0.3s ease;
+    `;
+    
+    // Add search input to video categories section
+    const categoriesSection = document.querySelector('.video-categories .container');
+    if (categoriesSection) {
+        categoriesSection.appendChild(searchInput);
+        
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const videoCards = document.querySelectorAll('.video-card');
+            
+            videoCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.classList.remove('hidden');
+                    card.style.animation = 'fadeInUp 0.5s ease forwards';
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        });
+        
+        searchInput.addEventListener('focus', function() {
+            this.style.borderColor = '#e74c3c';
+        });
+        
+        searchInput.addEventListener('blur', function() {
+            this.style.borderColor = '#e1e8ed';
+        });
+    }
+}
+
+// Video analytics tracking
+function trackVideoEngagement() {
+    const videoCards = document.querySelectorAll('.video-card');
+    
+    videoCards.forEach(card => {
+        const iframe = card.querySelector('iframe');
+        if (iframe) {
+            // Track when video is clicked/played
+            iframe.addEventListener('load', function() {
+                console.log('Video loaded:', iframe.title);
+                // You can add analytics tracking here
+            });
+        }
+        
+        // Track card clicks
+        card.addEventListener('click', function() {
+            const title = this.querySelector('h3').textContent;
+            console.log('Video card clicked:', title);
+            // You can add analytics tracking here
+        });
+    });
+}
+
+// Initialize video page when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    initializeContactForm();
+    initializeJoinForm();
+    initializeVideoPage();
+    initializeVideoSearch();
+    trackVideoEngagement();
+});
+
 // Service Worker Registration (for PWA features)
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {

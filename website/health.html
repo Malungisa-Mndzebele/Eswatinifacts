@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health - Eswatini Facts</title>
+    <meta name="description" content="Comprehensive health data and analysis for Eswatini including HIV prevalence, life expectancy, healthcare access, and health outcomes.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist@2.26.0/plotly.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h1><a href="index.html" style="text-decoration: none; color: inherit;">Eswatini Facts</a></h1>
+                <p class="tagline">Answers straight from the source. The data Eswatini deserves.</p>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="economy.html">Economy</a></li>
+                <li><a href="health.html" class="active">Health</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="politics.html">Politics</a></li>
+                <li><a href="culture.html">Culture</a></li>
+                <li><a href="data-sources.html">Sources</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="join.html">Join Us</a></li>
+                <li><a href="videos.html">Videos</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Health</h1>
+            <p class="hero-subtitle">Understanding Eswatini's health challenges and healthcare system</p>
+            <p class="hero-description">From HIV prevalence to healthcare access, explore the data behind Eswatini's health landscape.</p>
+        </div>
+    </section>
+
+    <!-- Health Section -->
+    <section class="data-section">
+        <div class="container">
+            <h2>Health Indicators</h2>
+            <div class="section-content">
+                <div class="data-overview">
+                    <h3>Key Health Metrics</h3>
+                    <div class="metrics-grid">
+                        <div class="metric">
+                            <div class="metric-value" data-count="59.0">59.0</div>
+                            <div class="metric-label">Life Expectancy (years)</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" data-count="25.6">25.6%</div>
+                            <div class="metric-label">HIV Prevalence</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" data-count="39.7">39.7</div>
+                            <div class="metric-label">Infant Mortality/1,000</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" data-count="86.4">86.4%</div>
+                            <div class="metric-label">Electricity Access</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <h3>HIV Prevalence Trend</h3>
+                    <canvas id="hivChart"></canvas>
+                </div>
+                
+                <div class="chart-container">
+                    <h3>Health Outcomes Comparison</h3>
+                    <canvas id="healthComparisonChart"></canvas>
+                </div>
+
+                <div class="insights-section">
+                    <h3>Health Insights</h3>
+                    <div class="insights-grid">
+                        <div class="insight-card">
+                            <h4>HIV/AIDS Crisis</h4>
+                            <p>Eswatini has the highest HIV prevalence globally at 25.6%, representing one of the most severe HIV epidemics in the world. This has significant implications for life expectancy and healthcare resources.</p>
+                        </div>
+                        <div class="insight-card">
+                            <h4>Healthcare Access</h4>
+                            <p>While 86.4% of the population has access to electricity, healthcare infrastructure and access to quality medical services remain significant challenges, particularly in rural areas.</p>
+                        </div>
+                        <div class="insight-card">
+                            <h4>Infant Mortality</h4>
+                            <p>At 39.7 deaths per 1,000 live births, infant mortality remains high compared to regional averages, reflecting challenges in maternal and child healthcare.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Browse</h4>
+                    <ul>
+                        <li><a href="economy.html">Economy</a></li>
+                        <li><a href="health.html">Health</a></li>
+                        <li><a href="education.html">Education</a></li>
+                        <li><a href="politics.html">Politics</a></li>
+                        <li><a href="culture.html">Culture</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="data-sources.html">Data Sources</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="join.html">Join Us</a></li>
+                        <li><a href="videos.html">Videos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Eswatini Facts. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Health-specific charts
+        document.addEventListener('DOMContentLoaded', function() {
+            // HIV Prevalence Chart
+            const hivCtx = document.getElementById('hivChart').getContext('2d');
+            new Chart(hivCtx, {
+                type: 'line',
+                data: {
+                    labels: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024'],
+                    datasets: [{
+                        label: 'HIV Prevalence (%)',
+                        data: [27.2, 26.8, 26.4, 26.1, 25.9, 25.8, 25.7, 25.6, 25.6, 25.6],
+                        borderColor: '#ef4444',
+                        backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            min: 20,
+                            max: 30,
+                            title: {
+                                display: true,
+                                text: 'Prevalence (%)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Health Comparison Chart
+            const healthCtx = document.getElementById('healthComparisonChart').getContext('2d');
+            new Chart(healthCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Eswatini', 'South Africa', 'Botswana', 'Namibia'],
+                    datasets: [{
+                        label: 'Life Expectancy',
+                        data: [59.0, 64.2, 69.3, 63.4],
+                        backgroundColor: '#2563eb'
+                    }, {
+                        label: 'Infant Mortality',
+                        data: [39.7, 28.5, 29.2, 30.1],
+                        backgroundColor: '#ef4444'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Initialize counter animations
+            initializeCounters();
+        });
+    </script>
+</body>
+</html>

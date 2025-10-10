@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Eswatini Facts</title>
+    <meta name="description" content="Learn about Eswatini Facts - our mission to make government and development data accessible and understandable for all.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist@2.26.0/plotly.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h1><a href="index.html" style="text-decoration: none; color: inherit;">Eswatini Facts</a></h1>
+                <p class="tagline">Answers straight from the source. The data Eswatini deserves.</p>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="economy.html">Economy</a></li>
+                <li><a href="health.html">Health</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="politics.html">Politics</a></li>
+                <li><a href="culture.html">Culture</a></li>
+                <li><a href="data-sources.html">Sources</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="join.html">Join Us</a></li>
+                <li><a href="videos.html">Videos</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>About Eswatini Facts</h1>
+            <p class="hero-subtitle">Making data accessible for informed decision-making</p>
+            <p class="hero-description">We comb through the data so you don't have to.</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="data-section">
+        <div class="container">
+            <h2>Our Mission</h2>
+            <div class="section-content">
+                <div class="data-overview">
+                    <h3>We comb through the data so you don't have to</h3>
+                    <p>Most people don't spend their weekends buried in World Bank data. We do. Because you deserve the facts about Eswatini without needing a decoder ring.</p>
+                    
+                    <div class="metrics-grid">
+                        <div class="metric">
+                            <div class="metric-value" data-count="70">70+</div>
+                            <div class="metric-label">Data Sources</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" data-count="1000">1,000+</div>
+                            <div class="metric-label">Data Points</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" data-count="5">5</div>
+                            <div class="metric-label">Key Topics</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="insights-section">
+                    <h3>Our Values</h3>
+                    <div class="insights-grid">
+                        <div class="insight-card">
+                            <h4>📊 Data-Driven</h4>
+                            <p>Every fact backed by official sources and peer-reviewed research. We ensure accuracy and reliability in all our data presentations.</p>
+                        </div>
+                        <div class="insight-card">
+                            <h4>🎯 Nonpartisan</h4>
+                            <p>We present the data as it is, without political bias or agenda. Our goal is to inform, not influence.</p>
+                        </div>
+                        <div class="insight-card">
+                            <h4>🔄 Updated</h4>
+                            <p>Regular updates with the latest available data and trends. We keep our information current and relevant.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-sources-info">
+                    <h3>Data Sources</h3>
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <h4>World Bank</h4>
+                            <p>World Development Indicators</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>IMF</h4>
+                            <p>World Economic Outlook</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>UN Population Division</h4>
+                            <p>Demographic Statistics</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>WHO</h4>
+                            <p>Global Health Observatory</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Central Bank of Eswatini</h4>
+                            <p>Economic Data</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Central Statistical Office</h4>
+                            <p>National Statistics</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="our-story">
+                    <h3>Our Story</h3>
+                    <div class="story-content">
+                        <p>Eswatini Facts was born from a simple observation: while there's an abundance of data about Eswatini's development, it's often scattered across multiple sources, presented in complex formats, or buried in lengthy reports that are difficult for the average citizen to understand.</p>
+                        
+                        <p>We believe that access to clear, accurate data is essential for informed decision-making and democratic participation. Whether you're a student researching Eswatini's development, a policymaker looking for evidence-based insights, or simply a citizen who wants to understand your country better, you deserve data that's accessible and understandable.</p>
+                        
+                        <p>Our team of data analysts, researchers, and designers work together to transform complex datasets into clear, visual, and actionable insights. We don't just present numbers – we provide context, analysis, and the tools you need to understand what the data means for Eswatini's future.</p>
+                    </div>
+                </div>
+
+                <div class="impact-section">
+                    <h3>Our Impact</h3>
+                    <div class="impact-grid">
+                        <div class="impact-card">
+                            <h4>📈 Informed Citizens</h4>
+                            <p>Empowering citizens with accessible data to participate meaningfully in democratic processes and public discourse.</p>
+                        </div>
+                        <div class="impact-card">
+                            <h4>🎓 Educational Resource</h4>
+                            <p>Serving as a reliable resource for students, researchers, and educators studying Eswatini's development.</p>
+                        </div>
+                        <div class="impact-card">
+                            <h4>🏛️ Policy Support</h4>
+                            <p>Providing policymakers and civil society with evidence-based insights to support better decision-making.</p>
+                        </div>
+                        <div class="impact-card">
+                            <h4>🌍 Global Perspective</h4>
+                            <p>Helping the international community understand Eswatini's unique challenges and opportunities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Browse</h4>
+                    <ul>
+                        <li><a href="economy.html">Economy</a></li>
+                        <li><a href="health.html">Health</a></li>
+                        <li><a href="education.html">Education</a></li>
+                        <li><a href="politics.html">Politics</a></li>
+                        <li><a href="culture.html">Culture</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="data-sources.html">Data Sources</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="join.html">Join Us</a></li>
+                        <li><a href="videos.html">Videos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Eswatini Facts. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // About-specific functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize counter animations
+            initializeCounters();
+        });
+    </script>
+</body>
+</html>

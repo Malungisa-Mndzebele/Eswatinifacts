@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economy - Eswatini Facts</title>
+    <meta name="description" content="Comprehensive economic data and analysis for Eswatini including GDP, growth rates, sector breakdown, and economic indicators.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist@2.26.0/plotly.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h1><a href="index.html" style="text-decoration: none; color: inherit;">Eswatini Facts</a></h1>
+                <p class="tagline">Answers straight from the source. The data Eswatini deserves.</p>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="economy.html" class="active">Economy</a></li>
+                <li><a href="health.html">Health</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="politics.html">Politics</a></li>
+                <li><a href="culture.html">Culture</a></li>
+                <li><a href="data-sources.html">Sources</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="join.html">Join Us</a></li>
+                <li><a href="videos.html">Videos</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Economy</h1>
+            <p class="hero-subtitle">Understanding Eswatini's economic landscape and development challenges</p>
+            <p class="hero-description">From GDP growth to poverty rates, explore the data behind Eswatini's economic story.</p>
+        </div>
+    </section>
+
+    <!-- Economy Section -->
+    <section class="data-section">
+        <div class="container">
+            <h2>Economic Overview</h2>
+            <div class="section-content">
+                <div class="data-overview">
+                    <h3>Key Economic Indicators</h3>
+                    <div class="metrics-grid">
+                        <div class="metric">
+                            <div class="metric-value" data-count="4.75">$4.75B</div>
+                            <div class="metric-label">GDP (2024)</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" data-count="4.9">4.9%</div>
+                            <div class="metric-label">GDP Growth</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" data-count="4.0">4.0%</div>
+                            <div class="metric-label">Inflation</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" data-count="41.0">41.0%</div>
+                            <div class="metric-label">Public Debt/GDP</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <h3>GDP Growth Trend</h3>
+                    <canvas id="gdpChart"></canvas>
+                </div>
+                
+                <div class="chart-container">
+                    <h3>Economic Structure</h3>
+                    <canvas id="sectorChart"></canvas>
+                </div>
+
+                <div class="insights-section">
+                    <h3>Economic Insights</h3>
+                    <div class="insights-grid">
+                        <div class="insight-card">
+                            <h4>Growth vs. Poverty Paradox</h4>
+                            <p>Despite 4.9% GDP growth, 58.9% of the population lives below the poverty line. This highlights the challenge of translating economic growth into broad-based development.</p>
+                        </div>
+                        <div class="insight-card">
+                            <h4>Regional Dependencies</h4>
+                            <p>70% of Eswatini's trade is with South Africa, making the economy vulnerable to regional economic fluctuations and policy changes.</p>
+                        </div>
+                        <div class="insight-card">
+                            <h4>Employment Challenges</h4>
+                            <p>With a 35.4% unemployment rate, job creation remains a critical challenge despite positive economic growth indicators.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Browse</h4>
+                    <ul>
+                        <li><a href="economy.html">Economy</a></li>
+                        <li><a href="health.html">Health</a></li>
+                        <li><a href="education.html">Education</a></li>
+                        <li><a href="politics.html">Politics</a></li>
+                        <li><a href="culture.html">Culture</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="data-sources.html">Data Sources</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="join.html">Join Us</a></li>
+                        <li><a href="videos.html">Videos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Eswatini Facts. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Economy-specific charts
+        document.addEventListener('DOMContentLoaded', function() {
+            // GDP Growth Chart
+            const gdpCtx = document.getElementById('gdpChart').getContext('2d');
+            new Chart(gdpCtx, {
+                type: 'line',
+                data: {
+                    labels: ['2019', '2020', '2021', '2022', '2023', '2024'],
+                    datasets: [{
+                        label: 'GDP Growth (%)',
+                        data: [2.1, -1.5, 3.2, 4.1, 3.8, 4.9],
+                        borderColor: '#2563eb',
+                        backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Growth Rate (%)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Economic Sector Chart
+            const sectorCtx = document.getElementById('sectorChart').getContext('2d');
+            new Chart(sectorCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Services', 'Industry', 'Agriculture'],
+                    datasets: [{
+                        data: [45, 35, 20],
+                        backgroundColor: ['#10b981', '#f59e0b', '#ef4444'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+
+            // Initialize counter animations
+            initializeCounters();
+        });
+    </script>
+</body>
+</html>

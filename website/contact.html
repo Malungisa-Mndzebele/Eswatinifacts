@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Eswatini Facts</title>
+    <meta name="description" content="Get in touch with Eswatini Facts. We welcome your questions, feedback, and suggestions about our data and research.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h1><a href="index.html" style="text-decoration: none; color: inherit;">Eswatini Facts</a></h1>
+                <p class="tagline">Answers straight from the source. The data Eswatini deserves.</p>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html#economy">Economy</a></li>
+                <li><a href="index.html#health">Health</a></li>
+                <li><a href="index.html#education">Education</a></li>
+                <li><a href="index.html#politics">Politics</a></li>
+                <li><a href="index.html#culture">Culture</a></li>
+                <li><a href="data-sources.html">Sources</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <li><a href="join.html">Join Us</a></li>
+                <li><a href="videos.html">Videos</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Contact Us</h1>
+            <p class="hero-subtitle">We'd love to hear from you</p>
+            <p class="hero-description">Have questions about our data? Found an error? Want to collaborate? Get in touch.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <h2>Send us a message</h2>
+                    <p class="section-subtitle">We typically respond within 24-48 hours.</p>
+                    
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a topic</option>
+                                <option value="data-question">Data Question</option>
+                                <option value="error-report">Error Report</option>
+                                <option value="collaboration">Collaboration Request</option>
+                                <option value="media-inquiry">Media Inquiry</option>
+                                <option value="general">General Question</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="6" required placeholder="Please provide as much detail as possible..."></textarea>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="newsletter" name="newsletter">
+                                <span class="checkmark"></span>
+                                Subscribe to our newsletter for data updates
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-loading" style="display: none;">
+                                <div class="spinner"></div>
+                                Sending...
+                            </span>
+                        </button>
+                    </form>
+                    
+                    <div class="form-success" id="formSuccess" style="display: none;">
+                        <div class="success-icon">✓</div>
+                        <h3>Message sent successfully!</h3>
+                        <p>Thank you for contacting us. We'll get back to you as soon as possible.</p>
+                    </div>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h2>Get in touch</h2>
+                    <p class="section-subtitle">Multiple ways to reach us</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-details">
+                                <h3>Email</h3>
+                                <p>info@eswatinifacts.org</p>
+                                <small>For general inquiries and data questions</small>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">📊</div>
+                            <div class="contact-details">
+                                <h3>Data Requests</h3>
+                                <p>data@eswatinifacts.org</p>
+                                <small>For specific data requests and research collaboration</small>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">📰</div>
+                            <div class="contact-details">
+                                <h3>Media</h3>
+                                <p>media@eswatinifacts.org</p>
+                                <small>For press inquiries and media requests</small>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">🐛</div>
+                            <div class="contact-details">
+                                <h3>Report Issues</h3>
+                                <p>issues@eswatinifacts.org</p>
+                                <small>Found an error? Let us know so we can fix it</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="response-time">
+                        <h3>Response Times</h3>
+                        <ul>
+                            <li><strong>General inquiries:</strong> 24-48 hours</li>
+                            <li><strong>Data requests:</strong> 2-5 business days</li>
+                            <li><strong>Media inquiries:</strong> 4-8 hours</li>
+                            <li><strong>Error reports:</strong> 1-3 business days</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="social-links">
+                        <h3>Follow our work</h3>
+                        <div class="social-icons">
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <span>🐦</span>
+                            </a>
+                            <a href="#" class="social-link" aria-label="LinkedIn">
+                                <span>💼</span>
+                            </a>
+                            <a href="#" class="social-link" aria-label="GitHub">
+                                <span>🐙</span>
+                            </a>
+                            <a href="#" class="social-link" aria-label="RSS Feed">
+                                <span>📡</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <p class="section-subtitle">Quick answers to common questions</p>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>How often is your data updated?</h3>
+                    <p>We update our data quarterly, pulling from the latest available sources including World Bank, IMF, and official Eswatini government statistics.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Can I use your data in my research?</h3>
+                    <p>Yes! All our data is freely available for research, educational, and journalistic purposes. Please cite Eswatini Facts as your source.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Do you accept data corrections?</h3>
+                    <p>Absolutely. If you find an error in our data, please report it to issues@eswatinifacts.org with supporting documentation.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Can I request specific data analysis?</h3>
+                    <p>We welcome data requests! While we can't fulfill every request, we prioritize those that serve public interest and align with our mission.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>How do you ensure data accuracy?</h3>
+                    <p>We cross-reference multiple authoritative sources, verify data with original publications, and maintain transparency about our methodology.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Is your work politically neutral?</h3>
+                    <p>Yes. We present data objectively without political bias. Our mission is to make information accessible, not to advocate for specific policies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Eswatini Facts</h3>
+                    <p>Making data accessible for informed decision-making.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Browse</h4>
+                    <ul>
+                        <li><a href="economy.html">Economy</a></li>
+                        <li><a href="health.html">Health</a></li>
+                        <li><a href="education.html">Education</a></li>
+                        <li><a href="politics.html">Politics</a></li>
+                        <li><a href="culture.html">Culture</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="data-sources.html">Data Sources</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="join.html">Join Us</a></li>
+                        <li><a href="videos.html">Videos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Eswatini Facts. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Contact form functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            const formSuccess = document.getElementById('formSuccess');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const submitBtn = this.querySelector('.submit-btn');
+                    const btnText = submitBtn.querySelector('.btn-text');
+                    const btnLoading = submitBtn.querySelector('.btn-loading');
+                    
+                    // Show loading state
+                    btnText.style.display = 'none';
+                    btnLoading.style.display = 'flex';
+                    submitBtn.disabled = true;
+                    
+                    // Simulate form submission (replace with actual form handling)
+                    setTimeout(() => {
+                        // Hide form and show success message
+                        contactForm.style.display = 'none';
+                        formSuccess.style.display = 'block';
+                        
+                        // Reset form state
+                        btnText.style.display = 'block';
+                        btnLoading.style.display = 'none';
+                        submitBtn.disabled = false;
+                    }, 2000);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

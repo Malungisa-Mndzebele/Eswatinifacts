@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education - Eswatini Facts</title>
+    <meta name="description" content="Comprehensive education data and analysis for Eswatini including enrollment rates, literacy levels, and educational outcomes.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist@2.26.0/plotly.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h1><a href="index.html" style="text-decoration: none; color: inherit;">Eswatini Facts</a></h1>
+                <p class="tagline">Answers straight from the source. The data Eswatini deserves.</p>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="economy.html">Economy</a></li>
+                <li><a href="health.html">Health</a></li>
+                <li><a href="education.html" class="active">Education</a></li>
+                <li><a href="politics.html">Politics</a></li>
+                <li><a href="culture.html">Culture</a></li>
+                <li><a href="data-sources.html">Sources</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="join.html">Join Us</a></li>
+                <li><a href="videos.html">Videos</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Education</h1>
+            <p class="hero-subtitle">Understanding Eswatini's education system and outcomes</p>
+            <p class="hero-description">From enrollment rates to literacy levels, explore the data behind Eswatini's educational landscape.</p>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="data-section">
+        <div class="container">
+            <h2>Education Indicators</h2>
+            <div class="section-content">
+                <div class="data-overview">
+                    <h3>Key Education Metrics</h3>
+                    <div class="metrics-grid">
+                        <div class="metric">
+                            <div class="metric-value" data-count="99.7">99.7%</div>
+                            <div class="metric-label">Primary Enrollment</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" data-count="72.4">72.4%</div>
+                            <div class="metric-label">Secondary Enrollment</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" data-count="89.6">89.6%</div>
+                            <div class="metric-label">Adult Literacy</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" data-count="28">28:1</div>
+                            <div class="metric-label">Pupil-Teacher Ratio</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <h3>Education Enrollment Rates</h3>
+                    <canvas id="educationChart"></canvas>
+                </div>
+
+                <div class="insights-section">
+                    <h3>Education Insights</h3>
+                    <div class="insights-grid">
+                        <div class="insight-card">
+                            <h4>High Primary Enrollment</h4>
+                            <p>With 99.7% primary school enrollment, Eswatini has achieved near-universal primary education access, which is a significant achievement in the region.</p>
+                        </div>
+                        <div class="insight-card">
+                            <h4>Secondary Education Gap</h4>
+                            <p>The drop from 99.7% primary to 72.4% secondary enrollment indicates challenges in retaining students through the education pipeline.</p>
+                        </div>
+                        <div class="insight-card">
+                            <h4>Teacher-Student Ratio</h4>
+                            <p>At 28:1, the pupil-teacher ratio is relatively high, which may impact the quality of education and individual attention students receive.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="education-structure">
+                    <h3>Education System Structure</h3>
+                    <div class="structure-grid">
+                        <div class="structure-card">
+                            <h4>Primary Education</h4>
+                            <p>7 years (Grades 1-7)</p>
+                            <p>Age: 6-13 years</p>
+                            <p>Enrollment: 99.7%</p>
+                        </div>
+                        <div class="structure-card">
+                            <h4>Secondary Education</h4>
+                            <p>5 years (Forms 1-5)</p>
+                            <p>Age: 13-18 years</p>
+                            <p>Enrollment: 72.4%</p>
+                        </div>
+                        <div class="structure-card">
+                            <h4>Tertiary Education</h4>
+                            <p>University of Eswatini</p>
+                            <p>Technical colleges</p>
+                            <p>Limited access</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Browse</h4>
+                    <ul>
+                        <li><a href="economy.html">Economy</a></li>
+                        <li><a href="health.html">Health</a></li>
+                        <li><a href="education.html">Education</a></li>
+                        <li><a href="politics.html">Politics</a></li>
+                        <li><a href="culture.html">Culture</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="data-sources.html">Data Sources</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="join.html">Join Us</a></li>
+                        <li><a href="videos.html">Videos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Eswatini Facts. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Education-specific charts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Education Enrollment Chart
+            const educationCtx = document.getElementById('educationChart').getContext('2d');
+            new Chart(educationCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Primary', 'Secondary', 'Tertiary'],
+                    datasets: [{
+                        label: 'Enrollment Rate (%)',
+                        data: [99.7, 72.4, 15.2],
+                        backgroundColor: ['#10b981', '#f59e0b', '#8b5cf6'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            title: {
+                                display: true,
+                                text: 'Enrollment Rate (%)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Initialize counter animations
+            initializeCounters();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culture & Society - Eswatini Facts</title>
+    <meta name="description" content="Comprehensive cultural and social data for Eswatini including languages, traditions, demographics, and cultural heritage.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist@2.26.0/plotly.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h1><a href="index.html" style="text-decoration: none; color: inherit;">Eswatini Facts</a></h1>
+                <p class="tagline">Answers straight from the source. The data Eswatini deserves.</p>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="economy.html">Economy</a></li>
+                <li><a href="health.html">Health</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="politics.html">Politics</a></li>
+                <li><a href="culture.html" class="active">Culture</a></li>
+                <li><a href="data-sources.html">Sources</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="join.html">Join Us</a></li>
+                <li><a href="videos.html">Videos</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Culture & Society</h1>
+            <p class="hero-subtitle">Understanding Eswatini's cultural identity and social fabric</p>
+            <p class="hero-description">From traditional ceremonies to demographic composition, explore the data behind Eswatini's cultural landscape.</p>
+        </div>
+    </section>
+
+    <!-- Culture Section -->
+    <section class="data-section">
+        <div class="container">
+            <h2>Cultural Identity</h2>
+            <div class="section-content">
+                <div class="data-overview">
+                    <h3>Cultural Demographics</h3>
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <h4>Official Languages</h4>
+                            <p>SiSwati, English</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Ethnic Composition</h4>
+                            <p>97% Swazi, 2% Zulu, 1% Other</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Traditional Ceremonies</h4>
+                            <p>Umhlanga (Reed Dance), Incwala (Kingship Dance)</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Cultural Heritage</h4>
+                            <p>Strong traditional identity maintained</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demographics-section">
+                    <h3>Population Demographics</h3>
+                    <div class="metrics-grid">
+                        <div class="metric">
+                            <div class="metric-value" data-count="1.24">1.24M</div>
+                            <div class="metric-label">Total Population</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" data-count="67.0">67.0%</div>
+                            <div class="metric-label">Rural Population</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" data-count="33.0">33.0%</div>
+                            <div class="metric-label">Urban Population</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" data-count="2.3">2.3%</div>
+                            <div class="metric-label">Population Growth</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <h3>Population Distribution by Age</h3>
+                    <canvas id="populationChart"></canvas>
+                </div>
+
+                <div class="cultural-traditions">
+                    <h3>Traditional Ceremonies & Culture</h3>
+                    <div class="traditions-grid">
+                        <div class="tradition-card">
+                            <h4>Umhlanga (Reed Dance)</h4>
+                            <p>Annual ceremony where thousands of young women gather to cut reeds and present them to the Queen Mother. This is one of Eswatini's most famous cultural events, promoting unity and traditional values.</p>
+                        </div>
+                        <div class="tradition-card">
+                            <h4>Incwala (Kingship Dance)</h4>
+                            <p>Sacred ceremony that celebrates the King's role and the nation's unity. This is a deeply spiritual event that reinforces the traditional monarchy system and cultural identity.</p>
+                        </div>
+                        <div class="tradition-card">
+                            <h4>Traditional Attire</h4>
+                            <p>Traditional Swazi dress includes colorful fabrics, beadwork, and traditional accessories that reflect the rich cultural heritage and are worn during ceremonies and special occasions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="insights-section">
+                    <h3>Cultural Insights</h3>
+                    <div class="insights-grid">
+                        <div class="insight-card">
+                            <h4>Homogeneous Society</h4>
+                            <p>With 97% of the population being ethnically Swazi, Eswatini has one of the most homogeneous populations in Africa, contributing to strong cultural cohesion and traditional identity preservation.</p>
+                        </div>
+                        <div class="insight-card">
+                            <h4>Rural-Urban Divide</h4>
+                            <p>67% of the population lives in rural areas, where traditional customs and practices are more strongly maintained compared to urban centers where modernization has had greater influence.</p>
+                        </div>
+                        <div class="insight-card">
+                            <h4>Language Preservation</h4>
+                            <p>SiSwati remains the dominant language despite English being widely used in government and business, reflecting the strength of traditional cultural identity in modern Eswatini.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Browse</h4>
+                    <ul>
+                        <li><a href="economy.html">Economy</a></li>
+                        <li><a href="health.html">Health</a></li>
+                        <li><a href="education.html">Education</a></li>
+                        <li><a href="politics.html">Politics</a></li>
+                        <li><a href="culture.html">Culture</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="data-sources.html">Data Sources</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="join.html">Join Us</a></li>
+                        <li><a href="videos.html">Videos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Eswatini Facts. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Culture-specific charts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Population Distribution Chart
+            const populationCtx = document.getElementById('populationChart').getContext('2d');
+            new Chart(populationCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['0-14 years', '15-64 years', '65+ years'],
+                    datasets: [{
+                        data: [35.2, 60.8, 4.0],
+                        backgroundColor: ['#10b981', '#2563eb', '#f59e0b'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+
+            // Initialize counter animations
+            initializeCounters();
+        });
+    </script>
+</body>
+</html>
