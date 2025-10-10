@@ -1,10 +1,22 @@
 /* Video Grid Layout - Updated with clean deployment */
 .video-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-top: 2rem;
     max-width: 100%;
+}
+
+@media (max-width: 1200px) {
+    .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    }
+    
+@media (max-width: 768px) {
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .video-card {
@@ -24,6 +36,9 @@
     position: relative;
     width: 100%;
     padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    background: var(--color-gray-100);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    overflow: hidden;
 }
 
 .video-thumbnail iframe {
@@ -37,6 +52,8 @@
 
 .video-info {
     padding: var(--space-4);
+    background: var(--bg-white);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
 }
 
 .video-info h3 {
@@ -53,8 +70,30 @@
 .video-meta {
     display: flex;
     gap: var(--space-3);
+    margin-top: var(--space-3);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--border-light);
     color: var(--color-gray-500);
     font-size: var(--font-size-sm);
+}
+
+.video-category {
+    background: var(--color-accent-light);
+    color: var(--color-accent);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-pill);
+    font-weight: var(--font-medium);
+}
+
+.video-duration {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.video-duration::before {
+    content: '⏱';
+    font-size: 0.875em;
 }
 
 /* Video Categories */
@@ -63,6 +102,9 @@
     gap: var(--space-2);
     margin-bottom: var(--space-4);
     flex-wrap: wrap;
+    justify-content: center;
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--border-light);
 }
 
 .tab-btn {
@@ -90,7 +132,7 @@
 /* Search Bar */
 .video-search {
     margin: var(--space-4) 0;
-    display: flex;
+        display: flex;
     gap: var(--space-2);
     max-width: 500px;
 }
@@ -128,8 +170,8 @@
     .video-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-}
-
+    }
+    
 @media (max-width: 768px) {
     .video-grid {
         grid-template-columns: 1fr;
