@@ -9,27 +9,52 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist@2.26.0/plotly.min.js"></script>
+    <style>
+        .chart-container {
+            margin: 2rem 0;
+        }
+        
+        .chart-wrapper {
+            position: relative;
+            height: 400px;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .chart-wrapper canvas {
+            max-height: 100% !important;
+            max-width: 100% !important;
+        }
+        
+        @media (max-width: 768px) {
+            .chart-wrapper {
+                height: 300px;
+                max-width: 400px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <nav class="nav">
             <div class="nav-brand">
-                <h1><a href="index.html" style="text-decoration: none; color: inherit;">Eswatini Facts</a></h1>
+                <h1><a href="/" style="text-decoration: none; color: inherit;">Eswatini Facts</a></h1>
                 <p class="tagline">Answers straight from the source. The data Eswatini deserves.</p>
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="economy.html">Economy</a></li>
-                <li><a href="health.html">Health</a></li>
-                <li><a href="education.html">Education</a></li>
-                <li><a href="politics.html">Politics</a></li>
-                <li><a href="culture.html" class="active">Culture</a></li>
-                <li><a href="data-sources.html">Sources</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="join.html">Join Us</a></li>
-                <li><a href="videos.html">Videos</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="economy">Economy</a></li>
+                <li><a href="health">Health</a></li>
+                <li><a href="education">Education</a></li>
+                <li><a href="politics">Politics</a></li>
+                <li><a href="culture" class="active">Culture</a></li>
+                <li><a href="data-sources">Sources</a></li>
+                <li><a href="about">About</a></li>
+                <li><a href="contact">Contact</a></li>
+                <li><a href="join">Join Us</a></li>
+                <li><a href="videos">Videos</a></li>
             </ul>
             <button class="nav-toggle" aria-label="Toggle navigation">
                 <span></span>
@@ -99,7 +124,9 @@
 
                 <div class="chart-container">
                     <h3>Population Distribution by Age</h3>
-                    <canvas id="populationChart"></canvas>
+                    <div class="chart-wrapper">
+                        <canvas id="populationChart"></canvas>
+                    </div>
                 </div>
 
                 <div class="cultural-traditions">
@@ -148,21 +175,21 @@
                 <div class="footer-section">
                     <h4>Browse</h4>
                     <ul>
-                        <li><a href="economy.html">Economy</a></li>
-                        <li><a href="health.html">Health</a></li>
-                        <li><a href="education.html">Education</a></li>
-                        <li><a href="politics.html">Politics</a></li>
-                        <li><a href="culture.html">Culture</a></li>
+                        <li><a href="economy">Economy</a></li>
+                        <li><a href="health">Health</a></li>
+                        <li><a href="education">Education</a></li>
+                        <li><a href="politics">Politics</a></li>
+                        <li><a href="culture">Culture</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Resources</h4>
                     <ul>
-                        <li><a href="data-sources.html">Data Sources</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="join.html">Join Us</a></li>
-                        <li><a href="videos.html">Videos</a></li>
+                        <li><a href="data-sources">Data Sources</a></li>
+                        <li><a href="about">About</a></li>
+                        <li><a href="contact">Contact</a></li>
+                        <li><a href="join">Join Us</a></li>
+                        <li><a href="videos">Videos</a></li>
                     </ul>
                 </div>
             </div>
@@ -190,11 +217,18 @@
                 },
                 options: {
                     responsive: true,
+                    maintainAspectRatio: false,
+                    aspectRatio: 1,
                     plugins: {
                         legend: {
-                            position: 'bottom'
+                            position: 'bottom',
+                            labels: {
+                                padding: 20,
+                                usePointStyle: true
+                            }
                         }
-                    }
+                    },
+                    cutout: '60%'
                 }
             });
 
