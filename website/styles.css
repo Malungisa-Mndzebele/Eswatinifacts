@@ -1,4 +1,113 @@
-/* Reset and Base Styles */
+/* ============================================================================
+   CSS VARIABLES - Design System
+   ============================================================================ */
+:root {
+    /* Primary Colors */
+    --color-primary: #2c3e50;
+    --color-primary-dark: #1a252f;
+    --color-accent: #e74c3c;
+    --color-accent-dark: #c0392b;
+    --color-accent-light: rgba(231, 76, 60, 0.1);
+    --color-accent-alpha: rgba(231, 76, 60, 0.3);
+    
+    /* UI Colors */
+    --color-blue: #3b82f6;
+    --color-blue-dark: #2563eb;
+    --color-blue-darker: #1e40af;
+    --color-blue-light: #e0f2fe;
+    
+    /* Neutral Colors */
+    --color-dark: #1e293b;
+    --color-gray-900: #1f2937;
+    --color-gray-800: #333;
+    --color-gray-700: #374151;
+    --color-gray-600: #4b5563;
+    --color-gray-500: #64748b;
+    --color-gray-400: #94a3b8;
+    --color-gray-300: #666;
+    --color-gray-200: #e2e8f0;
+    --color-gray-100: #f1f5f9;
+    --color-gray-50: #f8fafc;
+    
+    /* Background Colors */
+    --bg-white: #fff;
+    --bg-light: #f8f9fa;
+    --bg-lighter: #f8fafc;
+    --bg-success: #f0fdf4;
+    
+    /* Border Colors */
+    --border-light: #e5e7eb;
+    --border-lighter: #f1f5f9;
+    --border-success: #bbf7d0;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+    --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+    --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.1);
+    --shadow-accent: 0 4px 12px rgba(59, 130, 246, 0.3);
+    --shadow-red: 0 4px 12px rgba(255, 0, 0, 0.3);
+    
+    /* Typography Scale */
+    --font-size-xs: 0.75rem;      /* 12px */
+    --font-size-sm: 0.875rem;     /* 14px */
+    --font-size-base: 1rem;       /* 16px */
+    --font-size-lg: 1.125rem;     /* 18px */
+    --font-size-xl: 1.25rem;      /* 20px */
+    --font-size-2xl: 1.5rem;      /* 24px */
+    --font-size-3xl: 1.875rem;    /* 30px */
+    --font-size-4xl: 2.25rem;     /* 36px */
+    --font-size-5xl: 3rem;        /* 48px */
+    
+    /* Font Weights */
+    --font-light: 300;
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+    
+    /* Spacing Scale */
+    --space-0: 0;
+    --space-1: 0.25rem;    /* 4px */
+    --space-2: 0.5rem;     /* 8px */
+    --space-3: 0.75rem;    /* 12px */
+    --space-4: 1rem;       /* 16px */
+    --space-5: 1.25rem;    /* 20px */
+    --space-6: 1.5rem;     /* 24px */
+    --space-8: 2rem;       /* 32px */
+    --space-10: 2.5rem;    /* 40px */
+    --space-12: 3rem;      /* 48px */
+    --space-16: 4rem;      /* 64px */
+    --space-20: 5rem;      /* 80px */
+    
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 10px;
+    --radius-lg: 12px;
+    --radius-xl: 15px;
+    --radius-full: 50%;
+    --radius-pill: 25px;
+    
+    /* Transitions */
+    --transition-fast: 0.15s ease;
+    --transition-base: 0.2s ease;
+    --transition-slow: 0.3s ease;
+    
+    /* Layout */
+    --container-max: 1200px;
+    --nav-height: 80px;
+    --nav-height-mobile: 70px;
+    
+    /* Z-index Scale */
+    --z-dropdown: 100;
+    --z-sticky: 1000;
+    --z-fixed: 1100;
+    --z-modal: 1200;
+}
+
+/* ============================================================================
+   Reset and Base Styles
+   ============================================================================ */
 * {
     margin: 0;
     padding: 0;
@@ -8,8 +117,8 @@
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #fff;
+    color: var(--color-gray-800);
+    background-color: var(--bg-white);
     scroll-behavior: smooth;
 }
 
@@ -2288,7 +2397,8 @@ button:focus, a:focus {
         transform: none;
     }
 }
-/ *   C a c h e   b u s t i n g   c o m m e n t   -   1 0 / 0 9 / 2 0 2 5   2 0 : 1 0 : 0 7   * /  
+/ *   C a c h e   b u s t i n g   c o m m e n t   -   1 0 / 0 9 / 2 0 2 5   2 0 : 1 0 : 0 7   * / 
+ 
  
  
  / *   C o n t a c t   a n d   J o i n   F o r m   S t y l e s   * / 
@@ -2389,7 +2499,8 @@ button:focus, a:focus {
          c o l o r :   # 3 7 4 1 5 1 ; 
  } 
  
- . c h e c k b o x - l a b e l   i n p u t [ t y p e = \  
+ . c h e c k b o x - l a b e l   i n p u t [ t y p e = \ 
+ 
  c h e c k b o x \ ]   { 
          w i d t h :   1 8 p x ; 
          h e i g h t :   1 8 p x ; 
@@ -2877,7 +2988,8 @@ button:focus, a:focus {
                  w h i t e - s p a c e :   n o w r a p ; 
                  f l e x - s h r i n k :   0 ; 
          } 
- }  
+ } 
+ 
  
  
  / *   V i d e o   M e t a d a t a   S t y l e s   * / 
@@ -2909,7 +3021,8 @@ button:focus, a:focus {
          c o l o r :   # 6 4 7 4 8 b ; 
          f o n t - s i z e :   0 . 8 r e m ; 
          f o n t - w e i g h t :   5 0 0 ; 
- }  
+ } 
+ 
  
  
  / *   V i d e o   S e a r c h   S t y l e s   * / 
@@ -2957,7 +3070,8 @@ button:focus, a:focus {
  
  . s e a r c h - b t n   s p a n   { 
          f o n t - s i z e :   1 . 2 r e m ; 
- }  
+ } 
+ 
  
  
  / *   R e s p o n s i v e   s e a r c h   s t y l e s   * / 
@@ -2977,5 +3091,6 @@ button:focus, a:focus {
                  w i d t h :   4 0 p x ; 
                  h e i g h t :   4 0 p x ; 
          } 
- }  
+ } 
+ 
  
