@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Videos - Eswatini Facts</title>
     <meta name="description" content="Watch educational videos about Eswatini's economy, culture, politics, and development. Multimedia content from the Eswatini Facts YouTube channel.">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=1.1">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="components/component-loader.js"></script>
 </head>
@@ -34,13 +34,6 @@
                 <button class="tab-btn" data-category="health">Health</button>
             </div>
             
-            <!-- Search Bar -->
-            <div class="video-search">
-                <input type="text" id="videoSearch" placeholder="Search videos..." class="search-input">
-                <button class="search-btn" aria-label="Search">
-                    <span>🔍</span>
-                </button>
-            </div>
         </div>
     </section>
 
@@ -324,11 +317,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const tabButtons = document.querySelectorAll('.tab-btn');
             const videoCards = document.querySelectorAll('.video-card');
-            const searchInput = document.getElementById('videoSearch');
-            const searchBtn = document.querySelector('.search-btn');
-            
             let currentCategory = 'all';
-            let searchTerm = '';
             
             // Category filtering
             tabButtons.forEach(button => {
@@ -343,12 +332,6 @@
                 });
             });
             
-            // Single search functionality
-            searchInput.addEventListener('input', function() {
-                searchTerm = this.value.toLowerCase();
-                filterVideos();
-            });
-            
             // Filter videos based on category and search term
             function filterVideos() {
                 videoCards.forEach(card => {
@@ -357,9 +340,7 @@
                     const description = card.querySelector('p').textContent.toLowerCase();
                     
                     const matchesCategory = currentCategory === 'all' || cardCategory === currentCategory;
-                    const matchesSearch = searchTerm === '' || 
-                        title.includes(searchTerm) || 
-                        description.includes(searchTerm);
+                    const matchesSearch = true;
                     
                     if (matchesCategory && matchesSearch) {
                         card.style.display = 'block';
