@@ -20,3 +20,19 @@ Thumbs.db
 dist/
 build/
 *.log
+
+# Media and Large Files
+Eswatini/
+*.mp4
+*.m4a
+*.mp3
+*.wav
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.pdf
+*.zip
+*.rar
+*.7z
+Thumbs.db
