@@ -1,22 +1,10 @@
-/* Video Grid Layout - Updated with clean deployment */
+/* Video Page Styles */
 .video-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-top: 2rem;
     max-width: 100%;
-}
-
-@media (max-width: 1200px) {
-    .video-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    }
-    
-@media (max-width: 768px) {
-    .video-grid {
-        grid-template-columns: 1fr;
-    }
 }
 
 .video-card {
@@ -60,11 +48,13 @@
     font-size: var(--font-size-lg);
     color: var(--color-gray-900);
     margin-bottom: var(--space-2);
+    line-height: 1.4;
 }
 
 .video-info p {
     color: var(--color-gray-600);
     margin-bottom: var(--space-3);
+    line-height: 1.6;
 }
 
 .video-meta {
@@ -131,8 +121,8 @@
 
 /* Search Bar */
 .video-search {
-    margin: var(--space-4) 0;
-        display: flex;
+    margin: var(--space-4) auto;
+    display: flex;
     gap: var(--space-2);
     max-width: 500px;
 }
@@ -165,13 +155,13 @@
     background: var(--color-accent-dark);
 }
 
-/* Responsive Adjustments */
-@media (max-width: 960px) {
+/* Responsive Design */
+@media (max-width: 1200px) {
     .video-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    }
-    
+}
+
 @media (max-width: 768px) {
     .video-grid {
         grid-template-columns: 1fr;
@@ -185,4 +175,14 @@
     .video-search {
         margin: var(--space-4) auto;
     }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.video-card {
+    animation: fadeIn 0.3s ease-in;
 }
