@@ -3,15 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Politics & Governance - Eswatini Facts</title>
-    <meta name="description" content="Comprehensive political and governance data for Eswatini including government structure, political system, and governance indicators.">
-    <link rel="stylesheet" href="styles.css">
+    
+    <!-- SEO Meta Tags -->
+    <title>Eswatini Politics | Government, Monarchy & Political System | Eswatini Facts</title>
+    <meta name="description" content="Understanding Eswatini's political system, including the monarchy, government structure, and current political developments.">
+    <meta name="keywords" content="Eswatini politics, Swaziland government, King Mswati III, Eswatini monarchy, African politics">
+    <meta name="author" content="Eswatini Facts">
+    <link rel="canonical" href="https://eswatinifacts.com/politics">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="{{page_title}} | Eswatini Facts">
+    <meta property="og:description" content="{{page_description}}">
+    <meta property="og:image" content="https://eswatinifacts.com/images/eswatini-politics-social.jpg">
+    <meta property="og:url" content="https://eswatinifacts.com/politics">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Eswatini Facts">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{page_title}} | Eswatini Facts">
+    <meta name="twitter:description" content="{{page_description}}">
+    <meta name="twitter:image" content="https://eswatinifacts.com/images/eswatini-politics-social.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Scripts -->
+    <script src="/components/component-loader.js"></script>
+    
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://eswatinifacts.com/#organization",
+                "name": "Eswatini Facts",
+                "url": "https://eswatinifacts.com",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://eswatinifacts.com/images/logo.png",
+                    "width": 600,
+                    "height": 60
+                },
+                "sameAs": [
+                    "https://www.youtube.com/channel/UC1VC5HcKsEi24hUZZDyH7Lg",
+                    "https://twitter.com/EswatiniFacts",
+                    "https://facebook.com/EswatiniFacts"
+                ]
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://eswatinifacts.com/#website",
+                "url": "https://eswatinifacts.com",
+                "name": "Eswatini Facts",
+                "publisher": {
+                    "@id": "https://eswatinifacts.com/#organization"
+                }
+            },
+            {
+                "@type": "WebPage",
+                "@id": "https://eswatinifacts.com/politics",
+                "url": "https://eswatinifacts.com/politics",
+                "name": "{{page_title}}",
+                "description": "{{page_description}}",
+                "isPartOf": {
+                    "@id": "https://eswatinifacts.com/#website"
+                },
+                "inLanguage": "en",
+                "publisher": {
+                    "@id": "https://eswatinifacts.com/#organization"
+                },
+                "breadcrumb": {
+                    "@id": "https://eswatinifacts.com/politics#breadcrumb"
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "@id": "https://eswatinifacts.com/politics#breadcrumb",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "item": {
+                            "@id": "https://eswatinifacts.com",
+                            "name": "Home"
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "item": {
+                            "@id": "https://eswatinifacts.com/politics",
+                            "name": "{{page_title}}"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+    
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist@2.26.0/plotly.min.js"></script>
     <script src="components/component-loader.js"></script>
 </head>
 <body>
+    <!-- Header Component -->
+    <header id="header-placeholder" role="banner"></header>
+
+    
     <!-- Header Component -->
     <div id="header-placeholder"></div>
 
@@ -126,6 +233,14 @@
         <!-- Footer Component -->
     <div id="footer-placeholder"></div>
 
+    
+
+
+    <!-- Footer Component -->
+    <footer id="footer-placeholder" role="contentinfo"></footer>
+
+    <!-- Scripts -->
+    <script src="/script.js" async></script>
     <script src="script.js"></script>
 </body>
 </html>

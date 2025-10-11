@@ -3,68 +3,306 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Videos - Eswatini Facts</title>
-    <meta name="description" content="Watch educational videos about Eswatini's economy, culture, politics, and development. Multimedia content from the Eswatini Facts YouTube channel.">
-    <link rel="stylesheet" href="styles.css">
+    
+    <!-- SEO Meta Tags -->
+    <title>Educational Videos About Eswatini | Economy, Culture & Politics | Eswatini Facts</title>
+    <meta name="description" content="Watch in-depth educational videos about Eswatini's economy, culture, politics, and development. Expert analysis and insights from Eswatini Facts.">
+    <meta name="keywords" content="Eswatini videos, Swaziland documentary, Eswatini economy, Eswatini culture, Eswatini politics">
+    <meta name="author" content="Eswatini Facts">
+    <link rel="canonical" href="https://eswatinifacts.com/videos">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="{{page_title}} | Eswatini Facts">
+    <meta property="og:description" content="{{page_description}}">
+    <meta property="og:image" content="https://eswatinifacts.com/images/eswatini-videos-social.jpg">
+    <meta property="og:url" content="https://eswatinifacts.com/videos">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Eswatini Facts">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{page_title}} | Eswatini Facts">
+    <meta name="twitter:description" content="{{page_description}}">
+    <meta name="twitter:image" content="https://eswatinifacts.com/images/eswatini-videos-social.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Scripts -->
+    <script src="/components/component-loader.js"></script>
+    
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://eswatinifacts.com/#organization",
+                "name": "Eswatini Facts",
+                "url": "https://eswatinifacts.com",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://eswatinifacts.com/images/logo.png",
+                    "width": 600,
+                    "height": 60
+                },
+                "sameAs": [
+                    "https://www.youtube.com/channel/UC1VC5HcKsEi24hUZZDyH7Lg",
+                    "https://twitter.com/EswatiniFacts",
+                    "https://facebook.com/EswatiniFacts"
+                ]
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://eswatinifacts.com/#website",
+                "url": "https://eswatinifacts.com",
+                "name": "Eswatini Facts",
+                "publisher": {
+                    "@id": "https://eswatinifacts.com/#organization"
+                }
+            },
+            {
+                "@type": "WebPage",
+                "@id": "https://eswatinifacts.com/videos",
+                "url": "https://eswatinifacts.com/videos",
+                "name": "{{page_title}}",
+                "description": "{{page_description}}",
+                "isPartOf": {
+                    "@id": "https://eswatinifacts.com/#website"
+                },
+                "inLanguage": "en",
+                "publisher": {
+                    "@id": "https://eswatinifacts.com/#organization"
+                },
+                "breadcrumb": {
+                    "@id": "https://eswatinifacts.com/videos#breadcrumb"
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "@id": "https://eswatinifacts.com/videos#breadcrumb",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "item": {
+                            "@id": "https://eswatinifacts.com",
+                            "name": "Home"
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "item": {
+                            "@id": "https://eswatinifacts.com/videos",
+                            "name": "{{page_title}}"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+    
+    <!-- SEO Meta Tags -->
+    
+    
+    
+    
+    
+    
+    <!-- Open Graph Meta Tags for Social Media -->
+    
+    
+    
+    
+    
+    
+    
+    <!-- Twitter Card Meta Tags -->
+    
+    
+    
+    
+    
+    <!-- Favicon -->
+    
+    
+    
+    <!-- Styles and Scripts -->
+    
+    
     <script src="components/component-loader.js"></script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://eswatinifacts.com/#organization",
+                "name": "Eswatini Facts",
+                "url": "https://eswatinifacts.com",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://eswatinifacts.com/images/logo.png",
+                    "width": 600,
+                    "height": 60
+                },
+                "sameAs": [
+                    "https://www.youtube.com/channel/UC1VC5HcKsEi24hUZZDyH7Lg",
+                    "https://twitter.com/EswatiniFacts",
+                    "https://facebook.com/EswatiniFacts"
+                ],
+                "description": "Your trusted source for accurate information about the Kingdom of Eswatini (formerly Swaziland)."
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://eswatinifacts.com/#website",
+                "url": "https://eswatinifacts.com",
+                "name": "Eswatini Facts",
+                "publisher": {
+                    "@id": "https://eswatinifacts.com/#organization"
+                },
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": "https://eswatinifacts.com/search?q={search_term_string}",
+                    "query-input": "required name=search_term_string"
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "item": {
+                            "@id": "https://eswatinifacts.com",
+                            "name": "Home"
+                        }
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "item": {
+                            "@id": "https://eswatinifacts.com/videos",
+                            "name": "Videos"
+                        }
+                    }
+                ]
+            },
+            {
+                "@type": "ItemList",
+                "itemListElement": [
+                    {
+                        "@type": "VideoObject",
+                        "position": 1,
+                        "name": "Eswatini Budget Speech 2024: The Truth",
+                        "description": "Comprehensive analysis of Eswatini's 2024 budget speech and its implications for the economy and citizens.",
+                        "thumbnailUrl": "https://i.ytimg.com/vi/jnEeDHQMccY/maxresdefault.jpg",
+                        "uploadDate": "2024-03-17",
+                        "duration": "PT15M42S",
+                        "embedUrl": "https://www.youtube.com/embed/jnEeDHQMccY",
+                        "publisher": {
+                            "@id": "https://eswatinifacts.com/#organization"
+                        },
+                        "author": {
+                            "@type": "Organization",
+                            "@id": "https://eswatinifacts.com/#organization"
+                        }
+                    },
+                    {
+                        "@type": "VideoObject",
+                        "position": 2,
+                        "name": "Understanding Eswatini's Political System",
+                        "description": "An in-depth look at Eswatini's unique political structure and governance system.",
+                        "thumbnailUrl": "https://i.ytimg.com/vi/P8ozv_-2oBE/maxresdefault.jpg",
+                        "uploadDate": "2024-03-24",
+                        "duration": "PT18M25S",
+                        "embedUrl": "https://www.youtube.com/embed/P8ozv_-2oBE",
+                        "publisher": {
+                            "@id": "https://eswatinifacts.com/#organization"
+                        },
+                        "author": {
+                            "@type": "Organization",
+                            "@id": "https://eswatinifacts.com/#organization"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
     <!-- Header Component -->
-    <div id="header-placeholder"></div>
+    <header id="header-placeholder" role="banner"></header>
+
+    
+    <!-- Header Component -->
+    <header id="header-placeholder" role="banner"></header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" aria-labelledby="page-title">
         <div class="hero-content">
-            <h1>Videos</h1>
+            <h1 id="page-title">Videos</h1>
             <p class="hero-subtitle">Explore Eswatini through multimedia content</p>
             <p class="hero-description">Watch our educational videos covering Eswatini's economy, culture, politics, and development.</p>
         </div>
     </section>
 
     <!-- Main Content Section -->
-    <section class="data-section">
+    <main class="data-section" role="main">
         <div class="container">
             <h2>Video Content</h2>
             <div class="section-content">
                 <!-- Video Categories -->
-                <div class="category-tabs">
-                    <button class="tab-btn active" data-category="all">All Videos</button>
-                    <button class="tab-btn" data-category="economy">Economy</button>
-                    <button class="tab-btn" data-category="culture">Culture</button>
-                    <button class="tab-btn" data-category="politics">Politics</button>
-                    <button class="tab-btn" data-category="education">Education</button>
-                    <button class="tab-btn" data-category="health">Health</button>
-                </div>
+                <nav class="category-tabs" role="navigation" aria-label="Video categories">
+                    <button class="tab-btn active" data-category="all" aria-pressed="true">All Videos</button>
+                    <button class="tab-btn" data-category="economy" aria-pressed="false">Economy</button>
+                    <button class="tab-btn" data-category="culture" aria-pressed="false">Culture</button>
+                    <button class="tab-btn" data-category="politics" aria-pressed="false">Politics</button>
+                    <button class="tab-btn" data-category="education" aria-pressed="false">Education</button>
+                    <button class="tab-btn" data-category="health" aria-pressed="false">Health</button>
+                </nav>
 
                 <!-- Featured Videos Section -->
-                <div class="featured-videos">
-                    <h3>Featured Videos</h3>
+                <section class="featured-videos" aria-labelledby="featured-videos-title">
+                    <h3 id="featured-videos-title">Featured Videos</h3>
                     <p class="section-subtitle">Our most popular and informative content</p>
             
-                    <div class="video-grid">
+                    <div class="video-grid" role="list">
                         <!-- Featured Video 1 -->
-                        <div class="video-card featured" data-category="economy">
+                        <article class="video-card featured" data-category="economy" role="listitem">
                             <div class="video-thumbnail">
                                 <iframe 
                                     width="100%" 
                                     height="315" 
                                     src="https://www.youtube.com/embed/jnEeDHQMccY" 
-                                    title="Eswatini Budget Speech 2024: The Truth (MUST WATCH!)"
+                                    title="Eswatini Budget Speech 2024: The Truth"
                                     frameborder="0" 
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                    allowfullscreen>
+                                    allowfullscreen
+                                    loading="lazy"
+                                    aria-label="Video: Eswatini Budget Speech 2024 Analysis">
                                 </iframe>
                             </div>
                             <div class="video-info">
-                                <h3>Eswatini Budget Speech 2024: The Truth (MUST WATCH!)</h3>
+                                <h3>Eswatini Budget Speech 2024: The Truth</h3>
                                 <p>Comprehensive analysis of Eswatini's 2024 budget speech and its implications for the economy and citizens.</p>
-                                <div class="video-meta">
-                                    <span class="video-category">Economy</span>
-                                    <span class="video-duration">15:42</span>
+                                <div class="video-meta" role="contentinfo">
+                                    <span class="video-category" aria-label="Category">Economy</span>
+                                    <span class="video-duration" aria-label="Duration">15:42</span>
                                 </div>
                             </div>
-                        </div>
+                        </article>
 
                         <!-- Featured Video 2 -->
                         <div class="video-card featured" data-category="economy">
@@ -308,10 +546,20 @@
     </section>
 
     <!-- Footer Component -->
-    <div id="footer-placeholder"></div>
+    <footer id="footer-placeholder" role="contentinfo"></footer>
 
-    <script src="script.js"></script>
-    <script>
+    <!-- Scripts -->
+    
+    
+
+
+    <!-- Footer Component -->
+    <footer id="footer-placeholder" role="contentinfo"></footer>
+
+    <!-- Scripts -->
+    <script src="/script.js" async></script>
+    <script src="script.js" async></script>
+<script>
         // Video page functionality
         document.addEventListener('DOMContentLoaded', function() {
             const tabButtons = document.querySelectorAll('.tab-btn');

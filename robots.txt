@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+Disallow: /secure-config/
+Disallow: /node_modules/
+
+# Allow all bots to crawl important sections
+Allow: /economy
+Allow: /politics
+Allow: /culture
+Allow: /health
+Allow: /education
+Allow: /videos
+Allow: /about
+Allow: /contact
+
+# Sitemap location
+Sitemap: https://eswatinifacts.com/sitemap.xml
+
+# Crawl-delay for heavy resources
+Crawl-delay: 2

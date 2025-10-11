@@ -1,0 +1,98 @@
+const fs = require('fs');
+const path = require('path');
+
+// Page configurations
+const pageConfigs = {
+    'index.html': {
+        page_title: 'Trusted Information About the Kingdom of Eswatini',
+        page_description: 'Discover accurate, up-to-date information about Eswatini (formerly Swaziland). Explore the country\'s economy, politics, culture, and development.',
+        page_keywords: 'Eswatini, Swaziland, African kingdom, southern Africa, Eswatini facts, Eswatini information',
+        canonical_url: '/',
+        og_image: 'eswatini-facts-social.jpg'
+    },
+    'videos.html': {
+        page_title: 'Educational Videos About Eswatini | Economy, Culture & Politics',
+        page_description: 'Watch in-depth educational videos about Eswatini\'s economy, culture, politics, and development. Expert analysis and insights from Eswatini Facts.',
+        page_keywords: 'Eswatini videos, Swaziland documentary, Eswatini economy, Eswatini culture, Eswatini politics',
+        canonical_url: '/videos',
+        og_image: 'eswatini-videos-social.jpg'
+    },
+    'economy.html': {
+        page_title: 'Eswatini Economy | GDP, Trade, Development & Analysis',
+        page_description: 'Comprehensive analysis of Eswatini\'s economy, including GDP data, trade relationships, development challenges, and economic indicators.',
+        page_keywords: 'Eswatini economy, Swaziland GDP, Eswatini trade, economic development, African economies',
+        canonical_url: '/economy',
+        og_image: 'eswatini-economy-social.jpg'
+    },
+    'politics.html': {
+        page_title: 'Eswatini Politics | Government, Monarchy & Political System',
+        page_description: 'Understanding Eswatini\'s political system, including the monarchy, government structure, and current political developments.',
+        page_keywords: 'Eswatini politics, Swaziland government, King Mswati III, Eswatini monarchy, African politics',
+        canonical_url: '/politics',
+        og_image: 'eswatini-politics-social.jpg'
+    },
+    'culture.html': {
+        page_title: 'Eswatini Culture | Traditions, Customs & Heritage',
+        page_description: 'Explore the rich cultural heritage of Eswatini, including traditional ceremonies, customs, art, and modern cultural expressions.',
+        page_keywords: 'Eswatini culture, Swazi traditions, cultural heritage, African customs, Umhlanga reed dance',
+        canonical_url: '/culture',
+        og_image: 'eswatini-culture-social.jpg'
+    },
+    'health.html': {
+        page_title: 'Healthcare in Eswatini | Health System & Medical Services',
+        page_description: 'Analysis of Eswatini\'s healthcare system, including public health initiatives, medical services, and health indicators.',
+        page_keywords: 'Eswatini healthcare, Swaziland health system, medical services, public health, African healthcare',
+        canonical_url: '/health',
+        og_image: 'eswatini-health-social.jpg'
+    },
+    'education.html': {
+        page_title: 'Education in Eswatini | Schools, Universities & Learning',
+        page_description: 'Overview of Eswatini\'s education system, including schools, universities, educational policies, and development.',
+        page_keywords: 'Eswatini education, Swaziland schools, universities, educational system, African education',
+        canonical_url: '/education',
+        og_image: 'eswatini-education-social.jpg'
+    }
+};
+
+// Read the base template
+const baseTemplate = fs.readFileSync(path.join(__dirname, '..', 'templates', 'base.html'), 'utf8');
+
+// Process each page
+Object.entries(pageConfigs).forEach(([filename, config]) => {
+    // Read the existing page content
+    const pagePath = path.join(__dirname, '..', filename);
+    const pageContent = fs.readFileSync(pagePath, 'utf8');
+    
+    // Extract the main content (everything between <body> and </body>)
+    const bodyMatch = pageContent.match(/<body[^>]*>([\s\S]*)<\/body>/i);
+    const mainContent = bodyMatch ? bodyMatch[1] : pageContent;
+    
+    // Extract any additional head content (scripts, styles, etc.)
+    const headMatch = pageContent.match(/<head[^>]*>([\s\S]*)<\/head>/i);
+    const additionalHead = headMatch ? 
+        headMatch[1].replace(/<meta[^>]*>/g, '')
+                   .replace(/<title[^>]*>.*?<\/title>/g, '')
+                   .replace(/<link[^>]*>/g, '')
+                   .trim() : '';
+    
+    // Extract any additional scripts at the end of the body
+    const scriptsMatch = mainContent.match(/<script[\s\S]*?<\/script>/g);
+    const additionalScripts = scriptsMatch ? scriptsMatch.join('\n') : '';
+    
+    // Replace template variables
+    let newPageContent = baseTemplate
+        .replace('{{page_title}}', config.page_title)
+        .replace('{{page_description}}', config.page_description)
+        .replace('{{page_keywords}}', config.page_keywords)
+        .replace(/{{canonical_url}}/g, config.canonical_url)
+        .replace(/{{og_image}}/g, config.og_image)
+        .replace('{{additional_head_content}}', additionalHead)
+        .replace('{{page_content}}', mainContent.replace(/<script[\s\S]*?<\/script>/g, ''))
+        .replace('{{additional_scripts}}', additionalScripts);
+    
+    // Write the new page content
+    fs.writeFileSync(pagePath, newPageContent);
+    console.log(`Updated ${filename} with template`);
+});
+
+console.log('Template implementation complete!');

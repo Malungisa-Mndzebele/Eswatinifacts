@@ -1,15 +1,13 @@
 {
-  "name": "eswatini-facts-deployment",
+  "name": "eswatini-facts",
   "version": "1.0.0",
-  "description": "Test FTP connection for Eswatini Facts website",
-  "main": "test-ftp.js",
+  "description": "Eswatini Facts Website",
   "scripts": {
-    "test-ftp": "node test-ftp.js",
-    "test-ftp-comprehensive": "node test-ftp-comprehensive.js",
-    "test-new-password": "node test-new-password.js",
-    "deploy": "node deploy-manual.js"
+    "optimize-images": "node image-optimization.js",
+    "apply-templates": "node website/scripts/template-manager.js",
+    "build": "npm run optimize-images && npm run apply-templates"
   },
   "dependencies": {
-    "basic-ftp": "^5.0.3"
+    "sharp": "^0.33.2"
   }
 }
