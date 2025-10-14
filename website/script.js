@@ -581,7 +581,7 @@ window.addEventListener('error', function(e) {
 // Enhanced UX Features
 function initializeEnhancedUX() {
     // Animated counter for statistics
-    animateCounters();
+    // animateCounters(); // Disabled - numbers no longer count up
     
     // Add loading states
     addLoadingStates();
