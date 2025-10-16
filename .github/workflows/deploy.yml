@@ -1,10 +1,12 @@
 name: Deploy to Eswatini Facts Website
+# Updated deployment configuration - fixed server directory path
 
 on:
   push:
     branches: [ main ]
     paths:
       - 'website/**'
+      - '.github/workflows/deploy.yml'
   workflow_dispatch:
 
 jobs:
