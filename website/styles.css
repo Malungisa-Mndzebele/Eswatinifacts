@@ -1227,12 +1227,18 @@ section {
         display: flex;
     }
     
+    .nav-brand {
+        flex-direction: row;
+        gap: var(--space-2);
+    }
+    
     .nav-brand h1 {
         font-size: var(--font-size-xl);
     }
     
     .nav-brand .tagline {
         font-size: var(--font-size-xs);
+        display: none; /* Hide tagline on mobile to save space */
     }
     
     /* Hero Section */
@@ -1506,8 +1512,9 @@ section {
 
 .nav-brand {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-4);
 }
 
 .nav-brand h1 {
@@ -1537,7 +1544,6 @@ section {
     margin: 0;
     font-style: italic;
     font-weight: var(--font-medium);
-    margin-top: -2px;
 }
 
 .nav-menu {
@@ -1616,16 +1622,41 @@ section {
 }
 
 /* ===============================================
+   Footer Separator
+   =============================================== */
+
+.footer-separator {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--color-gray-300) 20%, var(--color-gray-400) 50%, var(--color-gray-300) 80%, transparent 100%);
+    margin: var(--space-16) 0 var(--space-8);
+    position: relative;
+}
+
+.footer-separator::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary) 0%, #c0392b 100%);
+    border-radius: 2px;
+}
+
+/* ===============================================
    Footer
    =============================================== */
 
 .footer {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+    background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0f0f0f 100%);
     color: var(--bg-white);
     padding: var(--space-20) 0 var(--space-8);
-    margin-top: var(--space-20);
+    margin-top: var(--space-24);
     position: relative;
     overflow: hidden;
+    border-top: 3px solid var(--color-primary);
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .footer::before {
@@ -1634,8 +1665,9 @@ section {
     top: 0;
     left: 0;
     right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent 0%, var(--color-primary) 50%, transparent 100%);
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, var(--color-primary) 20%, #c0392b 50%, var(--color-primary) 80%, transparent 100%);
+    box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
 }
 
 .footer-content {
