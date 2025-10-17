@@ -20,7 +20,7 @@ jobs:
         node-version: '20'
 
     - name: Install dependencies
-      run: npm ci
+      run: npm ci || npm install
 
     - name: Build site (templates/images)
       run: npm run build
