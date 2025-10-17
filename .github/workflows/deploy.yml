@@ -4,9 +4,6 @@ name: Deploy to Eswatini Facts Website
 on:
   push:
     branches: [ main ]
-    paths:
-      - 'website/**'
-      - '.github/workflows/deploy.yml'
   workflow_dispatch:
 
 jobs:
@@ -26,7 +23,7 @@ jobs:
         port: 21
         protocol: ftp
         local-dir: ./website/
-        server-dir: /
+        server-dir: /info/
         dangerous-clean-slate: true
         exclude: |
           **/.git*
