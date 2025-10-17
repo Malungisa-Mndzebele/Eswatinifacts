@@ -51,6 +51,34 @@ const pageConfigs = {
         page_keywords: 'Eswatini education, Swaziland schools, universities, educational system, African education',
         canonical_url: '/education',
         og_image: 'eswatini-education-social.jpg'
+    },
+    'about.html': {
+        page_title: 'About Eswatini Facts | Mission & Approach',
+        page_description: 'Our mission is to make Eswatini\'s data accessible and understandable for everyone. Learn how we research, verify, and present facts.',
+        page_keywords: 'About Eswatini Facts, mission, methodology, research approach',
+        canonical_url: '/about',
+        og_image: 'eswatini-facts-about-social.jpg'
+    },
+    'contact.html': {
+        page_title: 'Contact Eswatini Facts | Questions & Feedback',
+        page_description: 'Get in touch with Eswatini Facts. Send us questions, feedback, corrections, or collaboration ideas.',
+        page_keywords: 'contact Eswatini Facts, feedback, questions, collaboration',
+        canonical_url: '/contact',
+        og_image: 'eswatini-facts-contact-social.jpg'
+    },
+    'join.html': {
+        page_title: 'Join Eswatini Facts | Volunteer & Contribute',
+        page_description: 'Volunteer, contribute research, or collaborate with us to improve data transparency and public understanding in Eswatini.',
+        page_keywords: 'volunteer Eswatini Facts, contribute, collaborate, research',
+        canonical_url: '/join',
+        og_image: 'eswatini-facts-join-social.jpg'
+    },
+    'data-sources.html': {
+        page_title: 'Data Sources | Eswatini Facts Research & Methodology',
+        page_description: 'See the original sources behind our data and how we compile and maintain accurate, up-to-date information for Eswatini.',
+        page_keywords: 'Eswatini data sources, methodology, research sources, references',
+        canonical_url: '/data-sources',
+        og_image: 'eswatini-facts-data-sources-social.jpg'
     }
 };
 
