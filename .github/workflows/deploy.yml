@@ -14,6 +14,17 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
         
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build site (templates/images)
+      run: npm run build
+
     - name: Deploy to FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
@@ -38,6 +49,8 @@ jobs:
           **/package.json
           **/package-lock.json
           **/deploy-local.js
+          **/templates/**
+          **/scripts/**
           
     - name: Verify deployment
       run: |
