@@ -23,7 +23,7 @@ jobs:
         port: 21
         protocol: ftp
         local-dir: ./website/
-        server-dir: /info/
+        server-dir: /
         dangerous-clean-slate: true
         exclude: |
           **/.git*
@@ -42,6 +42,6 @@ jobs:
     - name: Verify deployment
       run: |
         echo "Deployment completed successfully!"
-        echo "Website should be available at: https://eswatinifacts.org/"
+        echo "Website should be available at: https://eswatinifacts.org/info/"
         echo "Checking if website is accessible..."
         curl -I https://eswatinifacts.org/ || echo "Website may still be propagating"
