@@ -1673,6 +1673,11 @@ section {
 .header .nav-menu li { display: inline-flex; }
 .header .nav-menu a { display: inline-block; padding: 8px 10px; text-decoration: none; }
 
+/* Defensive header layout in case classes fail */
+#header-placeholder ul { display: flex !important; flex-wrap: wrap; gap: 12px; list-style: none; margin: 0; padding: 0; }
+#header-placeholder li { display: inline-flex; }
+#header-placeholder a { text-decoration: none; padding: 8px 10px; color: #374151; }
+
 .footer-bottom::before {
     content: '';
     position: absolute;
