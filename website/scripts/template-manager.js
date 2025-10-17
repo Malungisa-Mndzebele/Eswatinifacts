@@ -82,8 +82,10 @@ const pageConfigs = {
     }
 };
 
-// Read the base template
+// Read the base template and shared components
 const baseTemplate = fs.readFileSync(path.join(__dirname, '..', 'templates', 'base.html'), 'utf8');
+const headerTemplate = fs.readFileSync(path.join(__dirname, '..', 'components', 'header.html'), 'utf8');
+const footerTemplate = fs.readFileSync(path.join(__dirname, '..', 'components', 'footer.html'), 'utf8');
 
 // Process each page
 Object.entries(pageConfigs).forEach(([filename, config]) => {
@@ -93,29 +95,47 @@ Object.entries(pageConfigs).forEach(([filename, config]) => {
     
     // Extract the main content (everything between <body> and </body>)
     const bodyMatch = pageContent.match(/<body[^>]*>([\s\S]*)<\/body>/i);
-    const mainContent = bodyMatch ? bodyMatch[1] : pageContent;
+    let mainContent = bodyMatch ? bodyMatch[1] : pageContent;
+
+    // Strip any existing header/footer placeholders or duplicated components from page content
+    mainContent = mainContent
+        // remove header/footer placeholders (header/footer tags or divs)
+        .replace(/<header[^>]*id=["']header-placeholder["'][\s\S]*?<\/header>/gi, '')
+        .replace(/<footer[^>]*id=["']footer-placeholder["'][\s\S]*?<\/footer>/gi, '')
+        .replace(/<div[^>]*id=["']header-placeholder["'][^>]*><\/div>/gi, '')
+        .replace(/<div[^>]*id=["']footer-placeholder["'][^>]*><\/div>/gi, '')
+        // remove any stray HTML comments around placeholders
+        .replace(/<!--\s*Header Component\s*-->/gi, '')
+        .replace(/<!--\s*Footer Component\s*-->/gi, '')
+        .trim();
     
     // Extract any additional head content (scripts, styles, etc.)
     const headMatch = pageContent.match(/<head[^>]*>([\s\S]*)<\/head>/i);
-    const additionalHead = headMatch ? 
+    let additionalHead = headMatch ? 
         headMatch[1].replace(/<meta[^>]*>/g, '')
                    .replace(/<title[^>]*>.*?<\/title>/g, '')
                    .replace(/<link[^>]*>/g, '')
                    .trim() : '';
+    // Remove client component loader if present (we SSR header/footer now)
+    additionalHead = additionalHead.replace(/<script[^>]*components\/component-loader\.js[^>]*><\/script>/gi, '');
     
     // Extract any additional scripts at the end of the body
     const scriptsMatch = mainContent.match(/<script[\s\S]*?<\/script>/g);
     const additionalScripts = scriptsMatch ? scriptsMatch.join('\n') : '';
     
     // Replace template variables
+    const buildId = Date.now().toString();
     let newPageContent = baseTemplate
         .replace('{{page_title}}', config.page_title)
         .replace('{{page_description}}', config.page_description)
         .replace('{{page_keywords}}', config.page_keywords)
         .replace(/{{canonical_url}}/g, config.canonical_url)
         .replace(/{{og_image}}/g, config.og_image)
+        .replace(/{{build_id}}/g, buildId)
         .replace('{{additional_head_content}}', additionalHead)
         .replace('{{page_content}}', mainContent.replace(/<script[\s\S]*?<\/script>/g, ''))
+        .replace('{{header}}', headerTemplate)
+        .replace('{{footer}}', footerTemplate)
         .replace('{{additional_scripts}}', additionalScripts);
     
     // Write the new page content

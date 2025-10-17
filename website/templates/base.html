@@ -30,11 +30,10 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     
     <!-- Styles -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v={{build_id}}">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Scripts -->
-    <script src="components/component-loader.js"></script>
     
     <!-- Schema.org Markup -->
     <script type="application/ld+json">
@@ -114,15 +113,15 @@
 </head>
 <body>
     <!-- Header Component -->
-    <header id="header-placeholder" role="banner"></header>
+    {{header}}
 
     {{page_content}}
 
     <!-- Footer Component -->
-    <footer id="footer-placeholder" role="contentinfo"></footer>
+    {{footer}}
 
     <!-- Scripts -->
-    <script src="script.js" async></script>
+    <script src="script.js?v={{build_id}}" async></script>
     {{additional_scripts}}
 </body>
 </html>
