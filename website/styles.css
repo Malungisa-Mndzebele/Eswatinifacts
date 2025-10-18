@@ -9,8 +9,8 @@
     --color-primary: #1e3a8a;
     --color-primary-dark: #172554;
     --color-primary-light: #e0e7ff;
-    --color-accent: #e74c3c;
-    --color-accent-light: #ffebee;
+    --color-accent: #2563eb;
+    --color-accent-light: #e0e7ff;
     --color-blue: #2563eb;
     --color-blue-dark: #1d4ed8;
     --color-green: #2ecc71;
@@ -1608,7 +1608,7 @@ section {
     transform: translateX(-50%);
     width: 60px;
     height: 4px;
-    background: linear-gradient(90deg, var(--color-primary) 0%, #c0392b 100%);
+    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
     border-radius: 2px;
 }
 

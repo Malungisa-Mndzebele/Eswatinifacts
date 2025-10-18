@@ -46,8 +46,8 @@ function createGDPChart() {
             datasets: [{
                 label: 'Eswatini GDP Growth (%)',
                 data: [0.5, 3.2, 2.8, 4.8, 4.9],
-                borderColor: '#e74c3c',
-                backgroundColor: 'rgba(231, 76, 60, 0.1)',
+                borderColor: '#1e3a8a',
+                backgroundColor: 'rgba(30, 58, 138, 0.12)',
                 borderWidth: 3,
                 fill: true,
                 tension: 0.4
@@ -130,7 +130,7 @@ function createSectorChart() {
             datasets: [{
                 data: [53.5, 33.0, 8.1],
                 backgroundColor: [
-                    '#e74c3c',
+                    '#1e3a8a',
                     '#3498db',
                     '#2ecc71'
                 ],
@@ -176,8 +176,8 @@ function createHIVChart() {
             datasets: [{
                 label: 'HIV Prevalence (%)',
                 data: [27.2, 26.8, 26.4, 26.0, 25.6],
-                borderColor: '#e74c3c',
-                backgroundColor: 'rgba(231, 76, 60, 0.1)',
+                borderColor: '#1e3a8a',
+                backgroundColor: 'rgba(30, 58, 138, 0.12)',
                 borderWidth: 3,
                 fill: true,
                 tension: 0.4
@@ -249,7 +249,7 @@ function createHealthComparisonChart() {
                 label: 'Life Expectancy (years)',
                 data: [59.0, 64.2, 69.3, 63.4, 54.3],
                 backgroundColor: [
-                    '#e74c3c',
+                    '#1e3a8a',
                     '#3498db',
                     '#2ecc71',
                     '#f39c12',
@@ -319,7 +319,7 @@ function createEducationChart() {
                 backgroundColor: [
                     '#2ecc71',
                     '#3498db',
-                    '#e74c3c'
+                    '#1e3a8a'
                 ],
                 borderWidth: 1
             }]
@@ -835,11 +835,11 @@ function showFieldError(field, message) {
     const errorDiv = document.createElement('div');
     errorDiv.className = 'field-error';
     errorDiv.textContent = message;
-    errorDiv.style.color = '#e74c3c';
+    errorDiv.style.color = '#1e3a8a';
     errorDiv.style.fontSize = '0.875rem';
     errorDiv.style.marginTop = '0.25rem';
     
-    field.style.borderColor = '#e74c3c';
+    field.style.borderColor = '#1e3a8a';
     field.parentNode.appendChild(errorDiv);
 }
 
@@ -1109,7 +1109,7 @@ function initializeVideoSearch() {
         });
         
         searchInput.addEventListener('focus', function() {
-            this.style.borderColor = '#e74c3c';
+            this.style.borderColor = '#1e3a8a';
         });
         
         searchInput.addEventListener('blur', function() {
