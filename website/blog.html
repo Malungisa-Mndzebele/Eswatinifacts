@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Eswatini Facts</title>
+    <meta name="description" content="Insights and updates from Eswatini Facts: economy, health, education, politics, and culture.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="components/component-loader.js"></script>
+</head>
+<body>
+    <header id="header-placeholder" role="banner"></header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Blog</h1>
+            <p class="hero-subtitle">Data-driven insights and updates from Eswatini Facts</p>
+            <p class="hero-description">Short reads that explain the numbers behind Eswatini's biggest issues.</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="blog-layout">
+                <main class="blog-list" role="main">
+                    <article class="blog-card">
+                        <a class="blog-card-link" href="#">
+                            <h2 class="blog-title">What 4.9% GDP Growth Means for Households</h2>
+                            <p class="blog-excerpt">Growth headlines don’t always match lived experience. We unpack how GDP growth interacts with inflation, wages, and poverty.</p>
+                            <div class="blog-meta">
+                                <span>Economy</span>
+                                <span>•</span>
+                                <time datetime="2025-10-18">Oct 18, 2025</time>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="blog-card">
+                        <a class="blog-card-link" href="#">
+                            <h2 class="blog-title">Understanding HIV Trendlines Beyond a Single Number</h2>
+                            <p class="blog-excerpt">Prevalence vs. incidence, treatment coverage, and what progress looks like in context.</p>
+                            <div class="blog-meta">
+                                <span>Health</span>
+                                <span>•</span>
+                                <time datetime="2025-10-12">Oct 12, 2025</time>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="blog-card">
+                        <a class="blog-card-link" href="#">
+                            <h2 class="blog-title">School Enrollment Is High. Now What?</h2>
+                            <p class="blog-excerpt">Enrollment success is only the first step. We examine retention, outcomes, and teacher ratios.</p>
+                            <div class="blog-meta">
+                                <span>Education</span>
+                                <span>•</span>
+                                <time datetime="2025-10-05">Oct 5, 2025</time>
+                            </div>
+                        </a>
+                    </article>
+                </main>
+
+                <aside class="blog-sidebar" aria-label="Sidebar">
+                    <div class="sidebar-card">
+                        <h3>Topics</h3>
+                        <ul class="sidebar-links">
+                            <li><a href="economy.html">Economy</a></li>
+                            <li><a href="health.html">Health</a></li>
+                            <li><a href="education.html">Education</a></li>
+                            <li><a href="politics.html">Politics</a></li>
+                            <li><a href="culture.html">Culture</a></li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-card">
+                        <h3>Subscribe</h3>
+                        <form class="footer-subscribe" action="#" method="post">
+                            <label for="blog-subscribe" class="sr-only">Email address</label>
+                            <div class="subscribe-group">
+                                <input id="blog-subscribe" type="email" name="email" placeholder="Enter your email" required>
+                                <button type="submit" class="subscribe-btn">Subscribe</button>
+                            </div>
+                        </form>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <div class="footer-separator"></div>
+    <footer id="footer-placeholder" role="contentinfo"></footer>
+
+    <script src="script.js" async></script>
+    <style>
+    .blog-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; }
+    .blog-card { background: var(--bg-white); padding: 1.25rem; border-radius: var(--radius-xl); box-shadow: var(--shadow-md); border: 2px solid var(--border-light); transition: var(--transition-base); }
+    .blog-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-xl); border-color: var(--color-primary-light); }
+    .blog-card-link { color: inherit; text-decoration: none; display: block; }
+    .blog-title { font-size: var(--font-size-2xl); margin-bottom: 0.5rem; }
+    .blog-excerpt { color: var(--color-gray-700); margin-bottom: 0.75rem; }
+    .blog-meta { color: var(--color-gray-600); font-size: var(--font-size-sm); display: flex; gap: 0.5rem; }
+    .blog-sidebar { display: flex; flex-direction: column; gap: 1rem; }
+    .sidebar-card { background: var(--bg-white); padding: 1rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); border: 2px solid var(--border-light); }
+    .sidebar-links { list-style: none; padding: 0; margin: 0; }
+    .sidebar-links li { margin: 0.25rem 0; }
+    .sidebar-links a { color: var(--color-primary); text-decoration: none; }
+    .sidebar-links a:hover { text-decoration: underline; }
+    @media (max-width: 900px) { .blog-layout { grid-template-columns: 1fr; } }
+    </style>
+</body>
+</html>
+

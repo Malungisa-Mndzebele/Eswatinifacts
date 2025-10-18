@@ -43,6 +43,12 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://eswatinifacts.com/blog.html</loc>
+        <lastmod>2025-10-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://eswatinifacts.com/about.html</loc>
         <lastmod>2024-03-24</lastmod>
         <changefreq>monthly</changefreq>
