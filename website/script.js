@@ -1,20 +1,12 @@
 // Eswatini Facts - Interactive Data Visualization
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all charts
-    initializeCharts();
-    
-    // Initialize navigation
-    initializeNavigation();
-    
-    // Initialize smooth scrolling
-    initializeSmoothScrolling();
-    
-    // Initialize responsive features
-    initializeResponsiveFeatures();
-    
-    // Initialize enhanced UX features
-    initializeEnhancedUX();
-});
+const THEME = {
+    primary: '#1e3a8a',
+    blue: '#2563eb',
+    green: '#2ecc71',
+    orange: '#f39c12',
+    purple: '#9b59b6',
+    grayBorder: '#e1e8ed'
+};
 
 // Chart Initialization
 function initializeCharts() {
@@ -46,7 +38,7 @@ function createGDPChart() {
             datasets: [{
                 label: 'Eswatini GDP Growth (%)',
                 data: [0.5, 3.2, 2.8, 4.8, 4.9],
-                borderColor: '#1e3a8a',
+                borderColor: THEME.primary,
                 backgroundColor: 'rgba(30, 58, 138, 0.12)',
                 borderWidth: 3,
                 fill: true,
@@ -54,8 +46,8 @@ function createGDPChart() {
             }, {
                 label: 'Regional Average (%)',
                 data: [1.2, 2.8, 3.1, 3.8, 3.9],
-                borderColor: '#3498db',
-                backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                borderColor: THEME.blue,
+                backgroundColor: 'rgba(37, 99, 235, 0.12)',
                 borderWidth: 3,
                 fill: true,
                 tension: 0.4
@@ -129,11 +121,7 @@ function createSectorChart() {
             labels: ['Services', 'Industry', 'Agriculture'],
             datasets: [{
                 data: [53.5, 33.0, 8.1],
-                backgroundColor: [
-                    '#1e3a8a',
-                    '#3498db',
-                    '#2ecc71'
-                ],
+                backgroundColor: [THEME.primary, THEME.blue, THEME.green],
                 borderWidth: 2,
                 borderColor: '#fff'
             }]
@@ -176,7 +164,7 @@ function createHIVChart() {
             datasets: [{
                 label: 'HIV Prevalence (%)',
                 data: [27.2, 26.8, 26.4, 26.0, 25.6],
-                borderColor: '#1e3a8a',
+                borderColor: THEME.primary,
                 backgroundColor: 'rgba(30, 58, 138, 0.12)',
                 borderWidth: 3,
                 fill: true,
@@ -248,13 +236,7 @@ function createHealthComparisonChart() {
             datasets: [{
                 label: 'Life Expectancy (years)',
                 data: [59.0, 64.2, 69.3, 63.4, 54.3],
-                backgroundColor: [
-                    '#1e3a8a',
-                    '#3498db',
-                    '#2ecc71',
-                    '#f39c12',
-                    '#9b59b6'
-                ],
+                backgroundColor: [THEME.primary, THEME.blue, THEME.green, THEME.orange, THEME.purple],
                 borderWidth: 1
             }]
         },
@@ -316,11 +298,7 @@ function createEducationChart() {
             datasets: [{
                 label: 'Enrollment Rate (%)',
                 data: [99.7, 72.4, 15.6],
-                backgroundColor: [
-                    '#2ecc71',
-                    '#3498db',
-                    '#1e3a8a'
-                ],
+                backgroundColor: [THEME.green, THEME.blue, THEME.primary],
                 borderWidth: 1
             }]
         },
@@ -566,11 +544,27 @@ function optimizePerformance() {
 }
 
 // Initialize all features
-document.addEventListener('DOMContentLoaded', function() {
+function initializeCore() {
+    // Charts
+    initializeCharts();
+    // UI/UX
+    initializeNavigation();
+    initializeSmoothScrolling();
+    initializeResponsiveFeatures();
+    initializeEnhancedUX();
+    // Utilities
     initializeSearch();
     initializeAccessibility();
     optimizePerformance();
-});
+    // Page specific
+    initializeContactForm();
+    initializeJoinForm();
+    initializeVideoPage();
+    initializeVideoSearch();
+    trackVideoEngagement();
+}
+
+document.addEventListener('DOMContentLoaded', initializeCore);
 
 // Error Handling
 window.addEventListener('error', function(e) {
