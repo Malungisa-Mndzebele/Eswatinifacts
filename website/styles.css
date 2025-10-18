@@ -1988,7 +1988,7 @@ section {
     box-shadow: var(--shadow-md);
     margin: var(--space-8) 0;
     position: relative;
-    min-height: 400px;
+    min-height: 0;
 }
 
 .chart-container h3 {
@@ -1998,11 +1998,8 @@ section {
     text-align: center;
 }
 
-.chart-wrapper {
-    position: relative;
-    height: 350px;
-    width: 100%;
-}
+.chart-wrapper { position: relative; height: clamp(240px, 45vh, 520px); width: 100%; }
+.chart-container canvas { width: 100% !important; height: clamp(220px, 40vh, 500px) !important; display: block; }
 
 /* ===============================================
    Statistics Grid
