@@ -1,10 +1,17 @@
 <!-- Footer Component -->
-<footer class="footer">
+<footer class="footer" role="contentinfo">
     <div class="container">
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Eswatini Facts</h3>
-                <p>Making data accessible for informed decision-making.</p>
+                <p>Answers straight from the source. The data we deserve.</p>
+                <form class="footer-subscribe" action="#" method="post" aria-label="Subscribe to newsletter">
+                    <label for="subscribe-email" class="sr-only">Email address</label>
+                    <div class="subscribe-group">
+                        <input id="subscribe-email" type="email" name="email" placeholder="Enter your email" required>
+                        <button type="submit" class="subscribe-btn">Subscribe</button>
+                    </div>
+                </form>
             </div>
             <div class="footer-section">
                 <h4>Browse</h4>
@@ -17,13 +24,22 @@
                 </ul>
             </div>
             <div class="footer-section">
-                <h4>Resources</h4>
+                <h4>More</h4>
                 <ul>
-                    <li><a href="data-sources.html">Data Sources</a></li>
+                    <li><a href="data-sources.html">Data sources</a></li>
+                    <li><a href="videos.html">Videos</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="join.html">Join Us</a></li>
-                    <li><a href="videos.html">Videos</a></li>
+                    <li><a href="join.html">Join us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow</h4>
+                <ul>
+                    <li><a href="#">YouTube</a></li>
+                    <li><a href="#">Twitter/X</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">LinkedIn</a></li>
                 </ul>
             </div>
         </div>
@@ -31,5 +47,15 @@
             <p>&copy; 2025 Eswatini Facts. All rights reserved.</p>
         </div>
     </div>
+    
+    <style>
+    .footer-subscribe { margin-top: 12px; }
+    .subscribe-group { display: flex; gap: 8px; }
+    .subscribe-group input { flex: 1; padding: 10px 12px; border-radius: 8px; border: 2px solid #1e293b; background: #0f172a; color: #ffffff; }
+    .subscribe-group input::placeholder { color: #94a3b8; }
+    .subscribe-btn { background: var(--color-primary); color: #ffffff; border: none; padding: 10px 14px; border-radius: 8px; font-weight: 600; }
+    .subscribe-btn:hover { background: var(--color-blue-dark); }
+    @media (max-width: 768px) { .subscribe-group { flex-direction: column; } }
+    </style>
 </footer>
 

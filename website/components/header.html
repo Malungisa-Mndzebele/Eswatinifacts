@@ -1,28 +1,29 @@
 <!-- Header Component -->
-<header class="header">
-    <nav class="nav">
+<header class="header" role="banner">
+    <nav class="nav" aria-label="Primary">
         <div class="nav-brand">
-            <a href="index.html" class="brand">Eswatini Facts</a>
+            <a href="index.html" class="brand" aria-label="Eswatini Facts Home">Eswatini Facts</a>
         </div>
-        <button class="nav-toggle" aria-label="Toggle navigation">
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-menu">
             <span></span>
             <span></span>
             <span></span>
         </button>
-        <ul class="nav-menu" role="menubar">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="economy.html">Economy</a></li>
-            <li><a href="health.html">Health</a></li>
-            <li><a href="education.html">Education</a></li>
-            <li><a href="politics.html">Politics</a></li>
-            <li><a href="culture.html">Culture</a></li>
-            <li><a href="data-sources.html">Sources</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="join.html">Join Us</a></li>
-            <li><a href="videos.html">Videos</a></li>
+        <ul id="primary-menu" class="nav-menu" role="menubar">
+            <li role="none"><a role="menuitem" href="index.html">Home</a></li>
+            <li role="none"><a role="menuitem" href="economy.html">Economy</a></li>
+            <li role="none"><a role="menuitem" href="health.html">Health</a></li>
+            <li role="none"><a role="menuitem" href="education.html">Education</a></li>
+            <li role="none"><a role="menuitem" href="politics.html">Politics</a></li>
+            <li role="none"><a role="menuitem" href="culture.html">Culture</a></li>
+            <li role="none"><a role="menuitem" href="data-sources.html">Sources</a></li>
+            <li role="none"><a role="menuitem" href="videos.html">Videos</a></li>
+            <li role="none"><a role="menuitem" href="about.html">About</a></li>
+            <li role="none"><a role="menuitem" href="contact.html">Contact</a></li>
         </ul>
+        <div class="nav-actions">
+            <a href="join.html" class="subscribe-cta" aria-label="Subscribe to updates">Subscribe</a>
+        </div>
     </nav>
-    
 </header>
 

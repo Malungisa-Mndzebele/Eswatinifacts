@@ -6,13 +6,13 @@
 /* CSS Variables */
 :root {
     /* Colors */
-    --color-primary: #e74c3c;
-    --color-primary-dark: #c0392b;
-    --color-primary-light: #ffebee;
+    --color-primary: #1e3a8a;
+    --color-primary-dark: #172554;
+    --color-primary-light: #e0e7ff;
     --color-accent: #e74c3c;
     --color-accent-light: #ffebee;
-    --color-blue: #3498db;
-    --color-blue-dark: #2980b9;
+    --color-blue: #2563eb;
+    --color-blue-dark: #1d4ed8;
     --color-green: #2ecc71;
     --color-orange: #f39c12;
     --color-purple: #9b59b6;
@@ -1454,6 +1454,7 @@ section {
         text-align: center;
         padding: 0 var(--space-4);
     }
+    .footer-subscribe .subscribe-group { flex-direction: column; }
     
     .footer-section h3 {
         font-size: var(--font-size-2xl);
@@ -1554,9 +1555,9 @@ section {
     text-decoration: none;
 }
 
-.nav-menu a:hover { background: #f3f4f6; color: #111827; }
+.nav-menu a:hover { background: #eef2ff; color: #111827; }
 
-.nav-menu a.active { background: #e5e7eb; color: #111827; }
+.nav-menu a.active { background: #e0e7ff; color: #111827; }
 
 .nav-toggle { display: none; flex-direction: column; background: none; border: none; cursor: pointer; padding: 6px; gap: 4px; border-radius: 6px; }
 
@@ -1577,6 +1578,11 @@ section {
     transform: rotate(-45deg) translate(6px, -6px);
     background: var(--color-primary);
 }
+
+/* Header actions */
+.nav-actions { display: flex; align-items: center; gap: 12px; margin-left: 12px; }
+.subscribe-cta { background: var(--color-primary); color: #ffffff; padding: 8px 14px; border-radius: 9999px; font-weight: 600; font-size: 0.875rem; text-decoration: none; box-shadow: var(--shadow-sm); }
+.subscribe-cta:hover { background: var(--color-blue-dark); color: #ffffff; box-shadow: var(--shadow-md); transform: translateY(-1px); }
 
 /* ===============================================
    Footer Separator
@@ -1625,7 +1631,7 @@ section {
 
 .footer-content {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
     gap: var(--space-10);
     margin-bottom: var(--space-10);
     max-width: 1200px;
