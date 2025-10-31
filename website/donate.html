@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <title>Donate to Eswatini Facts | Support Data Transparency | Eswatini Facts</title>
+    <meta name="description" content="Support Eswatini Facts in making government and development data accessible to everyone. Your donation helps us maintain and expand our data resources.">
+    <meta name="keywords" content="donate Eswatini Facts, support data transparency, Eswatini data donation, Swaziland data support">
+    <meta name="author" content="Eswatini Facts">
+    <link rel="canonical" href="https://eswatinifacts.com/donate">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Donate to Eswatini Facts | Support Data Transparency | Eswatini Facts">
+    <meta property="og:description" content="Support Eswatini Facts in making government and development data accessible to everyone. Your donation helps us maintain and expand our data resources.">
+    <meta property="og:image" content="https://eswatinifacts.com/images/eswatini-facts-donate-social.jpg">
+    <meta property="og:url" content="https://eswatinifacts.com/donate">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Eswatini Facts">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Donate to Eswatini Facts | Support Data Transparency | Eswatini Facts">
+    <meta name="twitter:description" content="Support Eswatini Facts in making government and development data accessible to everyone. Your donation helps us maintain and expand our data resources.">
+    <meta name="twitter:image" content="https://eswatinifacts.com/images/eswatini-facts-donate-social.jpg">
+    
+    <!-- Performance: Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Scripts -->
+    <script src="components/component-loader.js" defer></script>
+</head>
+<body>
+    <!-- Header Component -->
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Support Our Mission</h1>
+            <p class="hero-subtitle">Help us keep Eswatini's data accessible</p>
+            <p class="hero-description">Your donation helps us maintain accurate, up-to-date data and expand our resources for data transparency in Eswatini.</p>
+        </div>
+    </section>
+
+    <!-- Why Donate Section -->
+    <section class="why-join-section">
+        <div class="container">
+            <h2>Why Your Support Matters</h2>
+            <p class="section-subtitle">Every contribution helps us make a difference</p>
+            
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <div class="reason-icon">💻</div>
+                    <h3>Maintain Our Platform</h3>
+                    <p>Your donation helps us keep our website running, secure, and accessible to everyone in Eswatini.</p>
+                </div>
+                
+                <div class="reason-card">
+                    <div class="reason-icon">📊</div>
+                    <h3>Expand Data Coverage</h3>
+                    <p>Support enables us to gather more data, verify sources, and provide deeper insights into Eswatini's development.</p>
+                </div>
+                
+                <div class="reason-card">
+                    <div class="reason-icon">🔄</div>
+                    <h3>Regular Updates</h3>
+                    <p>Your contribution helps us update data quarterly and keep information current and relevant.</p>
+                </div>
+                
+                <div class="reason-card">
+                    <div class="reason-icon">🌍</div>
+                    <h3>Increase Impact</h3>
+                    <p>With more resources, we can reach more citizens, policymakers, and researchers with accurate data.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-content" style="max-width: 900px; margin: 0 auto;">
+                <!-- Donation Form -->
+                <div class="contact-form-container" style="width: 100%;">
+                    <h2>Make a Donation</h2>
+                    <p class="section-subtitle">Choose an amount or enter a custom amount</p>
+                    
+                    <form class="contact-form" id="donateForm">
+                        <!-- Donation Amount -->
+                        <div class="form-group">
+                            <label>Donation Amount *</label>
+                            <div class="donation-amounts">
+                                <button type="button" class="amount-btn" data-amount="10">$10</button>
+                                <button type="button" class="amount-btn" data-amount="25">$25</button>
+                                <button type="button" class="amount-btn" data-amount="50">$50</button>
+                                <button type="button" class="amount-btn" data-amount="100">$100</button>
+                                <button type="button" class="amount-btn" data-amount="250">$250</button>
+                                <button type="button" class="amount-btn" data-amount="custom">Custom</button>
+                            </div>
+                            <input type="number" id="donationAmount" name="amount" min="1" step="0.01" placeholder="Enter amount" required class="hidden">
+                        </div>
+                        
+                        <!-- Donor Information -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="donorName">Full Name *</label>
+                                <input type="text" id="donorName" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="donorEmail">Email Address *</label>
+                                <input type="email" id="donorEmail" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="donorMessage">Message (Optional)</label>
+                            <textarea id="donorMessage" name="message" rows="4" placeholder="Add a personal message or dedication..."></textarea>
+                        </div>
+                        
+                        <!-- Payment Method -->
+                        <div class="form-group">
+                            <label>Payment Method *</label>
+                            <div class="payment-methods">
+                                <label class="payment-option">
+                                    <input type="radio" name="paymentMethod" value="paypal" required>
+                                    <span>PayPal</span>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="paymentMethod" value="bank" required>
+                                    <span>Bank Transfer</span>
+                                </label>
+                                <label class="payment-option">
+                                    <input type="radio" name="paymentMethod" value="mobile" required>
+                                    <span>Mobile Money</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Anonymity Option -->
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="anonymous" name="anonymous">
+                                <span class="checkmark"></span>
+                                Make this donation anonymous
+                            </label>
+                        </div>
+                        
+                        <!-- Receipt Option -->
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="receipt" name="receipt">
+                                <span class="checkmark"></span>
+                                Send me a receipt for tax purposes
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <span class="btn-text">Continue to Payment</span>
+                            <span class="btn-loading" style="display: none;">
+                                <div class="spinner"></div>
+                                Processing...
+                            </span>
+                        </button>
+                    </form>
+                    
+                    <div class="form-success" id="formSuccess" style="display: none;">
+                        <div class="success-icon">✓</div>
+                        <h3>Thank You!</h3>
+                        <p id="successMessage">Your donation helps us continue our mission.</p>
+                    </div>
+                </div>
+                
+                <!-- Donation Info -->
+                <div class="contact-info full-width">
+                    <h2>How Your Donation Helps</h2>
+                    <p class="section-subtitle">See the impact of your contribution</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">💰</div>
+                            <div class="contact-details">
+                                <h3>Where Donations Go</h3>
+                                <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                                    <li style="padding: 0.5rem 0; color: #4a5568;">• Website hosting and maintenance</li>
+                                    <li style="padding: 0.5rem 0; color: #4a5568;">• Data collection and verification</li>
+                                    <li style="padding: 0.5rem 0; color: #4a5568;">• Research and analysis tools</li>
+                                    <li style="padding: 0.5rem 0; color: #4a5568;">• Content updates and improvements</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-details">
+                                <h3>Bank Transfer Details</h3>
+                                <p style="margin-top: 0.5rem;"><strong>Account Name:</strong> Eswatini Facts</p>
+                                <p><strong>Account Number:</strong> [Your account number]</p>
+                                <p><strong>Bank:</strong> [Your bank name]</p>
+                                <p><strong>Swift Code:</strong> [Your SWIFT code]</p>
+                                <small style="display: block; margin-top: 0.5rem; color: #718096;">Please include "Donation - Eswatini Facts" in the reference</small>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">📱</div>
+                            <div class="contact-details">
+                                <h3>Mobile Money</h3>
+                                <p style="margin-top: 0.5rem;"><strong>Provider:</strong> MTN Mobile Money / Eswatini Mobile</p>
+                                <p><strong>Number:</strong> [Your mobile money number]</p>
+                                <p><strong>Reference:</strong> Donation - Your Name</p>
+                                <small style="display: block; margin-top: 0.5rem; color: #718096;">Send the amount and include your name in the reference</small>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">🔒</div>
+                            <div class="contact-details">
+                                <h3>Your Privacy</h3>
+                                <p style="margin-top: 0.5rem;">All donations are secure and private. We respect your choice for anonymous donations and will never share your information without consent.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="response-time" style="margin-top: 2rem;">
+                        <h3>Questions About Donations?</h3>
+                        <p style="margin-top: 0.5rem; color: #4a5568;">Contact us at <a href="mailto:info@eswatinifacts.com" style="color: #1e3a8a;">info@eswatinifacts.com</a> with any questions about donations or to set up recurring contributions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="featured-topics" style="background: var(--bg-white);">
+        <div class="container">
+            <h2>Impact of Your Support</h2>
+            <p class="section-subtitle">See how donations help us serve Eswatini better</p>
+            
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <h4>📊 Data Coverage</h4>
+                    <p>With your support, we maintain 70+ data sources covering 6 key research areas with over 1,000 data points, all freely accessible to the public.</p>
+                </div>
+                
+                <div class="insight-card">
+                    <h4>🔄 Regular Updates</h4>
+                    <p>Donations enable quarterly data updates, ensuring our information remains current and relevant for citizens, researchers, and policymakers.</p>
+                </div>
+                
+                <div class="insight-card">
+                    <h4>🌍 Public Access</h4>
+                    <p>All our data remains free and accessible to everyone. Your donation helps us keep it that way without paywalls or restrictions.</p>
+                </div>
+                
+                <div class="insight-card">
+                    <h4>💡 Innovation</h4>
+                    <p>Support helps us develop new tools, visualizations, and resources to make data even more accessible and understandable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Separator -->
+    <div class="footer-separator"></div>
+
+    <!-- Footer Component -->
+    <div id="footer-placeholder"></div>
+
+    <script src="script.js"></script>
+    <script>
+        // Donate page specific functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const donateForm = document.getElementById('donateForm');
+            const amountButtons = document.querySelectorAll('.amount-btn');
+            const amountInput = document.getElementById('donationAmount');
+            const paymentOptions = document.querySelectorAll('.payment-option');
+            
+            // Amount button selection
+            amountButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    amountButtons.forEach(b => {
+                        b.classList.remove('selected');
+                    });
+                    
+                    if (this.dataset.amount === 'custom') {
+                        amountInput.classList.remove('hidden');
+                        amountInput.required = true;
+                        amountInput.value = '';
+                        amountInput.focus();
+                    } else {
+                        amountInput.classList.add('hidden');
+                        amountInput.required = false;
+                        amountInput.value = this.dataset.amount;
+                        this.classList.add('selected');
+                    }
+                });
+            });
+            
+            // Payment method selection
+            paymentOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    paymentOptions.forEach(opt => {
+                        opt.style.borderColor = '#e2e8f0';
+                        opt.style.background = '';
+                    });
+                    this.style.borderColor = 'var(--color-primary)';
+                    this.style.background = 'var(--color-primary-light)';
+                });
+            });
+            
+            // Form submission
+            if (donateForm) {
+                donateForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const submitBtn = this.querySelector('.submit-btn');
+                    const btnText = submitBtn.querySelector('.btn-text');
+                    const btnLoading = submitBtn.querySelector('.btn-loading');
+                    const formSuccess = document.getElementById('formSuccess');
+                    const successMessage = document.getElementById('successMessage');
+                    
+                    // Get form data
+                    const formData = new FormData(this);
+                    const data = Object.fromEntries(formData);
+                    const amount = parseFloat(data.amount || 0);
+                    const paymentMethod = data.paymentMethod;
+                    
+                    // Validate amount
+                    if (!amount || amount < 1) {
+                        alert('Please enter a valid donation amount.');
+                        return;
+                    }
+                    
+                    // Show loading
+                    btnText.style.display = 'none';
+                    btnLoading.style.display = 'flex';
+                    submitBtn.disabled = true;
+                    
+                    // Process donation based on payment method
+                    setTimeout(() => {
+                        // Hide form and show success
+                        donateForm.style.display = 'none';
+                        formSuccess.style.display = 'block';
+                        
+                        // Update success message
+                        if (paymentMethod === 'paypal') {
+                            successMessage.innerHTML = `Thank you for your donation of $${amount.toFixed(2)}! You will be redirected to PayPal to complete your payment.`;
+                            // In production, redirect to PayPal
+                            // window.location.href = '[PayPal donation link]';
+                        } else if (paymentMethod === 'bank') {
+                            successMessage.innerHTML = `Thank you for your donation of $${amount.toFixed(2)}! Please complete your bank transfer using the details shown below. We'll confirm receipt once the transfer is processed.`;
+                        } else if (paymentMethod === 'mobile') {
+                            successMessage.innerHTML = `Thank you for your donation of $${amount.toFixed(2)}! Please complete your mobile money payment using the details shown below. We'll confirm receipt once payment is received.`;
+                        }
+                        
+                        // Reset form state
+                        btnText.style.display = 'block';
+                        btnLoading.style.display = 'none';
+                        submitBtn.disabled = false;
+                        
+                        // Scroll to success
+                        formSuccess.scrollIntoView({ behavior: 'smooth' });
+                        
+                        // Log donation (logger available from script.js)
+                        if (typeof logger !== 'undefined') {
+                            logger.log('Donation form submitted:', { amount, paymentMethod, anonymous: data.anonymous || false });
+                        }
+                    }, 1500);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+

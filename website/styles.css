@@ -1586,8 +1586,88 @@ section {
 
 /* Header actions */
 .nav-actions { display: flex; align-items: center; gap: 12px; margin-left: 12px; }
-.subscribe-cta { background: var(--color-primary); color: #ffffff; padding: 8px 14px; border-radius: 9999px; font-weight: 600; font-size: 0.875rem; text-decoration: none; box-shadow: var(--shadow-sm); }
-.subscribe-cta:hover { background: var(--color-blue-dark); color: #ffffff; box-shadow: var(--shadow-md); transform: translateY(-1px); }
+.subscribe-cta, .donate-cta { background: var(--color-primary); color: #ffffff; padding: 8px 14px; border-radius: 9999px; font-weight: 600; font-size: 0.875rem; text-decoration: none; box-shadow: var(--shadow-sm); transition: var(--transition-base); }
+.subscribe-cta:hover, .donate-cta:hover { background: var(--color-blue-dark); color: #ffffff; box-shadow: var(--shadow-md); transform: translateY(-1px); }
+
+/* Donation page specific styles */
+.amount-btn {
+    padding: var(--space-4) var(--space-6);
+    border: 2px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    background: var(--bg-white);
+    color: var(--color-gray-700);
+    font-weight: var(--font-semibold);
+    font-size: var(--font-size-lg);
+    cursor: pointer;
+    transition: var(--transition-base);
+}
+
+.amount-btn:hover {
+    border-color: var(--color-primary);
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+}
+
+.amount-btn.selected {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+.payment-option:hover {
+    border-color: var(--color-primary);
+    background: var(--bg-light);
+}
+
+.payment-option input[type="radio"]:checked + span {
+    font-weight: var(--font-semibold);
+    color: var(--color-primary);
+}
+
+/* Donation amounts grid */
+.donation-amounts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Payment methods grid */
+.payment-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Payment option styling */
+.payment-option {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border: 2px solid var(--border-light);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: var(--transition-base);
+}
+
+.payment-option input[type="radio"] {
+    margin-right: 0.5rem;
+}
+
+/* Donation amount input */
+#donationAmount {
+    margin-top: 1rem;
+}
+
+#donationAmount.hidden {
+    display: none;
+}
+
+/* Contact info full width on donate page */
+.contact-info.full-width {
+    width: 100%;
+}
 
 /* ===============================================
    Footer Separator
