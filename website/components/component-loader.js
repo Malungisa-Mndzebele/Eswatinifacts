@@ -45,7 +45,7 @@ async function loadComponent(elementId, componentPath) {
         
         return true;
     } catch (error) {
-        console.error(`Error loading component "${elementId}" from "${componentPath}":`, error);
+        logger.error(`Error loading component "${elementId}" from "${componentPath}":`, error);
         
         // Show fallback content for critical components
         const element = document.getElementById(elementId);
