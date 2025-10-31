@@ -1,4 +1,18 @@
 // Eswatini Facts - Interactive Data Visualization
+
+// Production mode detection
+const IS_DEVELOPMENT = window.location.hostname === 'localhost' || 
+                       window.location.hostname === '127.0.0.1' ||
+                       window.location.hostname.includes('dev');
+
+// Logger utility for production-safe logging
+const logger = {
+    log: (...args) => IS_DEVELOPMENT && console.log(...args),
+    warn: (...args) => IS_DEVELOPMENT && console.warn(...args),
+    error: (...args) => console.error(...args), // Always log errors
+    info: (...args) => IS_DEVELOPMENT && console.info(...args)
+};
+
 const THEME = {
     primary: '#1e3a8a',
     blue: '#2563eb',
@@ -12,7 +26,7 @@ const THEME = {
 function initializeCharts() {
     // Check if Chart.js is loaded
     if (typeof Chart === 'undefined') {
-        console.warn('Chart.js not loaded. Charts will not be initialized.');
+        logger.warn('Chart.js not loaded. Charts will not be initialized.');
         return;
     }
     
@@ -541,8 +555,8 @@ function initializeAccessibility() {
     // Ensure all images have alt text or aria-label
     const images = document.querySelectorAll('img:not([alt]):not([aria-label])');
     if (images.length > 0) {
-        console.warn(`${images.length} images missing alt text or aria-label`);
-        images.forEach((img, index) => {
+        logger.warn(`${images.length} images missing alt text or aria-label`);
+        images.forEach((img) => {
             // For decorative images, add empty alt
             if (img.closest('.decorative') || img.offsetWidth === 0) {
                 img.setAttribute('alt', '');
@@ -582,7 +596,7 @@ function optimizePerformance() {
                             img.removeAttribute('data-src');
                         };
                         newImg.onerror = function() {
-                            console.warn('Failed to load image:', dataSrc);
+                            logger.warn('Failed to load image:', dataSrc);
                             img.classList.add('error');
                             // Optionally set a placeholder
                             img.alt = img.alt || 'Image failed to load';
@@ -600,7 +614,7 @@ function optimizePerformance() {
         images.forEach(img => {
             // Ensure alt text exists for accessibility
             if (!img.alt && !img.getAttribute('aria-label')) {
-                console.warn('Image missing alt text:', img);
+                logger.warn('Image missing alt text:', img);
             }
             imageObserver.observe(img);
         });
@@ -610,7 +624,7 @@ function optimizePerformance() {
     const lazyImages = document.querySelectorAll('img[loading="lazy"]');
     lazyImages.forEach(img => {
         if (!img.alt && !img.getAttribute('aria-label')) {
-            console.warn('Lazy-loaded image missing alt text:', img);
+            logger.warn('Lazy-loaded image missing alt text:', img);
         }
     });
     
@@ -630,7 +644,7 @@ function optimizePerformance() {
 function initializeCore() {
     // Prevent duplicate initialization
     if (window.initializationComplete) {
-        console.warn('Initialization already completed, skipping duplicate initialization');
+        logger.warn('Initialization already completed, skipping duplicate initialization');
         return;
     }
     
@@ -666,7 +680,7 @@ if (document.readyState === 'loading') {
 
 // Error Handling
 window.addEventListener('error', function(e) {
-    console.error('JavaScript error:', e.error);
+    logger.error('JavaScript error:', e.error);
     // Could send error to analytics service
 });
 
@@ -1000,12 +1014,26 @@ function sendContactEmail(formData, recipientEmail, callback) {
     // Create forms at https://formspree.io/ and configure each to send to the respective email
     // 
     // Configuration: Set these in a config object that can be easily updated
-    // You can also use environment variables or a separate config file for production
+    // For production, you can:
+    // 1. Replace these with actual Formspree form IDs (format: 'https://formspree.io/f/xxxxx')
+    // 2. Use environment variables (if using a build process)
+    // 3. Create a separate config.js file (excluded from git)
+    // 
+    // Setup Instructions:
+    // 1. Go to https://formspree.io/
+    // 2. Create a free account
+    // 3. Create a form for each email address:
+    //    - Form 1: Configure to send to data@eswatinifacts.com
+    //    - Form 2: Configure to send to issues@eswatinifacts.com
+    //    - Form 3: Configure to send to media@eswatinifacts.com
+    //    - Form 4: Configure to send to info@eswatinifacts.com
+    // 4. Copy each form's endpoint URL (e.g., 'https://formspree.io/f/abc123')
+    // 5. Replace the placeholder values below
     const FORMPREE_ENDPOINTS = {
-        'data@eswatinifacts.com': 'YOUR_FORMSPREE_FORM_ID_DATA', // e.g., 'https://formspree.io/f/xxxxx'
-        'issues@eswatinifacts.com': 'YOUR_FORMSPREE_FORM_ID_ISSUES',
-        'media@eswatinifacts.com': 'YOUR_FORMSPREE_FORM_ID_MEDIA',
-        'info@eswatinifacts.com': 'YOUR_FORMSPREE_FORM_ID_INFO'
+        'data@eswatinifacts.com': 'YOUR_FORMSPREE_FORM_ID_DATA', // Replace with: 'https://formspree.io/f/xxxxx'
+        'issues@eswatinifacts.com': 'YOUR_FORMSPREE_FORM_ID_ISSUES', // Replace with: 'https://formspree.io/f/xxxxx'
+        'media@eswatinifacts.com': 'YOUR_FORMSPREE_FORM_ID_MEDIA', // Replace with: 'https://formspree.io/f/xxxxx'
+        'info@eswatinifacts.com': 'YOUR_FORMSPREE_FORM_ID_INFO' // Replace with: 'https://formspree.io/f/xxxxx'
     };
     
     // Check if configuration is set (not placeholder values)
@@ -1018,9 +1046,9 @@ function sendContactEmail(formData, recipientEmail, callback) {
     
     const formspreeId = FORMPREE_ENDPOINTS[recipientEmail] || FORMPREE_ENDPOINTS['info@eswatinifacts.com'];
     
-    // Log configuration status (remove in production if needed)
+    // Log configuration status
     if (!isConfigured(formspreeId)) {
-        console.warn('Formspree endpoints not configured. Using mailto fallback.');
+        logger.warn('Formspree endpoints not configured. Using mailto fallback.');
     }
     
     // Option 1: Using Formspree (recommended - simple setup, no backend needed)
@@ -1045,9 +1073,19 @@ function sendContactEmail(formData, recipientEmail, callback) {
 // Send email via EmailJS
 function sendViaEmailJS(formData, recipientEmail, callback) {
     // EmailJS configuration
-    // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual EmailJS service and template IDs
-    const SERVICE_ID = 'YOUR_SERVICE_ID'; // Update this with your EmailJS service ID
-    const TEMPLATE_ID = 'YOUR_TEMPLATE_ID'; // Update this with your EmailJS template ID
+    // IMPORTANT: Configure EmailJS before using this method
+    // 1. Sign up at https://www.emailjs.com/
+    // 2. Create an email service
+    // 3. Create an email template
+    // 4. Get your Public Key from EmailJS dashboard
+    // 5. Replace the values below:
+    //    - SERVICE_ID: Your EmailJS service ID (found in dashboard)
+    //    - TEMPLATE_ID: Your EmailJS template ID (found in dashboard)
+    //    - PUBLIC_KEY: Your EmailJS public key (found in dashboard)
+    // 6. Add EmailJS SDK to your HTML: <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    // 7. Initialize in your HTML: emailjs.init('YOUR_PUBLIC_KEY');
+    const SERVICE_ID = 'YOUR_SERVICE_ID'; // Replace with your EmailJS service ID
+    const TEMPLATE_ID = 'YOUR_TEMPLATE_ID'; // Replace with your EmailJS template ID
     
     // Prepare email template parameters
     const templateParams = {
@@ -1062,10 +1100,10 @@ function sendViaEmailJS(formData, recipientEmail, callback) {
     // Send email via EmailJS
     emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
         .then(function(response) {
-            console.log('Email sent successfully:', response.status, response.text);
+            logger.log('Email sent successfully:', response.status, response.text);
             callback(true);
         }, function(error) {
-            console.error('Email send failed:', error);
+            logger.error('Email send failed:', error);
             // Fallback to mailto if EmailJS fails
             sendViaMailto(formData, recipientEmail);
             callback(true); // Still show success to user as mailto was attempted
@@ -1100,7 +1138,7 @@ function sendViaFormspree(formData, recipientEmail, formspreeId, callback) {
     })
     .then(response => {
         if (response.ok) {
-            console.log('Email sent successfully via Formspree to', recipientEmail);
+            logger.log('Email sent successfully via Formspree to', recipientEmail);
             callback(true);
         } else {
             return response.json().then(err => {
@@ -1109,7 +1147,7 @@ function sendViaFormspree(formData, recipientEmail, formspreeId, callback) {
         }
     })
     .catch(error => {
-        console.error('Formspree send failed:', error);
+        logger.error('Formspree send failed:', error);
         // Fallback to mailto
         sendViaMailto(formData, recipientEmail);
         callback(true);
@@ -1276,7 +1314,7 @@ function initializeJoinForm() {
                 submitBtn.disabled = false;
                 
                 // Log form data (in production, send to server)
-                console.log('Join application submitted:', data);
+                logger.log('Join application submitted:', data);
                 
                 // Scroll to success message
                 formSuccess.scrollIntoView({ behavior: 'smooth' });
@@ -1427,7 +1465,7 @@ function initializeVideoPage() {
     if (subscribeBtn) {
         subscribeBtn.addEventListener('click', function() {
             // Track subscription click (you can add analytics here)
-            console.log('YouTube subscription clicked');
+            logger.log('YouTube subscription clicked');
         });
     }
 }
@@ -1491,7 +1529,7 @@ function trackVideoEngagement() {
         if (iframe) {
             // Track when video is clicked/played
             iframe.addEventListener('load', function() {
-                console.log('Video loaded:', iframe.title);
+                logger.log('Video loaded:', iframe.title);
                 // You can add analytics tracking here
             });
         }
@@ -1499,7 +1537,7 @@ function trackVideoEngagement() {
         // Track card clicks
         card.addEventListener('click', function() {
             const title = this.querySelector('h3').textContent;
-            console.log('Video card clicked:', title);
+            logger.log('Video card clicked:', title);
             // You can add analytics tracking here
         });
     });

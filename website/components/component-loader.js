@@ -4,12 +4,25 @@
  * Reduces code redundancy across all pages
  */
 
+// Production mode detection
+const IS_DEVELOPMENT = window.location.hostname === 'localhost' || 
+                       window.location.hostname === '127.0.0.1' ||
+                       window.location.hostname.includes('dev');
+
+// Logger utility for production-safe logging
+const logger = {
+    log: (...args) => IS_DEVELOPMENT && console.log(...args),
+    warn: (...args) => IS_DEVELOPMENT && console.warn(...args),
+    error: (...args) => console.error(...args), // Always log errors
+    info: (...args) => IS_DEVELOPMENT && console.info(...args)
+};
+
 // Load component from file
 async function loadComponent(elementId, componentPath) {
     try {
         const element = document.getElementById(elementId);
         if (!element) {
-            console.warn(`Element with id "${elementId}" not found`);
+            logger.warn(`Element with id "${elementId}" not found`);
             return false;
         }
         
@@ -61,9 +74,9 @@ document.addEventListener('DOMContentLoaded', async function() {
         results.forEach((result, index) => {
             const componentName = index === 0 ? 'Header' : 'Footer';
             if (result.status === 'fulfilled' && result.value) {
-                console.log(`${componentName} component loaded successfully`);
+                logger.log(`${componentName} component loaded successfully`);
             } else {
-                console.warn(`${componentName} component failed to load`);
+                logger.warn(`${componentName} component failed to load`);
             }
         });
         
@@ -76,7 +89,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             initializeNavToggle();
         }
     } catch (error) {
-        console.error('Fatal error initializing components:', error);
+        logger.error('Fatal error initializing components:', error);
     }
 });
 
