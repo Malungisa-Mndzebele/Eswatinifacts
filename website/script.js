@@ -979,20 +979,52 @@ function initializeContactForm() {
             const recipientEmail = EMAIL_ROUTING[subject] || 'info@eswatinifacts.com';
             
             // Send email using EmailJS or Formspree
-            sendContactEmail(data, recipientEmail, function(success) {
+            sendContactEmail(data, recipientEmail, function(success, method) {
                 if (success) {
+                    // Check if using mailto fallback
+                    const isMailtoFallback = method === 'mailto';
+                    
                     // Hide form and show success message
                     contactForm.style.display = 'none';
                     formSuccess.style.display = 'block';
                     
+                    // Update success message if using mailto
+                    if (isMailtoFallback) {
+                        const successP = formSuccess.querySelector('p');
+                        const noticeP = formSuccess.querySelector('#emailMethodNotice');
+                        const subjectLabel = getSubjectLabel(data.subject);
+                        
+                        if (successP) {
+                            successP.innerHTML = 'Your default email client should open with a pre-filled message to <strong>' + 
+                                                 recipientEmail + '</strong>. Please click "Send" in your email client to complete the submission.';
+                        }
+                        
+                        if (noticeP) {
+                            noticeP.style.display = 'block';
+                            noticeP.innerHTML = '<strong>Note:</strong> If your email client didn\'t open automatically, ' +
+                                                'please send your message directly to <a href="mailto:' + recipientEmail + 
+                                                '" style="color: #2563eb; font-weight: 600;">' + recipientEmail + '</a> ' +
+                                                'with the subject: "' + subjectLabel + '"';
+                        }
+                    } else {
+                        // Show recipient email in success message for other methods
+                        const successP = formSuccess.querySelector('p');
+                        if (successP) {
+                            successP.innerHTML = 'Thank you for contacting us. Your message has been sent to <strong>' + 
+                                                 recipientEmail + '</strong>. We\'ll get back to you as soon as possible.';
+                        }
+                    }
+                    
                     // Scroll to success message
                     formSuccess.scrollIntoView({ behavior: 'smooth' });
                     
-                    // Reset form
+                    // Reset form (but keep it hidden)
                     contactForm.reset();
                 } else {
-                    // Show error message
-                    alert('There was an error sending your message. Please try again or email us directly.');
+                    // Show error message with fallback option
+                    const errorMsg = 'There was an error sending your message. ' +
+                                   'Please try again or email us directly at: ' + recipientEmail;
+                    alert(errorMsg);
                 }
                 
                 // Reset form state
@@ -1054,20 +1086,21 @@ function sendContactEmail(formData, recipientEmail, callback) {
     // Option 1: Using Formspree (recommended - simple setup, no backend needed)
     // Check if Formspree is configured (has valid form ID)
     if (isConfigured(formspreeId)) {
-        sendViaFormspree(formData, recipientEmail, formspreeId, callback);
+        sendViaFormspree(formData, recipientEmail, formspreeId, (success) => callback(success, 'formspree'));
         return;
     }
     
     // Option 2: Using EmailJS (requires EmailJS account)
-    if (typeof emailjs !== 'undefined') {
-        sendViaEmailJS(formData, recipientEmail, callback);
+    if (typeof emailjs !== 'undefined' && typeof emailjs.send === 'function') {
+        sendViaEmailJS(formData, recipientEmail, (success) => callback(success, 'emailjs'));
         return;
     }
     
     // Option 3: Fallback - Use mailto (opens email client)
     // This always works but requires user's email client to be configured
+    // Note: This opens the user's default email client with pre-filled message
     sendViaMailto(formData, recipientEmail);
-    callback(true);
+    callback(true, 'mailto'); // Mark as success since mailto link was generated
 }
 
 // Send email via EmailJS
@@ -1098,15 +1131,23 @@ function sendViaEmailJS(formData, recipientEmail, callback) {
     };
     
     // Send email via EmailJS
+    // Check if EmailJS is properly configured
+    if (SERVICE_ID.startsWith('YOUR_') || TEMPLATE_ID.startsWith('YOUR_')) {
+        logger.warn('EmailJS not configured. Falling back to mailto.');
+        sendViaMailto(formData, recipientEmail);
+        callback(true, 'mailto');
+        return;
+    }
+    
     emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
         .then(function(response) {
             logger.log('Email sent successfully:', response.status, response.text);
-            callback(true);
+            callback(true, 'emailjs');
         }, function(error) {
             logger.error('Email send failed:', error);
             // Fallback to mailto if EmailJS fails
             sendViaMailto(formData, recipientEmail);
-            callback(true); // Still show success to user as mailto was attempted
+            callback(true, 'mailto'); // Still show success to user as mailto was attempted
         });
 }
 
@@ -1142,7 +1183,9 @@ function sendViaFormspree(formData, recipientEmail, formspreeId, callback) {
             callback(true);
         } else {
             return response.json().then(err => {
-                throw new Error(err.error || 'Formspree submission failed');
+                const errorMsg = err.error || 'Formspree submission failed';
+                logger.error('Formspree error:', errorMsg);
+                throw new Error(errorMsg);
             });
         }
     })
@@ -1150,21 +1193,40 @@ function sendViaFormspree(formData, recipientEmail, formspreeId, callback) {
         logger.error('Formspree send failed:', error);
         // Fallback to mailto
         sendViaMailto(formData, recipientEmail);
-        callback(true);
+        callback(true, 'mailto'); // Return success with method indicator
     });
 }
 
 // Fallback: Send via mailto (opens email client)
 function sendViaMailto(formData, recipientEmail) {
-    const subject = encodeURIComponent(getSubjectLabel(formData.subject));
-    const body = encodeURIComponent(
-        `From: ${formData.name} (${formData.email})\n\n` +
-        `Message:\n${formData.message}\n\n` +
-        `Newsletter subscription: ${formData.newsletter ? 'Yes' : 'No'}`
-    );
-    
-    const mailtoLink = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
-    window.location.href = mailtoLink;
+    try {
+        const subject = encodeURIComponent(getSubjectLabel(formData.subject));
+        const body = encodeURIComponent(
+            `From: ${formData.name} (${formData.email})\n\n` +
+            `Message:\n${formData.message}\n\n` +
+            `Newsletter subscription: ${formData.newsletter ? 'Yes' : 'No'}`
+        );
+        
+        const mailtoLink = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
+        
+        // Try to open mailto link
+        // Note: Some browsers may block this, so we'll provide fallback instructions
+        const mailtoWindow = window.open(mailtoLink, '_self');
+        
+        // If window.open doesn't work, try direct location change
+        if (!mailtoWindow || typeof mailtoWindow === 'undefined') {
+            window.location.href = mailtoLink;
+        }
+        
+        // Log for debugging
+        logger.info('Mailto link generated for:', recipientEmail);
+    } catch (error) {
+        logger.error('Error creating mailto link:', error);
+        // Fallback: Show email address and copy instructions
+        alert(`Unable to open email client automatically. Please send your message to: ${recipientEmail}\n\n` +
+              `Subject: ${getSubjectLabel(formData.subject)}\n\n` +
+              `Message:\n${formData.message}`);
+    }
 }
 
 // Get human-readable subject label
