@@ -2390,3 +2390,58 @@ section {
     white-space: nowrap;
     border-width: 0;
 }
+
+/* ===============================================
+   Scroll Progress Indicator
+   =============================================== */
+
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    z-index: var(--z-tooltip);
+    transition: width 0.1s ease-out;
+    box-shadow: 0 2px 4px rgba(30, 58, 138, 0.3);
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--color-primary);
+    color: white;
+    padding: var(--space-3) var(--space-4);
+    text-decoration: none;
+    z-index: var(--z-tooltip);
+    border-radius: var(--radius-md);
+}
+
+.skip-link:focus {
+    top: var(--space-4);
+    outline: 3px solid var(--color-primary-light);
+    outline-offset: 2px;
+}
+
+/* ===============================================
+   Image Lazy Loading
+   =============================================== */
+
+img[data-src] {
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+img[data-src].loaded {
+    opacity: 1;
+}
+
+img[loading="lazy"] {
+    content-visibility: auto;
+}
+
+/* Ensure all images have proper sizing */
+img:not([width]):not([height]) {
+    height: auto;
+}

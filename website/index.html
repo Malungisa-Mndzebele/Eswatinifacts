@@ -25,6 +25,11 @@
     <meta name="twitter:description" content="Discover accurate, up-to-date information about Eswatini (formerly Swaziland). Explore the country's economy, politics, culture, and development.">
     <meta name="twitter:image" content="https://eswatinifacts.com/images/eswatini-facts-social.jpg">
     
+    <!-- Performance: Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -32,9 +37,6 @@
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Scripts -->
-    <script src="components/component-loader.js" defer></script>
     
     <!-- Schema.org Markup -->
     <script type="application/ld+json">
@@ -114,8 +116,15 @@
     
     
     
-    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist@2.26.0/plotly.min.js" defer></script>
+    <!-- Chart.js - TODO: Generate SRI hash: openssl dgst -sha384 -binary <(curl -s https://cdn.jsdelivr.net/npm/chart.js) | openssl base64 -A -->
+    <!-- For now, SRI is commented out. Add integrity and crossorigin when hash is available -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" 
+            crossorigin="anonymous" 
+            defer></script>
+    <!-- Plotly.js - TODO: Generate SRI hash for version 2.26.0 -->
+    <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist@2.26.0/plotly.min.js" 
+            crossorigin="anonymous" 
+            defer></script>
     <script src="components/component-loader.js" defer></script>
 </head>
 <body>

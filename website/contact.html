@@ -120,7 +120,7 @@
                             <div class="contact-icon">📧</div>
                             <div class="contact-details">
                                 <h3>Email</h3>
-                                <p>info@eswatinifacts.org</p>
+                                <p>info@eswatinifacts.com</p>
                                 <small>For general inquiries and data questions</small>
                             </div>
                         </div>
@@ -129,7 +129,7 @@
                             <div class="contact-icon">📊</div>
                             <div class="contact-details">
                                 <h3>Data Requests</h3>
-                                <p>data@eswatinifacts.org</p>
+                                <p>data@eswatinifacts.com</p>
                                 <small>For specific data requests and research collaboration</small>
                             </div>
                         </div>
@@ -138,7 +138,7 @@
                             <div class="contact-icon">📰</div>
                             <div class="contact-details">
                                 <h3>Media</h3>
-                                <p>media@eswatinifacts.org</p>
+                                <p>media@eswatinifacts.com</p>
                                 <small>For press inquiries and media requests</small>
                             </div>
                         </div>
@@ -147,7 +147,7 @@
                             <div class="contact-icon">🐛</div>
                             <div class="contact-details">
                                 <h3>Report Issues</h3>
-                                <p>issues@eswatinifacts.org</p>
+                                <p>issues@eswatinifacts.com</p>
                                 <small>Found an error? Let us know so we can fix it</small>
                             </div>
                         </div>
@@ -204,7 +204,7 @@
                 
                 <div class="faq-item">
                     <h3>Do you accept data corrections?</h3>
-                    <p>Absolutely. If you find an error in our data, please report it to issues@eswatinifacts.org with supporting documentation.</p>
+                    <p>Absolutely. If you find an error in our data, please report it to issues@eswatinifacts.com with supporting documentation.</p>
                 </div>
                 
                 <div class="faq-item">
@@ -232,40 +232,15 @@
     <!-- Footer Component -->
     <div id="footer-placeholder"></div>
 
+    <!-- EmailJS SDK (optional - for email sending via EmailJS) -->
+    <!-- Uncomment and add your EmailJS public key if using EmailJS -->
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script> -->
+    <!-- <script type="text/javascript">
+        (function() {
+            emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your EmailJS public key
+        })();
+    </script> -->
+    
     <script src="script.js"></script>
-    <script>
-        // Contact form functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactForm = document.getElementById('contactForm');
-            const formSuccess = document.getElementById('formSuccess');
-            
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    const submitBtn = this.querySelector('.submit-btn');
-                    const btnText = submitBtn.querySelector('.btn-text');
-                    const btnLoading = submitBtn.querySelector('.btn-loading');
-                    
-                    // Show loading state
-                    btnText.style.display = 'none';
-                    btnLoading.style.display = 'flex';
-                    submitBtn.disabled = true;
-                    
-                    // Simulate form submission (replace with actual form handling)
-                    setTimeout(() => {
-                        // Hide form and show success message
-                        contactForm.style.display = 'none';
-                        formSuccess.style.display = 'block';
-                        
-                        // Reset form state
-                        btnText.style.display = 'block';
-                        btnLoading.style.display = 'none';
-                        submitBtn.disabled = false;
-                    }, 2000);
-                });
-            }
-        });
-    </script>
 </body>
 </html>

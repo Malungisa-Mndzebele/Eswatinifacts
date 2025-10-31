@@ -10,6 +10,12 @@ const THEME = {
 
 // Chart Initialization
 function initializeCharts() {
+    // Check if Chart.js is loaded
+    if (typeof Chart === 'undefined') {
+        console.warn('Chart.js not loaded. Charts will not be initialized.');
+        return;
+    }
+    
     // GDP Growth Chart
     createGDPChart();
     
@@ -500,36 +506,113 @@ function initializeSearch() {
 function initializeAccessibility() {
     // Add keyboard navigation for charts
     const charts = document.querySelectorAll('canvas');
-    charts.forEach(chart => {
+    charts.forEach((chart, index) => {
         chart.setAttribute('tabindex', '0');
         chart.setAttribute('role', 'img');
-        chart.setAttribute('aria-label', 'Data visualization chart');
-    });
-    
-    // Add skip links
-    const skipLink = document.createElement('a');
-    skipLink.href = '#main-content';
-    skipLink.textContent = 'Skip to main content';
-    skipLink.className = 'skip-link sr-only';
-    document.body.insertBefore(skipLink, document.body.firstChild);
-}
-
-// Performance Optimization
-function optimizePerformance() {
-    // Lazy load images
-    const images = document.querySelectorAll('img[data-src]');
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.remove('lazy');
-                imageObserver.unobserve(img);
+        chart.setAttribute('aria-label', chart.getAttribute('aria-label') || `Data visualization chart ${index + 1}`);
+        
+        // Add keyboard support for charts
+        chart.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                const title = chart.closest('.chart-container')?.querySelector('h3');
+                if (title) {
+                    title.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    chart.focus();
+                }
             }
         });
     });
     
-    images.forEach(img => imageObserver.observe(img));
+    // Add skip links (only if not already present)
+    if (!document.querySelector('.skip-link')) {
+        const skipLink = document.createElement('a');
+        skipLink.href = '#main-content, main, .hero, section';
+        skipLink.textContent = 'Skip to main content';
+        skipLink.className = 'skip-link sr-only';
+        skipLink.addEventListener('focus', function() {
+            this.classList.remove('sr-only');
+        });
+        skipLink.addEventListener('blur', function() {
+            this.classList.add('sr-only');
+        });
+        document.body.insertBefore(skipLink, document.body.firstChild);
+    }
+    
+    // Ensure all images have alt text or aria-label
+    const images = document.querySelectorAll('img:not([alt]):not([aria-label])');
+    if (images.length > 0) {
+        console.warn(`${images.length} images missing alt text or aria-label`);
+        images.forEach((img, index) => {
+            // For decorative images, add empty alt
+            if (img.closest('.decorative') || img.offsetWidth === 0) {
+                img.setAttribute('alt', '');
+            } else {
+                // Try to infer from context
+                const parent = img.closest('article, section, .card, .topic-card');
+                if (parent) {
+                    const title = parent.querySelector('h1, h2, h3, h4, h5, h6');
+                    if (title) {
+                        img.setAttribute('alt', title.textContent);
+                    }
+                }
+            }
+        });
+    }
+}
+
+// Performance Optimization
+function optimizePerformance() {
+    // Enhanced lazy load images with better error handling
+    const images = document.querySelectorAll('img[data-src]');
+    
+    if (images.length > 0) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    const dataSrc = img.dataset.src;
+                    
+                    if (dataSrc) {
+                        // Create a new image to preload
+                        const newImg = new Image();
+                        newImg.onload = function() {
+                            img.src = dataSrc;
+                            img.classList.add('loaded');
+                            img.classList.remove('lazy');
+                            img.removeAttribute('data-src');
+                        };
+                        newImg.onerror = function() {
+                            console.warn('Failed to load image:', dataSrc);
+                            img.classList.add('error');
+                            // Optionally set a placeholder
+                            img.alt = img.alt || 'Image failed to load';
+                        };
+                        newImg.src = dataSrc;
+                    }
+                    
+                    imageObserver.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '50px' // Start loading 50px before image comes into view
+        });
+        
+        images.forEach(img => {
+            // Ensure alt text exists for accessibility
+            if (!img.alt && !img.getAttribute('aria-label')) {
+                console.warn('Image missing alt text:', img);
+            }
+            imageObserver.observe(img);
+        });
+    }
+    
+    // Also handle native lazy loading images (check if alt exists)
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+    lazyImages.forEach(img => {
+        if (!img.alt && !img.getAttribute('aria-label')) {
+            console.warn('Lazy-loaded image missing alt text:', img);
+        }
+    });
     
     // Debounce resize events
     let resizeTimeout;
@@ -545,6 +628,12 @@ function optimizePerformance() {
 
 // Initialize all features
 function initializeCore() {
+    // Prevent duplicate initialization
+    if (window.initializationComplete) {
+        console.warn('Initialization already completed, skipping duplicate initialization');
+        return;
+    }
+    
     // Charts
     initializeCharts();
     // UI/UX
@@ -562,9 +651,18 @@ function initializeCore() {
     initializeVideoPage();
     initializeVideoSearch();
     trackVideoEngagement();
+    
+    // Mark initialization as complete
+    window.initializationComplete = true;
 }
 
-document.addEventListener('DOMContentLoaded', initializeCore);
+// Only initialize once
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeCore);
+} else {
+    // DOM already loaded
+    initializeCore();
+}
 
 // Error Handling
 window.addEventListener('error', function(e) {
@@ -696,16 +794,41 @@ function enhanceNavigation() {
 
 // Scroll progress indicator
 function addScrollProgress() {
+    // Only add if not already present
+    if (document.querySelector('.scroll-progress')) {
+        return;
+    }
+    
     const progressBar = document.createElement('div');
     progressBar.className = 'scroll-progress';
+    progressBar.setAttribute('role', 'progressbar');
+    progressBar.setAttribute('aria-label', 'Page scroll progress');
+    progressBar.setAttribute('aria-valuemin', '0');
+    progressBar.setAttribute('aria-valuemax', '100');
+    progressBar.setAttribute('aria-valuenow', '0');
     document.body.appendChild(progressBar);
     
-    window.addEventListener('scroll', () => {
-        const scrollTop = window.pageYOffset;
-        const docHeight = document.body.scrollHeight - window.innerHeight;
-        const scrollPercent = (scrollTop / docHeight) * 100;
+    let ticking = false;
+    function updateScrollProgress() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = docHeight > 0 ? Math.min((scrollTop / docHeight) * 100, 100) : 0;
+        
         progressBar.style.width = scrollPercent + '%';
-    });
+        progressBar.setAttribute('aria-valuenow', Math.round(scrollPercent));
+        
+        ticking = false;
+    }
+    
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(updateScrollProgress);
+            ticking = true;
+        }
+    }, { passive: true });
+    
+    // Initial update
+    updateScrollProgress();
 }
 
 // Keyboard navigation
@@ -744,18 +867,84 @@ function addTooltips() {
     });
 }
 
+// Email routing mapping based on subject selection
+const EMAIL_ROUTING = {
+    'data-question': 'data@eswatinifacts.com',
+    'error-report': 'issues@eswatinifacts.com',
+    'collaboration': 'data@eswatinifacts.com',
+    'media-inquiry': 'media@eswatinifacts.com',
+    'general': 'info@eswatinifacts.com',
+    'other': 'info@eswatinifacts.com'
+};
+
+// CSRF Token Generation (Simple client-side token)
+function generateCSRFToken() {
+    const token = Array.from(crypto.getRandomValues(new Uint8Array(32)))
+        .map(b => b.toString(16).padStart(2, '0'))
+        .join('');
+    
+    // Store token in sessionStorage
+    sessionStorage.setItem('csrf_token', token);
+    sessionStorage.setItem('csrf_token_time', Date.now().toString());
+    
+    return token;
+}
+
+// Validate CSRF Token
+function validateCSRFToken(token) {
+    const storedToken = sessionStorage.getItem('csrf_token');
+    const tokenTime = sessionStorage.getItem('csrf_token_time');
+    
+    // Token expires after 1 hour
+    if (!storedToken || !tokenTime) {
+        return false;
+    }
+    
+    const timeDiff = Date.now() - parseInt(tokenTime, 10);
+    if (timeDiff > 3600000) { // 1 hour
+        sessionStorage.removeItem('csrf_token');
+        sessionStorage.removeItem('csrf_token_time');
+        return false;
+    }
+    
+    return storedToken === token;
+}
+
 // Contact Form Functionality
 function initializeContactForm() {
     const contactForm = document.getElementById('contactForm');
     const formSuccess = document.getElementById('formSuccess');
     
     if (contactForm) {
+        // Generate and add CSRF token
+        const csrfToken = generateCSRFToken();
+        let csrfInput = contactForm.querySelector('input[name="csrf_token"]');
+        if (!csrfInput) {
+            csrfInput = document.createElement('input');
+            csrfInput.type = 'hidden';
+            csrfInput.name = 'csrf_token';
+            csrfInput.value = csrfToken;
+            contactForm.appendChild(csrfInput);
+        } else {
+            csrfInput.value = csrfToken;
+        }
+        
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
             const submitBtn = this.querySelector('.submit-btn');
             const btnText = submitBtn.querySelector('.btn-text');
             const btnLoading = submitBtn.querySelector('.btn-loading');
+            
+            // Validate CSRF token
+            const formToken = this.querySelector('input[name="csrf_token"]')?.value;
+            if (!formToken || !validateCSRFToken(formToken)) {
+                alert('Security validation failed. Please refresh the page and try again.');
+                // Regenerate token
+                const newToken = generateCSRFToken();
+                this.querySelector('input[name="csrf_token"]').value = newToken;
+                return;
+            }
             
             // Validate form
             if (!validateContactForm(this)) {
@@ -771,28 +960,186 @@ function initializeContactForm() {
             const formData = new FormData(this);
             const data = Object.fromEntries(formData);
             
-            // Simulate form submission (replace with actual form handling)
-            setTimeout(() => {
-                // Hide form and show success message
-                contactForm.style.display = 'none';
-                formSuccess.style.display = 'block';
+            // Get the recipient email based on subject
+            const subject = data.subject;
+            const recipientEmail = EMAIL_ROUTING[subject] || 'info@eswatinifacts.com';
+            
+            // Send email using EmailJS or Formspree
+            sendContactEmail(data, recipientEmail, function(success) {
+                if (success) {
+                    // Hide form and show success message
+                    contactForm.style.display = 'none';
+                    formSuccess.style.display = 'block';
+                    
+                    // Scroll to success message
+                    formSuccess.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Reset form
+                    contactForm.reset();
+                } else {
+                    // Show error message
+                    alert('There was an error sending your message. Please try again or email us directly.');
+                }
                 
                 // Reset form state
                 btnText.style.display = 'block';
                 btnLoading.style.display = 'none';
                 submitBtn.disabled = false;
-                
-                // Log form data (in production, send to server)
-                console.log('Form submitted:', data);
-                
-                // Scroll to success message
-                formSuccess.scrollIntoView({ behavior: 'smooth' });
-            }, 2000);
+            });
         });
         
         // Add real-time validation
         addFormValidation(contactForm);
     }
+}
+
+// Send email using Formspree or EmailJS
+function sendContactEmail(formData, recipientEmail, callback) {
+    // Map recipient emails to Formspree form IDs
+    // IMPORTANT: Replace these with your actual Formspree form IDs
+    // Create forms at https://formspree.io/ and configure each to send to the respective email
+    // 
+    // Configuration: Set these in a config object that can be easily updated
+    // You can also use environment variables or a separate config file for production
+    const FORMPREE_ENDPOINTS = {
+        'data@eswatinifacts.com': 'YOUR_FORMSPREE_FORM_ID_DATA', // e.g., 'https://formspree.io/f/xxxxx'
+        'issues@eswatinifacts.com': 'YOUR_FORMSPREE_FORM_ID_ISSUES',
+        'media@eswatinifacts.com': 'YOUR_FORMSPREE_FORM_ID_MEDIA',
+        'info@eswatinifacts.com': 'YOUR_FORMSPREE_FORM_ID_INFO'
+    };
+    
+    // Check if configuration is set (not placeholder values)
+    const isConfigured = (endpoint) => {
+        return endpoint && 
+               typeof endpoint === 'string' &&
+               !endpoint.startsWith('YOUR_') &&
+               endpoint.length > 10; // Basic validation that it's not a placeholder
+    };
+    
+    const formspreeId = FORMPREE_ENDPOINTS[recipientEmail] || FORMPREE_ENDPOINTS['info@eswatinifacts.com'];
+    
+    // Log configuration status (remove in production if needed)
+    if (!isConfigured(formspreeId)) {
+        console.warn('Formspree endpoints not configured. Using mailto fallback.');
+    }
+    
+    // Option 1: Using Formspree (recommended - simple setup, no backend needed)
+    // Check if Formspree is configured (has valid form ID)
+    if (isConfigured(formspreeId)) {
+        sendViaFormspree(formData, recipientEmail, formspreeId, callback);
+        return;
+    }
+    
+    // Option 2: Using EmailJS (requires EmailJS account)
+    if (typeof emailjs !== 'undefined') {
+        sendViaEmailJS(formData, recipientEmail, callback);
+        return;
+    }
+    
+    // Option 3: Fallback - Use mailto (opens email client)
+    // This always works but requires user's email client to be configured
+    sendViaMailto(formData, recipientEmail);
+    callback(true);
+}
+
+// Send email via EmailJS
+function sendViaEmailJS(formData, recipientEmail, callback) {
+    // EmailJS configuration
+    // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual EmailJS service and template IDs
+    const SERVICE_ID = 'YOUR_SERVICE_ID'; // Update this with your EmailJS service ID
+    const TEMPLATE_ID = 'YOUR_TEMPLATE_ID'; // Update this with your EmailJS template ID
+    
+    // Prepare email template parameters
+    const templateParams = {
+        to_email: recipientEmail,
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: getSubjectLabel(formData.subject),
+        message: formData.message,
+        newsletter: formData.newsletter ? 'Yes' : 'No'
+    };
+    
+    // Send email via EmailJS
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
+        .then(function(response) {
+            console.log('Email sent successfully:', response.status, response.text);
+            callback(true);
+        }, function(error) {
+            console.error('Email send failed:', error);
+            // Fallback to mailto if EmailJS fails
+            sendViaMailto(formData, recipientEmail);
+            callback(true); // Still show success to user as mailto was attempted
+        });
+}
+
+// Send email via Formspree
+function sendViaFormspree(formData, recipientEmail, formspreeId, callback) {
+    // Construct Formspree endpoint
+    const endpoint = formspreeId.startsWith('http') ? formspreeId : `https://formspree.io/f/${formspreeId}`;
+    
+    // Prepare form data for Formspree
+    // Note: Configure _to in Formspree dashboard for each form, or use _replyto for reply-to
+    const formPayload = {
+        _replyto: formData.email, // Reply-to email
+        name: formData.name,
+        email: formData.email,
+        subject: getSubjectLabel(formData.subject),
+        message: formData.message,
+        newsletter: formData.newsletter ? 'Yes' : 'No',
+        recipient_email: recipientEmail // Include for reference
+    };
+    
+    // Send to Formspree
+    fetch(endpoint, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(formPayload)
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log('Email sent successfully via Formspree to', recipientEmail);
+            callback(true);
+        } else {
+            return response.json().then(err => {
+                throw new Error(err.error || 'Formspree submission failed');
+            });
+        }
+    })
+    .catch(error => {
+        console.error('Formspree send failed:', error);
+        // Fallback to mailto
+        sendViaMailto(formData, recipientEmail);
+        callback(true);
+    });
+}
+
+// Fallback: Send via mailto (opens email client)
+function sendViaMailto(formData, recipientEmail) {
+    const subject = encodeURIComponent(getSubjectLabel(formData.subject));
+    const body = encodeURIComponent(
+        `From: ${formData.name} (${formData.email})\n\n` +
+        `Message:\n${formData.message}\n\n` +
+        `Newsletter subscription: ${formData.newsletter ? 'Yes' : 'No'}`
+    );
+    
+    const mailtoLink = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
+    window.location.href = mailtoLink;
+}
+
+// Get human-readable subject label
+function getSubjectLabel(subjectValue) {
+    const subjectLabels = {
+        'data-question': 'Data Question',
+        'error-report': 'Error Report',
+        'collaboration': 'Collaboration Request',
+        'media-inquiry': 'Media Inquiry',
+        'general': 'General Question',
+        'other': 'Other'
+    };
+    return subjectLabels[subjectValue] || 'General Question';
 }
 
 // Form validation
@@ -873,12 +1220,35 @@ function initializeJoinForm() {
     const formSuccess = document.getElementById('formSuccess');
     
     if (joinForm) {
+        // Generate and add CSRF token
+        const csrfToken = generateCSRFToken();
+        let csrfInput = joinForm.querySelector('input[name="csrf_token"]');
+        if (!csrfInput) {
+            csrfInput = document.createElement('input');
+            csrfInput.type = 'hidden';
+            csrfInput.name = 'csrf_token';
+            csrfInput.value = csrfToken;
+            joinForm.appendChild(csrfInput);
+        } else {
+            csrfInput.value = csrfToken;
+        }
+        
         joinForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
             const submitBtn = this.querySelector('.submit-btn');
             const btnText = submitBtn.querySelector('.btn-text');
             const btnLoading = submitBtn.querySelector('.btn-loading');
+            
+            // Validate CSRF token
+            const formToken = this.querySelector('input[name="csrf_token"]')?.value;
+            if (!formToken || !validateCSRFToken(formToken)) {
+                alert('Security validation failed. Please refresh the page and try again.');
+                // Regenerate token
+                const newToken = generateCSRFToken();
+                this.querySelector('input[name="csrf_token"]').value = newToken;
+                return;
+            }
             
             // Validate form
             if (!validateJoinForm(this)) {
@@ -1135,13 +1505,7 @@ function trackVideoEngagement() {
     });
 }
 
-// Initialize video page when page loads
-document.addEventListener('DOMContentLoaded', function() {
-    initializeContactForm();
-    initializeJoinForm();
-    initializeVideoPage();
-    initializeVideoSearch();
-    trackVideoEngagement();
-});
+// Video page initialization is now handled by initializeCore()
+// This prevents duplicate initialization
 
 // Online-only website - no service worker needed
