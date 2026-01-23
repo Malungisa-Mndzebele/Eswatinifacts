@@ -1,41 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WPM6NBHSQB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-WPM6NBHSQB');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- SEO Meta Tags -->
     <title>Education in Eswatini | Schools, Universities & Learning | Eswatini Facts</title>
-    <meta name="description" content="Overview of Eswatini's education system, including schools, universities, educational policies, and development.">
-    <meta name="keywords" content="Eswatini education, Swaziland schools, universities, educational system, African education">
+    <meta name="description"
+        content="Overview of Eswatini's education system, including schools, universities, educational policies, and development.">
+    <meta name="keywords"
+        content="Eswatini education, Swaziland schools, universities, educational system, African education">
     <meta name="author" content="Eswatini Facts">
     <link rel="canonical" href="https://eswatinifacts.com/education">
-    
+
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Eswatini Education | Enrollment, Literacy & School System | Eswatini Facts">
-    <meta property="og:description" content="Comprehensive analysis of Eswatini's education system, including enrollment rates, literacy levels, and educational infrastructure.">
+    <meta property="og:description"
+        content="Comprehensive analysis of Eswatini's education system, including enrollment rates, literacy levels, and educational infrastructure.">
     <meta property="og:image" content="https://eswatinifacts.com/images/eswatini-education-social.jpg">
     <meta property="og:url" content="https://eswatinifacts.com/education">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Eswatini Facts">
-    
+
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Eswatini Education | Enrollment, Literacy & School System | Eswatini Facts">
-    <meta name="twitter:description" content="Comprehensive analysis of Eswatini's education system, including enrollment rates, literacy levels, and educational infrastructure.">
+    <meta name="twitter:description"
+        content="Comprehensive analysis of Eswatini's education system, including enrollment rates, literacy levels, and educational infrastructure.">
     <meta name="twitter:image" content="https://eswatinifacts.com/images/eswatini-education-social.jpg">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    
+
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Scripts -->
     <script src="components/component-loader.js" defer></script>
-    
+
     <!-- Schema.org Markup -->
     <script type="application/ld+json">
     {
@@ -109,11 +123,13 @@
         ]
     }
     </script>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist@2.26.0/plotly.min.js" defer></script>
+    <link rel="stylesheet" href="visualization-styles.css">
     <script src="components/component-loader.js" defer></script>
 </head>
+
 <body>
     <!-- Header Component -->
     <div id="header-placeholder"></div>
@@ -123,7 +139,8 @@
         <div class="hero-content">
             <h1>Education</h1>
             <p class="hero-subtitle">Understanding Eswatini's education system and outcomes</p>
-            <p class="hero-description">From enrollment rates to literacy levels, explore the data behind Eswatini's educational landscape.</p>
+            <p class="hero-description">From enrollment rates to literacy levels, explore the data behind Eswatini's
+                educational landscape.</p>
         </div>
     </section>
 
@@ -131,6 +148,10 @@
     <section class="data-section">
         <div class="container">
             <h2>Education Indicators</h2>
+
+            <!-- Date Range Filter -->
+            <div id="educationDateFilter"></div>
+
             <div class="section-content">
                 <div class="data-overview">
                     <h3>Key Education Metrics</h3>
@@ -153,7 +174,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="chart-container">
                     <h3>Education Enrollment Rates</h3>
                     <canvas id="educationChart"></canvas>
@@ -164,15 +185,18 @@
                     <div class="insights-grid">
                         <div class="insight-card">
                             <h4>High Primary Enrollment</h4>
-                            <p>With 99.7% primary school enrollment, Eswatini has achieved near-universal primary education access, which is a significant achievement in the region.</p>
+                            <p>With 99.7% primary school enrollment, Eswatini has achieved near-universal primary
+                                education access, which is a significant achievement in the region.</p>
                         </div>
                         <div class="insight-card">
                             <h4>Secondary Education Gap</h4>
-                            <p>The drop from 99.7% primary to 72.4% secondary enrollment indicates challenges in retaining students through the education pipeline.</p>
+                            <p>The drop from 99.7% primary to 72.4% secondary enrollment indicates challenges in
+                                retaining students through the education pipeline.</p>
                         </div>
                         <div class="insight-card">
                             <h4>Teacher-Student Ratio</h4>
-                            <p>At 28:1, the pupil-teacher ratio is relatively high, which may impact the quality of education and individual attention students receive.</p>
+                            <p>At 28:1, the pupil-teacher ratio is relatively high, which may impact the quality of
+                                education and individual attention students receive.</p>
                         </div>
                     </div>
                 </div>
@@ -212,46 +236,8 @@
 
     <!-- Scripts -->
     <script src="script.js" defer></script>
-<script>
-        // Education-specific charts
-        document.addEventListener('DOMContentLoaded', function() {
-            // Education Enrollment Chart
-            const educationCtx = document.getElementById('educationChart').getContext('2d');
-            new Chart(educationCtx, {
-                type: 'bar',
-                data: {
-                    labels: ['Primary', 'Secondary', 'Tertiary'],
-                    datasets: [{
-                        label: 'Enrollment Rate (%)',
-                        data: [99.7, 72.4, 15.2],
-                        backgroundColor: ['#10b981', '#f59e0b', '#8b5cf6'],
-                        borderWidth: 0
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            max: 100,
-                            title: {
-                                display: true,
-                                text: 'Enrollment Rate (%)'
-                            }
-                        }
-                    }
-                }
-            });
-
-            // Initialize counter animations
-            initializeCounters();
-        });
-    </script>
+    <script src="visualization-api.js" defer></script>
+    <script src="education-charts.js" defer></script>
 </body>
+
 </html>

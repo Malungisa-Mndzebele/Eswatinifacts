@@ -1,40 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WPM6NBHSQB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-WPM6NBHSQB');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- SEO Meta Tags -->
     <title>Contact Eswatini Facts | Get in Touch | Eswatini Facts</title>
-    <meta name="description" content="Get in touch with Eswatini Facts. We welcome your questions, feedback, and suggestions about our data and research. Contact us for collaboration opportunities.">
-    <meta name="keywords" content="contact Eswatini Facts, get in touch, Eswatini data questions, feedback, collaboration, Swaziland research">
+    <meta name="description"
+        content="Get in touch with Eswatini Facts. We welcome your questions, feedback, and suggestions about our data and research. Contact us for collaboration opportunities.">
+    <meta name="keywords"
+        content="contact Eswatini Facts, get in touch, Eswatini data questions, feedback, collaboration, Swaziland research">
     <meta name="author" content="Eswatini Facts">
     <link rel="canonical" href="https://eswatinifacts.com/contact">
-    
+
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Contact Eswatini Facts | Get in Touch | Eswatini Facts">
-    <meta property="og:description" content="Get in touch with Eswatini Facts. We welcome your questions, feedback, and suggestions about our data and research. Contact us for collaboration opportunities.">
+    <meta property="og:description"
+        content="Get in touch with Eswatini Facts. We welcome your questions, feedback, and suggestions about our data and research. Contact us for collaboration opportunities.">
     <meta property="og:image" content="https://eswatinifacts.com/images/eswatini-facts-contact-social.jpg">
     <meta property="og:url" content="https://eswatinifacts.com/contact">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Eswatini Facts">
-    
+
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Contact Eswatini Facts | Get in Touch | Eswatini Facts">
-    <meta name="twitter:description" content="Get in touch with Eswatini Facts. We welcome your questions, feedback, and suggestions about our data and research. Contact us for collaboration opportunities.">
+    <meta name="twitter:description"
+        content="Get in touch with Eswatini Facts. We welcome your questions, feedback, and suggestions about our data and research. Contact us for collaboration opportunities.">
     <meta name="twitter:image" content="https://eswatinifacts.com/images/eswatini-facts-contact-social.jpg">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    
+
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Scripts -->
     <script src="components/component-loader.js" defer></script>
 </head>
+
 <body>
     <!-- Header Component -->
     <div id="header-placeholder"></div>
@@ -44,7 +59,8 @@
         <div class="hero-content">
             <h1>Contact Us</h1>
             <p class="hero-subtitle">We'd love to hear from you</p>
-            <p class="hero-description">Have questions about our data? Found an error? Want to collaborate? Get in touch.</p>
+            <p class="hero-description">Have questions about our data? Found an error? Want to collaborate? Get in
+                touch.</p>
         </div>
     </section>
 
@@ -59,18 +75,18 @@
                     <p class="section-subtitle" style="font-size: 0.875rem; color: #4a5568; margin-top: -1rem;">
                         Your message will be sent to the appropriate email address based on your selected topic.
                     </p>
-                    
+
                     <form class="contact-form" id="contactForm">
                         <div class="form-group">
                             <label for="name">Full Name *</label>
                             <input type="text" id="name" name="name" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="email">Email Address *</label>
                             <input type="email" id="email" name="email" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="subject">Subject *</label>
                             <select id="subject" name="subject" required>
@@ -83,12 +99,13 @@
                                 <option value="other">Other</option>
                             </select>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="message">Message *</label>
-                            <textarea id="message" name="message" rows="6" required placeholder="Please provide as much detail as possible..."></textarea>
+                            <textarea id="message" name="message" rows="6" required
+                                placeholder="Please provide as much detail as possible..."></textarea>
                         </div>
-                        
+
                         <div class="form-group checkbox-group">
                             <label class="checkbox-label">
                                 <input type="checkbox" id="newsletter" name="newsletter">
@@ -96,7 +113,7 @@
                                 Subscribe to our newsletter for data updates
                             </label>
                         </div>
-                        
+
                         <button type="submit" class="submit-btn">
                             <span class="btn-text">Send Message</span>
                             <span class="btn-loading" style="display: none;">
@@ -105,20 +122,22 @@
                             </span>
                         </button>
                     </form>
-                    
+
                     <div class="form-success" id="formSuccess" style="display: none;">
                         <div class="success-icon">✓</div>
                         <h3>Message sent successfully!</h3>
                         <p>Thank you for contacting us. We'll get back to you as soon as possible.</p>
-                        <p id="emailMethodNotice" style="margin-top: 1rem; padding: 1rem; background: #f0f9ff; border-radius: 0.5rem; border-left: 4px solid #2563eb; display: none;"></p>
+                        <p id="emailMethodNotice"
+                            style="margin-top: 1rem; padding: 1rem; background: #f0f9ff; border-radius: 0.5rem; border-left: 4px solid #2563eb; display: none;">
+                        </p>
                     </div>
                 </div>
-                
+
                 <!-- Contact Information -->
                 <div class="contact-info">
                     <h2>Get in touch</h2>
                     <p class="section-subtitle">Multiple ways to reach us</p>
-                    
+
                     <div class="contact-methods">
                         <div class="contact-method">
                             <div class="contact-icon">📧</div>
@@ -128,7 +147,7 @@
                                 <small>For general inquiries and data questions</small>
                             </div>
                         </div>
-                        
+
                         <div class="contact-method">
                             <div class="contact-icon">📊</div>
                             <div class="contact-details">
@@ -137,7 +156,7 @@
                                 <small>For specific data requests and research collaboration</small>
                             </div>
                         </div>
-                        
+
                         <div class="contact-method">
                             <div class="contact-icon">📰</div>
                             <div class="contact-details">
@@ -146,7 +165,7 @@
                                 <small>For press inquiries and media requests</small>
                             </div>
                         </div>
-                        
+
                         <div class="contact-method">
                             <div class="contact-icon">🐛</div>
                             <div class="contact-details">
@@ -156,7 +175,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="response-time">
                         <h3>Response Times</h3>
                         <ul>
@@ -166,7 +185,7 @@
                             <li><strong>Error reports:</strong> 1-3 business days</li>
                         </ul>
                     </div>
-                    
+
                     <div class="social-links">
                         <h3>Follow our work</h3>
                         <div class="social-icons">
@@ -194,42 +213,48 @@
         <div class="container">
             <h2>Frequently Asked Questions</h2>
             <p class="section-subtitle">Quick answers to common questions</p>
-            
+
             <div class="faq-grid">
                 <div class="faq-item">
                     <h3>How often is your data updated?</h3>
-                    <p>We update our data quarterly, pulling from the latest available sources including World Bank, IMF, and official Eswatini government statistics.</p>
+                    <p>We update our data quarterly, pulling from the latest available sources including World Bank,
+                        IMF, and official Eswatini government statistics.</p>
                 </div>
-                
+
                 <div class="faq-item">
                     <h3>Can I use your data in my research?</h3>
-                    <p>Yes! All our data is freely available for research, educational, and journalistic purposes. Please cite Eswatini Facts as your source.</p>
+                    <p>Yes! All our data is freely available for research, educational, and journalistic purposes.
+                        Please cite Eswatini Facts as your source.</p>
                 </div>
-                
+
                 <div class="faq-item">
                     <h3>Do you accept data corrections?</h3>
-                    <p>Absolutely. If you find an error in our data, please report it to issues@eswatinifacts.com with supporting documentation.</p>
+                    <p>Absolutely. If you find an error in our data, please report it to issues@eswatinifacts.com with
+                        supporting documentation.</p>
                 </div>
-                
+
                 <div class="faq-item">
                     <h3>Can I request specific data analysis?</h3>
-                    <p>We welcome data requests! While we can't fulfill every request, we prioritize those that serve public interest and align with our mission.</p>
+                    <p>We welcome data requests! While we can't fulfill every request, we prioritize those that serve
+                        public interest and align with our mission.</p>
                 </div>
-                
+
                 <div class="faq-item">
                     <h3>How do you ensure data accuracy?</h3>
-                    <p>We cross-reference multiple authoritative sources, verify data with original publications, and maintain transparency about our methodology.</p>
+                    <p>We cross-reference multiple authoritative sources, verify data with original publications, and
+                        maintain transparency about our methodology.</p>
                 </div>
-                
+
                 <div class="faq-item">
                     <h3>Is your work politically neutral?</h3>
-                    <p>Yes. We present data objectively without political bias. Our mission is to make information accessible, not to advocate for specific policies.</p>
+                    <p>Yes. We present data objectively without political bias. Our mission is to make information
+                        accessible, not to advocate for specific policies.</p>
                 </div>
             </div>
         </div>
     </section>
 
-        <!-- Footer Component -->
+    <!-- Footer Component -->
     <!-- Footer Separator -->
     <div class="footer-separator"></div>
 
@@ -244,7 +269,8 @@
             emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your EmailJS public key
         })();
     </script> -->
-    
+
     <script src="script.js"></script>
 </body>
+
 </html>
