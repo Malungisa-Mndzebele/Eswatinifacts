@@ -67,5 +67,7 @@ build/
 
 # Development files
 deploy-local.js
-package.json
-package-lock.json
+
+# Local Backup
+backup_files/
+.vite/

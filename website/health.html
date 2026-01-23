@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WPM6NBHSQB"></script>
@@ -8,12 +7,10 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-WPM6NBHSQB');
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <!-- SEO Meta Tags -->
     <title>Healthcare in Eswatini | Health System & Medical Services | Eswatini Facts</title>
     <meta name="description"
@@ -22,7 +19,6 @@
         content="Eswatini healthcare, Swaziland health system, medical services, public health, African healthcare">
     <meta name="author" content="Eswatini Facts">
     <link rel="canonical" href="https://eswatinifacts.com/health">
-
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Eswatini Health | HIV/AIDS, Life Expectancy & Healthcare | Eswatini Facts">
     <meta property="og:description"
@@ -31,25 +27,19 @@
     <meta property="og:url" content="https://eswatinifacts.com/health">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Eswatini Facts">
-
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Eswatini Health | HIV/AIDS, Life Expectancy & Healthcare | Eswatini Facts">
     <meta name="twitter:description"
         content="Comprehensive analysis of Eswatini's health indicators, including HIV/AIDS prevalence, life expectancy, healthcare access, and health outcomes.">
     <meta name="twitter:image" content="https://eswatinifacts.com/images/eswatini-health-social.jpg">
-
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
     <!-- Styles -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
     <!-- Scripts -->
-    <script src="components/component-loader.js" defer></script>
-
     <!-- Schema.org Markup -->
     <script type="application/ld+json">
     {
@@ -123,17 +113,12 @@
         ]
     }
     </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist@2.26.0/plotly.min.js" defer></script>
-    <link rel="stylesheet" href="visualization-styles.css">
-    <script src="components/component-loader.js" defer></script>
 </head>
-
 <body>
     <!-- Header Component -->
     <div id="header-placeholder"></div>
-
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
@@ -143,15 +128,12 @@
                 health landscape.</p>
         </div>
     </section>
-
     <!-- Health Section -->
     <section class="data-section">
         <div class="container">
             <h2>Health Indicators</h2>
-
             <!-- Date Range Filter -->
             <div id="healthDateFilter"></div>
-
             <div class="section-content">
                 <div class="data-overview">
                     <h3>Key Health Metrics</h3>
@@ -174,17 +156,14 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="chart-container">
                     <h3>HIV Prevalence Trend</h3>
                     <canvas id="hivChart"></canvas>
                 </div>
-
                 <div class="chart-container">
                     <h3>Health Outcomes Comparison</h3>
                     <canvas id="healthComparisonChart"></canvas>
                 </div>
-
                 <div class="insights-section">
                     <h3>Health Insights</h3>
                     <div class="insights-grid">
@@ -210,17 +189,11 @@
             </div>
         </div>
     </section>
-
     <!-- Footer Separator -->
     <div class="footer-separator"></div>
-
     <!-- Footer Component -->
     <div id="footer-placeholder"></div>
-
     <!-- Scripts -->
-    <script src="script.js" defer></script>
-    <script src="visualization-api.js" defer></script>
-    <script src="health-charts.js" defer></script>
+    <script type="module" src="js/main.js"></script>
 </body>
-
 </html>

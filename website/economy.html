@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WPM6NBHSQB"></script>
@@ -8,12 +7,10 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-WPM6NBHSQB');
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <!-- SEO Meta Tags -->
     <title>Eswatini Economy | GDP, Trade, Development & Analysis | Eswatini Facts</title>
     <meta name="description"
@@ -22,7 +19,6 @@
         content="Eswatini economy, Swaziland GDP, Eswatini trade, economic development, African economies">
     <meta name="author" content="Eswatini Facts">
     <link rel="canonical" href="https://eswatinifacts.com/economy">
-
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Eswatini Economy | GDP, Trade, Development & Analysis | Eswatini Facts">
     <meta property="og:description"
@@ -31,30 +27,23 @@
     <meta property="og:url" content="https://eswatinifacts.com/economy">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Eswatini Facts">
-
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Eswatini Economy | GDP, Trade, Development & Analysis | Eswatini Facts">
     <meta name="twitter:description"
         content="Comprehensive analysis of Eswatini's economy, including GDP data, trade relationships, development challenges, and economic indicators.">
     <meta name="twitter:image" content="https://eswatinifacts.com/images/eswatini-economy-social.jpg">
-
     <!-- Performance: Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
     <!-- Styles -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
     <!-- Scripts -->
-    <script src="components/component-loader.js" defer></script>
-
     <!-- Schema.org Markup -->
     <script type="application/ld+json">
     {
@@ -128,17 +117,12 @@
         ]
     }
     </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist@2.26.0/plotly.min.js" defer></script>
-    <link rel="stylesheet" href="visualization-styles.css">
-    <script src="components/component-loader.js" defer></script>
 </head>
-
 <body>
     <!-- Header Component -->
     <div id="header-placeholder"></div>
-
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
@@ -148,15 +132,12 @@
                 story.</p>
         </div>
     </section>
-
     <!-- Economy Section -->
     <section class="data-section">
         <div class="container">
             <h2>Economic Overview</h2>
-
             <!-- Date Range Filter -->
             <div id="economyDateFilter"></div>
-
             <div class="section-content">
                 <div class="data-overview">
                     <h3>Key Economic Indicators</h3>
@@ -179,17 +160,14 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="chart-container">
                     <h3>GDP Growth Trend</h3>
                     <canvas id="gdpChart"></canvas>
                 </div>
-
                 <div class="chart-container">
                     <h3>Economic Structure</h3>
                     <canvas id="sectorChart"></canvas>
                 </div>
-
                 <div class="insights-section">
                     <h3>Economic Insights</h3>
                     <div class="insights-grid">
@@ -214,17 +192,11 @@
             </div>
         </div>
     </section>
-
     <!-- Footer Separator -->
     <div class="footer-separator"></div>
-
     <!-- Footer Component -->
     <div id="footer-placeholder"></div>
-
     <!-- Scripts -->
-    <script src="script.js" defer></script>
-    <script src="visualization-api.js" defer></script>
-    <script src="economy-charts.js" defer></script>
+    <script type="module" src="js/main.js"></script>
 </body>
-
 </html>

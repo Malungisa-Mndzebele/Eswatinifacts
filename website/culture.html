@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WPM6NBHSQB"></script>
@@ -8,12 +7,10 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-WPM6NBHSQB');
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <!-- SEO Meta Tags -->
     <title>Eswatini Culture | Traditions, Customs & Heritage | Eswatini Facts</title>
     <meta name="description"
@@ -22,7 +19,6 @@
         content="Eswatini culture, Swazi traditions, cultural heritage, African customs, Umhlanga reed dance">
     <meta name="author" content="Eswatini Facts">
     <link rel="canonical" href="https://eswatinifacts.com/culture">
-
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Eswatini Culture | Demographics, Traditions & Society | Eswatini Facts">
     <meta property="og:description"
@@ -31,25 +27,19 @@
     <meta property="og:url" content="https://eswatinifacts.com/culture">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Eswatini Facts">
-
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Eswatini Culture | Demographics, Traditions & Society | Eswatini Facts">
     <meta name="twitter:description"
         content="Comprehensive analysis of Eswatini's culture, demographics, traditions, languages, and social structure.">
     <meta name="twitter:image" content="https://eswatinifacts.com/images/eswatini-culture-social.jpg">
-
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
     <!-- Styles -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
     <!-- Scripts -->
-    <script src="components/component-loader.js" defer></script>
-
     <!-- Schema.org Markup -->
     <script type="application/ld+json">
     {
@@ -123,15 +113,12 @@
         ]
     }
     </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist@2.26.0/plotly.min.js"></script>
-    <link rel="stylesheet" href="visualization-styles.css">
     <style>
         .chart-container {
             margin: 2rem 0;
         }
-
         .chart-wrapper {
             position: relative;
             height: 400px;
@@ -139,12 +126,10 @@
             max-width: 500px;
             margin: 0 auto;
         }
-
         .chart-wrapper canvas {
             max-height: 100% !important;
             max-width: 100% !important;
         }
-
         @media (max-width: 768px) {
             .chart-wrapper {
                 height: 300px;
@@ -152,13 +137,10 @@
             }
         }
     </style>
-    <script src="components/component-loader.js"></script>
 </head>
-
 <body>
     <!-- Header Component -->
     <div id="header-placeholder"></div>
-
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
@@ -168,15 +150,12 @@
                 Eswatini's cultural landscape.</p>
         </div>
     </section>
-
     <!-- Culture Section -->
     <section class="data-section">
         <div class="container">
             <h2>Cultural Identity</h2>
-
             <!-- Date Range Filter -->
             <div id="cultureDateFilter"></div>
-
             <div class="section-content">
                 <div class="data-overview">
                     <h3>Cultural Demographics</h3>
@@ -199,7 +178,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="demographics-section">
                     <h3>Population Demographics</h3>
                     <div class="metrics-grid">
@@ -221,14 +199,12 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="chart-container">
                     <h3>Population Distribution by Age</h3>
                     <div class="chart-wrapper">
                         <canvas id="populationChart"></canvas>
                     </div>
                 </div>
-
                 <div class="cultural-traditions">
                     <h3>Traditional Ceremonies & Culture</h3>
                     <div class="traditions-grid">
@@ -252,7 +228,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="insights-section">
                     <h3>Cultural Insights</h3>
                     <div class="insights-grid">
@@ -279,17 +254,11 @@
             </div>
         </div>
     </section>
-
     <!-- Footer Separator -->
     <div class="footer-separator"></div>
-
     <!-- Footer Component -->
     <div id="footer-placeholder"></div>
-
     <!-- Scripts -->
-    <script src="script.js" defer></script>
-    <script src="visualization-api.js" defer></script>
-    <script src="culture-charts.js" defer></script>
+    <script type="module" src="js/main.js"></script>
 </body>
-
 </html>
