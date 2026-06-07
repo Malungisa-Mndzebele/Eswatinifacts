@@ -61,6 +61,12 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://eswatinifacts.com/accountability.html</loc>
+        <lastmod>2026-06-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://eswatinifacts.com/blog.html</loc>
         <lastmod>2025-01-30</lastmod>
         <changefreq>weekly</changefreq>

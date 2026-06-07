@@ -8,6 +8,7 @@ export default defineConfig({
             input: {
                 main: resolve(__dirname, 'index.html'),
                 about: resolve(__dirname, 'about.html'),
+                accountability: resolve(__dirname, 'accountability.html'),
                 blog: resolve(__dirname, 'blog.html'),
                 contact: resolve(__dirname, 'contact.html'),
                 culture: resolve(__dirname, 'culture.html'),
