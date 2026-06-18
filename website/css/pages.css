@@ -533,14 +533,18 @@
         padding: var(--space-3) var(--space-4);
     }
 
-    .nav-menu {
+    .nav-toggle {
+        display: flex;
+    }
+
+    .header .nav-menu {
         display: none;
         width: 100%;
         flex-direction: column;
         margin-top: 8px;
     }
 
-    .nav-menu.active {
+    .header .nav-menu.active {
         display: flex;
     }
 

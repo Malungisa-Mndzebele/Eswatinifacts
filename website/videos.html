@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Analytics consent guard: disables GA unless previously accepted -->
+    <script>(function(){try{if(localStorage.getItem('ef-consent')!=='granted'){window['ga-disable-G-WPM6NBHSQB']=true;}}catch(e){}})();</script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WPM6NBHSQB"></script>
     <script>
@@ -41,8 +43,7 @@
     <link rel="preconnect" href="https://www.youtube.com">
     <link rel="dns-prefetch" href="https://i.ytimg.com">
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <!-- Styles -->
     <link rel="stylesheet" href="css/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -125,106 +126,6 @@
     <!-- Twitter Card Meta Tags -->
     <!-- Favicon -->
     <!-- Styles and Scripts -->
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@graph": [
-            {
-                "@type": "Organization",
-                "@id": "https://eswatinifacts.com/#organization",
-                "name": "Eswatini Facts",
-                "url": "https://eswatinifacts.com",
-                "logo": {
-                    "@type": "ImageObject",
-                    "url": "https://eswatinifacts.com/images/logo.png",
-                    "width": 600,
-                    "height": 60
-                },
-                "sameAs": [
-                    "https://www.youtube.com/channel/UC1VC5HcKsEi24hUZZDyH7Lg",
-                    "https://twitter.com/EswatiniFacts",
-                    "https://facebook.com/EswatiniFacts"
-                ],
-                "description": "Your trusted source for accurate information about the Kingdom of Eswatini (formerly Swaziland)."
-            },
-            {
-                "@type": "WebSite",
-                "@id": "https://eswatinifacts.com/#website",
-                "url": "https://eswatinifacts.com",
-                "name": "Eswatini Facts",
-                "publisher": {
-                    "@id": "https://eswatinifacts.com/#organization"
-                },
-                "potentialAction": {
-                    "@type": "SearchAction",
-                    "target": "https://eswatinifacts.com/search?q={search_term_string}",
-                    "query-input": "required name=search_term_string"
-                }
-            },
-            {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "item": {
-                            "@id": "https://eswatinifacts.com",
-                            "name": "Home"
-                        }
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "item": {
-                            "@id": "https://eswatinifacts.com/videos",
-                            "name": "Videos"
-                        }
-                    }
-                ]
-            },
-            {
-                "@type": "ItemList",
-                "itemListElement": [
-                    {
-                        "@type": "VideoObject",
-                        "position": 1,
-                        "name": "Eswatini Budget Speech 2024: The Truth",
-                        "description": "Comprehensive analysis of Eswatini's 2024 budget speech and its implications for the economy and citizens.",
-                        "thumbnailUrl": "https://i.ytimg.com/vi/jnEeDHQMccY/maxresdefault.jpg",
-                        "uploadDate": "2024-03-17",
-                        "duration": "PT15M42S",
-                        "embedUrl": "https://www.youtube.com/embed/jnEeDHQMccY",
-                        "publisher": {
-                            "@id": "https://eswatinifacts.com/#organization"
-                        },
-                        "author": {
-                            "@type": "Organization",
-                            "@id": "https://eswatinifacts.com/#organization"
-                        }
-                    },
-                    {
-                        "@type": "VideoObject",
-                        "position": 2,
-                        "name": "Understanding Eswatini's Political System",
-                        "description": "An in-depth look at Eswatini's unique political structure and governance system.",
-                        "thumbnailUrl": "https://i.ytimg.com/vi/P8ozv_-2oBE/maxresdefault.jpg",
-                        "uploadDate": "2024-03-24",
-                        "duration": "PT18M25S",
-                        "embedUrl": "https://www.youtube.com/embed/P8ozv_-2oBE",
-                        "publisher": {
-                            "@id": "https://eswatinifacts.com/#organization"
-                        },
-                        "author": {
-                            "@type": "Organization",
-                            "@id": "https://eswatinifacts.com/#organization"
-                        }
-                    }
-                ]
-            }
-        ]
-    }
-    </script>
 </head>
 <body>
     <!-- Header Component -->
@@ -472,7 +373,7 @@
                         <p>Subscribe to our channel for the latest videos about Eswatini's development, culture, and
                             current affairs.</p>
                         <a href="https://www.youtube.com/channel/UC1VC5HcKsEi24hUZZDyH7Lg?sub_confirmation=1"
-                            target="_blank" class="btn btn-primary">
+                            target="_blank" rel="noopener" class="btn btn-primary">
                             Subscribe on YouTube
                         </a>
                     </div>
@@ -481,6 +382,7 @@
         </div>
         </div>
         </section>
+    </main>
         <!-- Footer Separator -->
         <div class="footer-separator"></div>
         <!-- Footer Component -->

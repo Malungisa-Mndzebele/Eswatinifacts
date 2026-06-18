@@ -173,7 +173,7 @@ section {
 }
 
 .header .nav-menu {
-    display: flex !important;
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 12px;

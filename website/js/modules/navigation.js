@@ -11,8 +11,9 @@ export function initializeNavigation() {
 
     if (navToggle && navMenu) {
         navToggle.addEventListener('click', function () {
-            navMenu.classList.toggle('active');
+            const isOpen = navMenu.classList.toggle('active');
             navToggle.classList.toggle('active');
+            navToggle.setAttribute('aria-expanded', String(isOpen));
         });
     }
 
@@ -22,6 +23,7 @@ export function initializeNavigation() {
         link.addEventListener('click', function () {
             navMenu.classList.remove('active');
             navToggle.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
         });
     });
 }

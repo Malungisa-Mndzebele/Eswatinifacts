@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Analytics consent guard: disables GA unless previously accepted -->
+    <script>(function(){try{if(localStorage.getItem('ef-consent')!=='granted'){window['ga-disable-G-WPM6NBHSQB']=true;}}catch(e){}})();</script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WPM6NBHSQB"></script>
     <script>
@@ -34,8 +36,7 @@
         content="Join Eswatini Facts in making data accessible. Volunteer, contribute research, or collaborate with us to improve data transparency in Eswatini.">
     <meta name="twitter:image" content="https://eswatinifacts.com/images/eswatini-facts-join-social.jpg">
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <!-- Styles -->
     <link rel="stylesheet" href="css/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -332,8 +333,8 @@
                             <label class="checkbox-label">
                                 <input type="checkbox" id="agree" name="agree" required>
                                 <span class="checkmark"></span>
-                                I agree to the <a href="#" target="_blank">Terms of Service</a> and <a href="#"
-                                    target="_blank">Privacy Policy</a> *
+                                I agree to the <a href="terms.html" target="_blank" rel="noopener">Terms of Use</a> and <a href="privacy.html"
+                                    target="_blank" rel="noopener">Privacy Policy</a> *
                             </label>
                         </div>
                         <button type="submit" class="submit-btn">

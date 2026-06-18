@@ -9,6 +9,7 @@ import { initializeResponsiveFeatures, initializeSearch, initializeAccessibility
 import { initializeContactForm, initializeJoinForm } from './modules/forms.js';
 import { initializeVideoPage, initializeVideoSearch, trackVideoEngagement } from './modules/videos.js';
 import { initializeLayout } from './modules/layout.js';
+import { initializeCookieConsent } from './modules/consent.js';
 
 // Initialize all features
 async function initializeCore() {
@@ -51,6 +52,9 @@ async function initializeCore() {
         initializeVideoSearch();
         trackVideoEngagement();
     }
+
+    // Cookie / analytics consent banner
+    initializeCookieConsent();
 
     // Mark initialization as complete
     window.initializationComplete = true;
