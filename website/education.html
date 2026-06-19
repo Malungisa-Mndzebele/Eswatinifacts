@@ -1,9 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Analytics consent guard: disables GA unless previously accepted -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Education in Eswatini | Schools, Universities & Learning | Eswatini Facts</title>
+    <meta name="description" content="Overview of Eswatini's education system, including schools, universities, educational policies, and development.">
+    <meta name="keywords" content="Eswatini education, Swaziland schools, universities, educational system, African education">
+    <meta name="author" content="Eswatini Facts">
+    <link rel="canonical" href="https://eswatinifacts.com/education">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="{{page_title}} | Eswatini Facts">
+    <meta property="og:description" content="{{page_description}}">
+    <meta property="og:image" content="https://eswatinifacts.com/images/eswatini-education-social.jpg">
+    <meta property="og:url" content="https://eswatinifacts.com/education">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Eswatini Facts">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{page_title}} | Eswatini Facts">
+    <meta name="twitter:description" content="{{page_description}}">
+    <meta name="twitter:image" content="https://eswatinifacts.com/images/eswatini-education-social.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Page-specific head content (analytics consent guard, GA tag, and
+         page schema are preserved per page by the template manager). -->
     <script>(function(){try{if(localStorage.getItem('ef-consent')!=='granted'){window['ga-disable-G-WPM6NBHSQB']=true;}}catch(e){}})();</script>
-    <!-- Google tag (gtag.js) -->
+    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WPM6NBHSQB"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -11,37 +43,7 @@
         gtag('js', new Date());
         gtag('config', 'G-WPM6NBHSQB');
     </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- SEO Meta Tags -->
-    <title>Education in Eswatini | Schools, Universities & Learning | Eswatini Facts</title>
-    <meta name="description"
-        content="Overview of Eswatini's education system, including schools, universities, educational policies, and development.">
-    <meta name="keywords"
-        content="Eswatini education, Swaziland schools, universities, educational system, African education">
-    <meta name="author" content="Eswatini Facts">
-    <link rel="canonical" href="https://eswatinifacts.com/education">
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Eswatini Education | Enrollment, Literacy & School System | Eswatini Facts">
-    <meta property="og:description"
-        content="Comprehensive analysis of Eswatini's education system, including enrollment rates, literacy levels, and educational infrastructure.">
-    <meta property="og:image" content="https://eswatinifacts.com/images/eswatini-education-social.jpg">
-    <meta property="og:url" content="https://eswatinifacts.com/education">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Eswatini Facts">
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Eswatini Education | Enrollment, Literacy & School System | Eswatini Facts">
-    <meta name="twitter:description"
-        content="Comprehensive analysis of Eswatini's education system, including enrollment rates, literacy levels, and educational infrastructure.">
-    <meta name="twitter:image" content="https://eswatinifacts.com/images/eswatini-education-social.jpg">
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <!-- Styles -->
-    <link rel="stylesheet" href="css/main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Scripts -->
-    <!-- Schema.org Markup -->
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -117,9 +119,9 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1" defer></script>
 </head>
 <body>
-    <!-- Header Component -->
+    <!-- Header (injected client-side by js/main.js) -->
     <div id="header-placeholder"></div>
-    <!-- Hero Section -->
+
     <section class="hero">
         <div class="hero-content">
             <h1>Education</h1>
@@ -128,11 +130,11 @@
                 educational landscape.</p>
         </div>
     </section>
-    <!-- Education Section -->
+    
     <section class="data-section">
         <div class="container">
             <h2>Education Indicators</h2>
-            <!-- Date Range Filter -->
+            
             <div id="educationDateFilter"></div>
             <div class="section-content">
                 <div class="data-overview">
@@ -206,11 +208,16 @@
             </div>
         </div>
     </section>
-    <!-- Footer Separator -->
+    
     <div class="footer-separator"></div>
-    <!-- Footer Component -->
+
+    
+
+    <!-- Footer (injected client-side by js/main.js) -->
     <div id="footer-placeholder"></div>
+
     <!-- Scripts -->
     <script type="module" src="js/main.js"></script>
+    
 </body>
 </html>

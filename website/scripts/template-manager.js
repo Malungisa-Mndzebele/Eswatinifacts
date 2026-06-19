@@ -104,24 +104,34 @@ Object.entries(pageConfigs).forEach(([filename, config]) => {
         .replace(/<footer[^>]*id=["']footer-placeholder["'][\s\S]*?<\/footer>/gi, '')
         .replace(/<div[^>]*id=["']header-placeholder["'][^>]*><\/div>/gi, '')
         .replace(/<div[^>]*id=["']footer-placeholder["'][^>]*><\/div>/gi, '')
-        // remove any stray HTML comments around placeholders
-        .replace(/<!--\s*Header Component\s*-->/gi, '')
-        .replace(/<!--\s*Footer Component\s*-->/gi, '')
+        // strip all HTML comments so template boilerplate comments don't
+        // accumulate on each rebuild (keeps the transform idempotent)
+        .replace(/<!--[\s\S]*?-->/g, '')
+        // collapse runs of blank lines left behind
+        .replace(/\n\s*\n\s*\n+/g, '\n\n')
         .trim();
     
     // Extract any additional head content (scripts, styles, etc.)
     const headMatch = pageContent.match(/<head[^>]*>([\s\S]*)<\/head>/i);
-    let additionalHead = headMatch ? 
+    let additionalHead = headMatch ?
         headMatch[1].replace(/<meta[^>]*>/g, '')
                    .replace(/<title[^>]*>.*?<\/title>/g, '')
                    .replace(/<link[^>]*>/g, '')
+                   // strip HTML comments so template boilerplate comments don't
+                   // accumulate on each rebuild (keeps the transform idempotent)
+                   .replace(/<!--[\s\S]*?-->/g, '')
+                   .replace(/\n\s*\n\s*\n+/g, '\n\n')
                    .trim() : '';
     // Remove client component loader if present (we SSR header/footer now)
     additionalHead = additionalHead.replace(/<script[^>]*components\/component-loader\.js[^>]*><\/script>/gi, '');
     
     // Extract any additional scripts at the end of the body
     const scriptsMatch = mainContent.match(/<script[\s\S]*?<\/script>/g);
-    const additionalScripts = scriptsMatch ? scriptsMatch.join('\n') : '';
+    let additionalScripts = scriptsMatch ? scriptsMatch.join('\n') : '';
+    // The base template already loads js/main.js; drop it here to avoid a duplicate tag
+    additionalScripts = additionalScripts
+        .replace(/<script[^>]*src=["']js\/main\.js["'][^>]*><\/script>/gi, '')
+        .trim();
     
     // Replace template variables
     const buildId = Date.now().toString();
@@ -134,8 +144,6 @@ Object.entries(pageConfigs).forEach(([filename, config]) => {
         .replace(/{{build_id}}/g, buildId)
         .replace('{{additional_head_content}}', additionalHead)
         .replace('{{page_content}}', mainContent.replace(/<script[\s\S]*?<\/script>/g, ''))
-        .replace('{{header}}', headerTemplate)
-        .replace('{{footer}}', footerTemplate)
         .replace('{{additional_scripts}}', additionalScripts);
     
     // Write the new page content
