@@ -36,3 +36,9 @@ Eswatini/
 *.rar
 *.7z
 Thumbs.db
+# Allow committed website imagery (overrides the global image ignores above)
+!website/images/
+!website/images/*.jpg
+!website/images/*.jpeg
+!website/images/*.png
+!website/images/*.webp

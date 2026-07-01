@@ -1,58 +1,76 @@
 /* ===============================================
-   Eswatini Facts - CSS Variables
+   Eswatini Facts — Editorial Almanac design system
+   Bone paper · ink · a single Eswatini-crimson accent.
    =============================================== */
 :root {
-    /* Colors */
-    --color-primary: #1e3a8a;
-    --color-primary-dark: #172554;
-    --color-primary-light: #e0e7ff;
-    --color-accent: #2563eb;
-    --color-accent-light: #e0e7ff;
-    --color-blue: #2563eb;
-    --color-blue-dark: #1d4ed8;
-    --color-green: #2ecc71;
-    --color-orange: #f39c12;
-    --color-purple: #9b59b6;
-    
-    /* Grays */
-    --color-gray-900: #1a1a1a;
-    --color-gray-800: #2d3748;
-    --color-gray-700: #4a5568;
-    --color-gray-600: #718096;
-    --color-gray-500: #a0aec0;
-    --color-gray-400: #cbd5e0;
-    --color-gray-300: #e2e8f0;
-    --color-gray-200: #edf2f7;
-    --color-gray-100: #f7fafc;
-    --color-gray-50: #f9fafb;
-    
+    /* Accent — Eswatini crimson */
+    --color-primary: #b0202a;
+    --color-primary-dark: #7e1620;
+    --color-primary-light: #f1dcd9;
+    --color-primary-tint: #f8ebe8;
+
+    --color-accent: #b0202a;
+    --color-accent-light: #f1dcd9;
+    --color-ochre: #c98a12;        /* marigold, for data / sparing highlights */
+    --color-ochre-light: #f6ead0;
+
+    /* Legacy aliases kept so older rules retheme instead of breaking */
+    --color-blue: #b0202a;
+    --color-blue-dark: #7e1620;
+    --color-green: #4a6c3f;
+    --color-orange: #c98a12;
+    --color-purple: #6b5b95;
+
+    /* Warm paper / ink neutral scale */
+    --color-gray-900: #1c1814;   /* ink */
+    --color-gray-800: #322c24;
+    --color-gray-700: #4e463a;   /* body text */
+    --color-gray-600: #6e6453;   /* muted */
+    --color-gray-500: #948a76;
+    --color-gray-400: #bcb2a0;
+    --color-gray-300: #dbd2c0;   /* borders / hairlines */
+    --color-gray-200: #e7dfd0;
+    --color-gray-100: #f1ebdd;
+    --color-gray-50: #f7f2e8;
+
+    /* Semantic surfaces */
+    --color-ink: #1c1814;
+    --color-paper: #f4efe4;
+
     /* Backgrounds */
-    --bg-white: #ffffff;
-    --bg-light: #f7fafc;
-    --bg-gray: #edf2f7;
-    
-    /* Borders */
-    --border-light: #e2e8f0;
-    --border-medium: #cbd5e0;
-    
+    --bg-white: #fcfaf4;          /* warm surface */
+    --bg-light: #f4efe4;          /* bone paper, body bg */
+    --bg-gray: #ede6d6;
+
+    /* Borders / hairlines */
+    --border-light: #e0d8c8;
+    --border-medium: #d0c6b2;
+    --rule-ink: #1c1814;          /* strong editorial rule */
+
     /* Typography */
-    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    --font-family: 'Archivo', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
     --font-size-xs: 0.75rem;
     --font-size-sm: 0.875rem;
     --font-size-base: 1rem;
     --font-size-lg: 1.125rem;
-    --font-size-xl: 1.25rem;
-    --font-size-2xl: 1.5rem;
-    --font-size-3xl: 1.875rem;
-    --font-size-4xl: 2.25rem;
-    --font-size-5xl: 3rem;
-    
+    --font-size-xl: 1.375rem;
+    --font-size-2xl: 1.75rem;
+    --font-size-3xl: 2.25rem;
+    --font-size-4xl: 3rem;
+    --font-size-5xl: 4rem;
+    --font-size-6xl: 5.5rem;
+
     --font-light: 300;
     --font-normal: 400;
     --font-medium: 500;
     --font-semibold: 600;
     --font-bold: 700;
-    
+
+    /* Layout */
+    --max-width: 1120px;
+    --measure: 66ch;
+
     /* Spacing */
     --space-1: 0.25rem;
     --space-2: 0.5rem;
@@ -65,26 +83,28 @@
     --space-12: 3rem;
     --space-16: 4rem;
     --space-20: 5rem;
-    
-    /* Border Radius */
-    --radius-sm: 0.25rem;
-    --radius-md: 0.375rem;
-    --radius-lg: 0.5rem;
-    --radius-xl: 0.75rem;
-    --radius-2xl: 1rem;
+    --space-24: 6rem;
+    --space-32: 8rem;
+
+    /* Border radius — editorial / near-square */
+    --radius-sm: 0;
+    --radius-md: 2px;
+    --radius-lg: 2px;
+    --radius-xl: 3px;
+    --radius-2xl: 4px;
     --radius-pill: 9999px;
-    
-    /* Shadows */
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-    
+
+    /* Shadows — almost none; hairlines do the work */
+    --shadow-sm: 0 1px 2px 0 rgba(28, 24, 20, 0.04);
+    --shadow-md: 0 2px 8px -2px rgba(28, 24, 20, 0.07);
+    --shadow-lg: 0 10px 30px -10px rgba(28, 24, 20, 0.12);
+    --shadow-xl: 0 20px 44px -16px rgba(28, 24, 20, 0.16);
+
     /* Transitions */
-    --transition-fast: 150ms ease-in-out;
-    --transition-base: 200ms ease-in-out;
-    --transition-slow: 300ms ease-in-out;
-    
+    --transition-fast: 120ms ease;
+    --transition-base: 200ms ease;
+    --transition-slow: 320ms ease;
+
     /* Z-index */
     --z-dropdown: 1000;
     --z-sticky: 1020;

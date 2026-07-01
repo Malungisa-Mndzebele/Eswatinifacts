@@ -13,17 +13,10 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-        
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
 
-    - name: Install dependencies
-      run: npm ci || npm install
-
-    - name: Build site (templates/images)
-      run: npm run build
+    # The site is hand-authored static HTML (4 pages + archived redirects).
+    # The old template-regeneration build has been removed: it rewrote pages
+    # from a stale base template and would strip the redirect metas.
 
     - name: Deploy to FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4

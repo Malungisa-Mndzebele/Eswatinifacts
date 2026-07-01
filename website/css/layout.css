@@ -3,7 +3,7 @@
    =============================================== */
 
 .container {
-    max-width: 1200px;
+    max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 var(--space-6);
 }
@@ -20,8 +20,8 @@ section {
 
 /* Header & Navigation */
 .header {
-    background: #ffffff;
-    border-bottom: 1px solid #e5e7eb;
+    background: var(--bg-light);
+    border-bottom: 1.5px solid var(--rule-ink);
     position: sticky;
     top: 0;
     z-index: var(--z-sticky);
@@ -31,8 +31,8 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 20px;
-    max-width: 1200px;
+    padding: 14px 24px;
+    max-width: var(--max-width);
     margin: 0 auto;
 }
 
@@ -48,11 +48,28 @@ section {
 }
 
 .nav-brand .brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
     text-decoration: none;
-    color: #111827;
-    font-weight: 800;
-    letter-spacing: -0.2px;
-    font-size: 20px;
+    line-height: 1;
+}
+
+.brand-name {
+    font-family: var(--font-display);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    font-size: 1.5rem;
+    color: var(--color-ink);
+}
+
+.brand-tagline {
+    font-family: var(--font-family);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-gray-600);
 }
 
 .nav-brand h1 a {
@@ -81,22 +98,25 @@ section {
 }
 
 .nav-menu a {
-    color: #374151;
-    font-weight: 500;
-    padding: 8px 10px;
-    border-radius: 8px;
-    font-size: var(--font-size-sm);
+    color: var(--color-gray-800);
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 0.8125rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 6px 2px;
     text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: color var(--transition-fast), border-color var(--transition-fast);
 }
 
 .nav-menu a:hover {
-    background: #eef2ff;
-    color: #111827;
+    color: var(--color-primary);
 }
 
 .nav-menu a.active {
-    background: #e0e7ff;
-    color: #111827;
+    color: var(--color-ink);
+    border-bottom-color: var(--color-primary);
 }
 
 .nav-toggle {
@@ -176,10 +196,11 @@ section {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: var(--space-8);
     list-style: none;
     margin: 0;
     padding: 0;
+    align-items: center;
 }
 
 .header .nav-menu li {
@@ -188,7 +209,7 @@ section {
 
 .header .nav-menu a {
     display: inline-block;
-    padding: 8px 10px;
+    padding: 6px 0;
     text-decoration: none;
 }
 
@@ -214,10 +235,10 @@ section {
 
 /* Footer */
 .footer {
-    background: #0b0f19;
+    background: var(--color-ink);
     color: #ffffff;
     padding: var(--space-16) 0 var(--space-8);
-    margin-top: var(--space-20);
+    margin-top: 0;
     position: relative;
 }
 
@@ -228,7 +249,7 @@ section {
     left: 0;
     right: 0;
     height: 3px;
-    background: #e11d48;
+    background: var(--color-primary);
 }
 
 .footer-content {
@@ -243,7 +264,8 @@ section {
 }
 
 .footer-section h3 {
-    font-size: var(--font-size-2xl);
+    font-family: var(--font-display);
+    font-size: var(--font-size-xl);
     color: #ffffff;
     margin-bottom: var(--space-3);
     font-weight: 700;
@@ -325,7 +347,7 @@ section {
 }
 
 .footer-bottom {
-    border-top: 1px solid #111827;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
     padding-top: var(--space-6);
     text-align: center;
     max-width: 1200px;
@@ -351,4 +373,22 @@ section {
     margin: 0;
     font-size: var(--font-size-sm);
     font-weight: var(--font-medium);
+}
+/* Footer link colors on ink (editorial) */
+.footer-section--brand p {
+    color: var(--color-gray-300);
+    max-width: 40ch;
+}
+.footer-contact a,
+.footer-bottom a {
+    color: #ece4d4;
+    text-decoration-color: rgba(255, 255, 255, 0.35);
+}
+.footer-contact a:hover,
+.footer-bottom a:hover {
+    color: #ffffff;
+    text-decoration-color: #ffffff;
+}
+.footer-bottom p {
+    color: var(--color-gray-400);
 }

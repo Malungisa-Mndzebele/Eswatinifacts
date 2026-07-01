@@ -2,47 +2,67 @@
    Components
    =============================================== */
 
-/* Buttons */
+/* Buttons — flat, civic */
 .btn {
-    display: inline-block;
-    padding: var(--space-4) var(--space-8);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: 0.8rem 1.5rem;
     border-radius: var(--radius-lg);
+    font-family: var(--font-display);
     font-weight: var(--font-semibold);
-    font-size: var(--font-size-lg);
-    transition: var(--transition-base);
+    font-size: var(--font-size-base);
+    line-height: 1;
+    border: 1px solid transparent;
+    transition: background-color var(--transition-base), border-color var(--transition-base), color var(--transition-base);
     text-decoration: none;
-    margin-top: var(--space-4);
+    cursor: pointer;
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
-    color: var(--bg-white);
-    box-shadow: var(--shadow-md);
+    background: var(--color-primary);
+    color: #fff;
+    border-color: var(--color-primary);
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-xl);
-    color: var(--bg-white);
+    background: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+    color: #fff;
+}
+
+.btn-ghost {
+    background: transparent;
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.55);
+}
+
+.btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #fff;
+    color: #fff;
 }
 
 .cta-button {
-    display: inline-block;
-    padding: var(--space-4) var(--space-8);
-    background-color: white;
-    color: var(--color-primary);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 0.8rem 1.5rem;
+    background-color: var(--color-primary);
+    color: #fff;
+    font-family: var(--font-display);
     font-weight: var(--font-semibold);
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-base);
     border-radius: var(--radius-lg);
-    border: none;
-    transition: var(--transition-base);
-    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--color-primary);
+    transition: background-color var(--transition-base), border-color var(--transition-base);
 }
 
 .cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-xl);
-    color: var(--color-primary-dark);
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+    color: #fff;
 }
 
 /* Forms */
@@ -336,51 +356,53 @@
 /* Fact Card */
 .fact-card {
     background: var(--bg-white);
-    padding: var(--space-8);
+    padding: var(--space-6) var(--space-6) var(--space-5);
     border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-md);
-    text-align: center;
-    transition: var(--transition-base);
-    border: 2px solid transparent;
+    border: 1px solid var(--border-light);
+    text-align: left;
+    transition: box-shadow var(--transition-base), border-color var(--transition-base);
 }
 
 .fact-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-xl);
-    border-color: var(--color-primary-light);
+    border-color: var(--border-medium);
+    box-shadow: var(--shadow-md);
 }
 
 .fact-number {
+    font-family: var(--font-display);
     font-size: var(--font-size-4xl);
-    font-weight: var(--font-bold);
+    font-weight: 800;
+    letter-spacing: -0.02em;
     color: var(--color-primary);
-    margin-bottom: var(--space-3);
+    margin-bottom: var(--space-2);
 }
 
 .fact-description {
     color: var(--color-gray-700);
     margin-bottom: var(--space-4);
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-base);
 }
 
 /* Topic Card */
 .topic-card {
+    display: flex;
+    flex-direction: column;
     background: var(--bg-white);
     padding: var(--space-8);
     border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-md);
-    transition: var(--transition-base);
-    text-align: center;
+    border: 1px solid var(--border-light);
+    transition: box-shadow var(--transition-base), border-color var(--transition-base);
+    text-align: left;
 }
 
 .topic-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-xl);
+    border-color: var(--border-medium);
+    box-shadow: var(--shadow-md);
 }
 
+/* Emoji icons removed in favor of typography */
 .topic-icon {
-    font-size: var(--font-size-5xl);
-    margin-bottom: var(--space-4);
+    display: none;
 }
 
 .topic-card h3 {
@@ -391,8 +413,9 @@
 
 .topic-card p {
     color: var(--color-gray-600);
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--space-5);
     line-height: 1.6;
+    flex: 1 1 auto;
 }
 
 /* Tooltip */
@@ -566,4 +589,42 @@
     .cookie-consent-actions button {
         flex: 1;
     }
+}
+
+/* Section subtitle / lead */
+.section-subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-gray-600);
+    max-width: 60ch;
+    margin-bottom: var(--space-10);
+}
+
+/* Inline CTA links (Learn more / Get the facts) */
+.topic-link,
+.learn-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    align-self: flex-start;
+    font-family: var(--font-display);
+    font-weight: var(--font-semibold);
+    font-size: var(--font-size-sm);
+    letter-spacing: 0.02em;
+    color: var(--color-accent);
+}
+
+.topic-link::after,
+.learn-more::after {
+    content: '\2192';
+    transition: transform var(--transition-base);
+}
+
+.topic-link:hover,
+.learn-more:hover {
+    color: var(--color-primary);
+}
+
+.topic-link:hover::after,
+.learn-more:hover::after {
+    transform: translateX(3px);
 }
